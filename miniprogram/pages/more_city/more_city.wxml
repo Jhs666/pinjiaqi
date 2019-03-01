@@ -1,0 +1,53 @@
+<view class='center'>
+  <!-- 搜索 -->
+  <view class='search'>
+    <view class='left'>
+      <image src='http://pin.lanhaihui.net/public/wx_mini/images//sousuo.png'></image>
+      <input placeholder='请搜索目的地或者关键字'></input>
+    </view>
+    <text>取消</text>
+  </view>
+  <!-- 切换 -->
+  <view class='swiper-tab'>
+    <view class='tab'>
+      <view class="{{selected?'active':'default'}} bbb" bindtap="selected">境内</view>
+      <view class="{{selected1?'active':'default'}} bbb" bindtap="selected1">境外</view>
+    </view>
+  </view>
+  <view class='clear'></view>
+  <view class="{{selected?'show':'hidden'}}">
+    <view class='nei_wai'>
+      <view class='position'>
+        <view class='title'>根据您的定位推荐</view>
+        <block wx:for="{{place}}" wx:key="item.id">
+          <rich-text class='place' data-id='{{item.id}}'>{{item.placelist}}</rich-text>
+        </block>
+      </view>
+      <view class='history'>
+        <view class='title'>历史记录</view>
+        <block wx:for="{{his}}" wx:key="item.id">
+          <rich-text class='his' data-id='{{item.id}}'>{{item.hislist}}</rich-text>
+        </block>
+      </view>
+      <view class='hotcity'>
+        <view class='title'>热门城市</view>
+        <view class='dt'>
+          <block wx:for="{{hot}}" wx:key="item.id">
+            <rich-text class='hot' data-id='{{item.id}}'>{{item.hotlist}}</rich-text>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="{{selected1?'show':'hidden'}}">
+    <view class='hotcity'>
+      <view class='title'>热门城市</view>
+      <view class='dt'>
+        <block wx:for="{{hot}}" wx:key="item.id">
+          <rich-text class='hot' data-id='{{item.id}}'>{{item.hotlist}}</rich-text>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class='clear'></view>
+</view>

@@ -1,0 +1,50 @@
+<view class='center'>
+  <!-- 顶部搜索 -->
+  <view class='top'>
+    <view class='place'>
+      <image src='http://pin.lanhaihui.net/public/wx_mini/images//map.png'></image>
+      <text>青岛</text>
+    </view>
+    <view class='search'>
+      <image src='http://pin.lanhaihui.net/public/wx_mini/images//sousuo.png'></image>
+      <input placeholder='请搜索目的地或者关键字' bindinput='get_title' bindconfirm="search_btn"></input>
+      <view class='search_btn' bindtap='search_btn'>搜索</view>
+    </view>
+  </view>
+  <view class='clear'></view>
+  <!-- 筛选 -->
+  <view class='shai'>
+    <view class='left'>
+      <scroll-view class="scroll-view_x" scroll-x style="width: auto;overflow:hidden;">
+        <view class='list' wx:for="{{type}}" wx:key="item.id">
+          <view class='type' data-id='{{item.id}}' bindtap='choose_tab'>
+            <view class="{{index == curHdIndex?'active':'default'}} li" data-index='{{index}}' bindtap='active'>{{item.name}}</view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class='btn' bindtap='integral'>
+      <image src='http://pin.lanhaihui.net/public/wx_mini/images/shai.png'></image>
+      <text>筛选</text>
+    </view>
+  </view>
+  <view class='clear'></view>
+  <!-- 列表 -->
+  <view class='list_show'>
+    <view class='li' wx:for="{{inform}}" wx:key="item.id">
+      <view class='inform' data-id='{{item}}' bindtap='product_show'>
+        <view class='img'>
+          <image src='{{item.preview_img}}'></image>
+          <view class='tag'>{{item.type_list}}</view>
+          <view class='title'>{{item.start_space}}出发</view>
+        </view>
+        <view class='con'>
+          <view class='desc'>{{item.title}}</view>
+          <view class='num'>{{item.num}}</view>
+          <view class='qian'>￥{{item.price}}起</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='clear'></view>
+</view>

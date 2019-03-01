@@ -1,0 +1,67 @@
+<view class='center'>
+    <view class='line'></view>
+    <view class='bg'>
+        <view class='top'>
+            <view class='zhuti'>俄罗斯+圣彼得堡双飞七日游俄罗斯+圣彼得堡双飞七日游俄罗斯+圣彼得堡双飞七日游俄罗斯圣彼得堡双飞七日游</view>
+            <view class='date'>
+                出发日期
+                <text class='time'>2018-06-12</text>
+            </view>
+            <view class='date'>
+                出行人数
+                <text class='time'>2成人</text>
+            </view>
+        </view>
+        <view class='speed'>
+            <view class='of'>
+                <view class='ser'>
+                    退款状态
+                    <text class='success'>退款完成</text>
+                </view>
+                <view class='kefu'>在线客服</view>
+            </view>
+            <view class='zong'>
+                退款总金额
+                <text class='money'>¥5620</text>
+                <text class='num'>（共一笔）</text>
+            </view>
+        </view>
+        <view class='clear'></view>
+        <view class='pint'>
+            <view class="solid"></view>
+            <view class="content flex flex-row flex-y-center flex-x-center">
+                <view class="xuhao flex-grow-0">
+                    <text>4</text>
+                </view>
+                <view class="content-item flex-grow-1">完成</view>
+                <view class="time flex-grow-0 ">06-02 13:52</view>
+            </view>
+            <view class="chuli ">
+                <view class="wanbi">您的退款拼假期已处理完毕</view>
+                <view class='con'>拼假期处理：您有100元退款正在处理中，款项已提交至微信支付处理，预计款会在12月30日18:00前到账， 请注意查收。如有疑问可凭订单号：12345678910相关信息在线联系拼假期客服或致电95017联系微信支付客服查询。
+                </view>
+            </view>
+            <view class="content flex flex-row  flex-y-center flex-x-center">
+                <view class="xuhao flex-grow-0">
+                    <text>3</text>
+                </view>
+                <view class="content-item flex-grow-1">退款确认</view>
+                <view class="time  flex-grow-0">06-02 13:52</view>
+            </view>
+            <view class="content flex flex-row  flex-y-center flex-x-center">
+                <view class="xuhao flex-grow-0">
+                    <text>2</text>
+                </view>
+                <view class="content-item flex-grow-1">退款审核</view>
+                <view class="time  flex-grow-0">06-02 13:52</view>
+            </view>
+            <view class="content flex flex-row  flex-y-center flex-x-center">
+                <view class="xuhao flex-grow-0">
+                    <text>1</text>
+                </view>
+                <view class="content-item flex-grow-1">提交成功</view>
+                <view class="time flex-grow-0 ">06-02 13:52</view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,212 @@
+.header {
+    padding: 0 20rpx;
+    background: #fff;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-bottom: 1px solid #efefef;
+}
+.check_box {
+    width: 30%;
+    float: left;
+    font-size: 28rpx;
+}
+.check_img {
+    width: 32rpx;
+    height: 32rpx;
+    margin:36rpx 0;
+    float: left;
+}
+.img{
+    margin: 99rpx 0;
+}
+.check_text {
+    margin-left: 15rpx;
+    line-height: 100rpx;
+}
+.name{
+    float: left;
+    font-size: 28rpx;
+    color: #333;
+}
+.header_text {
+    font-size: 28rpx;
+    color: #333;
+    float: right;
+}
+.main {
+    flex: 1;
+    overflow: auto; 
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 18%;
+}
+.shop {
+    width: 94%;
+    overflow: hidden;
+    padding:0 3%;
+    margin-top: 3%;
+    border-radius: 8rpx;
+}
+.img_show{
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
+    float: left;
+    margin: 0 20rpx 0 0;
+    position: relative;
+}
+.tag{
+    width: 86rpx;
+    height: 34rpx;
+    line-height: 34rpx;
+    position: absolute;
+    top:0;
+    left: 0;
+    background: #43EFF9;
+    color: #000;
+    text-align: center;
+    font-size: 20rpx;
+}
+.title{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    text-align: center;
+    line-height: 40rpx;
+    font-size: 20rpx;
+}
+.shop_img {
+    width: 100%;
+    height: 230rpx;
+    display: block;
+    margin: 0 auto;
+}
+.shop_detail{
+    width: 55%;
+    height: 100%;
+    overflow: hidden;
+    float: left;
+    padding: 2% 0;
+}
+.shop_check_box{
+    float: left;
+    width: 7%;
+}
+.list_box{
+    width: 93%;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 10rpx;
+    box-shadow: 0 0 16rpx #ddd;
+}
+.shop_name {
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #000;
+    display: block;
+    max-height: 80rpx;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.shop_type {
+    display: block;
+    font-size: 24rpx;
+    color: #ccc;
+    line-height: 66rpx;
+}
+.shop_detail_bottom{
+    width: 100%;
+    overflow: hidden;
+    margin-top: 2%;
+}
+.shop_price {
+    color: #ff0000;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    float: left;
+}
+.num_change {
+    float: right;
+}
+.num_change view{
+    float: left;
+}
+.shop_num {
+    line-height: 40rpx;
+    height: 40rpx;
+    width: 40rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #999;
+    border:2rpx solid #efefef;
+}
+
+.add_icon, .minus_icon {
+    width: 40rpx;
+    height: 40rpx;
+    border:2rpx solid #efefef;
+    color: #999;
+    text-align: center;
+    line-height: 40rpx;
+}
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 94%;
+    height: 100rpx;
+    padding: 0 3%;
+    background: #fff;
+    z-index: 99;
+}
+.bottom_right{
+    width: auto;
+    float: right;
+}
+.footer_total_text{
+    height: 100rpx;
+    line-height: 100rpx;
+    float: left;
+    font-size: 28rpx;
+    color: #666;
+    margin-right: 20rpx;
+}
+.footer_total_price{
+    color: #5ACDF4;
+    float: right;
+}
+.footer_total{
+    font-size: 28rpx;
+    width: 136rpx;
+    height: 60rpx;
+    float: right;
+    margin: 20rpx 0;
+    text-align: center;
+    border-radius: 60rpx;
+    line-height: 60rpx;
+    color: #fff;
+    background: linear-gradient(to right,#5ACDF4 , #06B3ED); 
+}
+.deleteshop{
+    color: #FAC60E;
+    font-size: 28rpx;
+    border: 2rpx solid #FAC60E;
+    border-radius: 60rpx;
+    height: 60rpx;
+    margin: 20rpx 0;
+    float: left;
+    line-height: 60rpx;
+    width: 190rpx;
+    text-align: center;
+}
+.del{
+    width: 136rpx;
+    color: #FC3F3F;
+    border: 2rpx solid #FC3F3F;
+    margin-left: 20rpx;
+}

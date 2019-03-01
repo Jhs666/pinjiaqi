@@ -1,0 +1,82 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/recommend/recommend",
+    "pages/commit_order/commit_order",
+    "pages/goods_show/goods_show",
+    "pages/one_goods_show/one_goods_show",
+    "pages/zero_goods_show/zero_goods_show",
+    "pages/zero_commit_order/zero_commit_order",
+    "pages/pay/pay",
+    "pages/directory/directory",
+    "pages/shop_car/shop_car",
+    "pages/user/user",
+    "pages/refund/refund",
+    "pages/install/install",
+    "pages/choose_date/choose_date",
+    "pages/youhuiquan/youhuiquan",
+    "pages/order/order",
+    "pages/Collection/Collection",
+    "pages/more_city/more_city",
+    "pages/pay_success/pay_success",
+    "pages/comment/comment",
+    "pages/bargain/bargain",
+    "pages/travels_show/travels_show",
+    "pages/creat_travels/creat_travels",
+    "pages/search_fenlei/search_fenlei",
+    "pages/traveller/traveller",
+    "pages/Progress_details/Progress_details",
+    "pages/Contacts/Contacts",
+    "pages/add_passenger/add_passenger",
+    "pages/message/message",
+    "pages/play_show/play_show",
+    "pages/dingzhiyou/dingzhiyou",
+    "pages/dingzhi_success/dingzhi_success",
+    "pages/city/city",
+    "pages/mes_list/mes_list",
+    "pages/my_fenxiao/my_fenxiao",
+    "pages/tuijian_two/tuijian_two",
+    "pages/buy_show/buy_show",
+    "pages/eat_show/eat_show"
+  ],
+  "window": {
+    "backgroundColor": "#FFFFFF",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#06b3ed",
+    "navigationBarTitleText": "拼假期",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#025AE0",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/homes.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/tuijian_two/tuijian_two",
+        "iconPath": "images/tui.png",
+        "selectedIconPath": "images/tuis.png",
+        "text": "推荐"
+      },
+      {
+        "pagePath": "pages/directory/directory",
+        "iconPath": "images/zhi.png",
+        "selectedIconPath": "images/zhis.png",
+        "text": "指南"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/mes.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

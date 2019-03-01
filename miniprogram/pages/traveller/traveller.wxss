@@ -1,0 +1,80 @@
+.add_btn {
+  width: 26%;
+  height: 88rpx;
+  background: #fff;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  padding: 0 37%;
+}
+
+image {
+  width: 48rpx;
+  height: 48rpx;
+  float: left;
+  margin: 20rpx 0;
+}
+
+.add_btn text {
+  font-size: 32rpx;
+  color: #666;
+  line-height: 88rpx;
+}
+
+/* 完成按钮 */
+
+.btn {
+  width: 100%;
+  height: 100rpx;
+  background: #06b3ed;
+  line-height: 100rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+}
+
+.btn text {
+  color: #fff;
+  font-size: 36rpx;
+  display: block;
+}
+
+.list {
+  background: #fff;
+  width: 94%;
+  padding: 0 3%;
+  margin: 3% auto 0;
+}
+
+.active {
+  transform: scale(0.6, 0.6);
+}
+
+.name {
+  font-size: 24rpx;
+  color: #666;
+  width: 120rpx;
+  line-height: 88rpx;
+  display: inline-block;
+}
+
+label {
+  width: 100%;
+  height: 88rpx;
+  overflow: hidden;
+  display: block;
+  border-bottom: 2rpx solid #efefef;
+  line-height: 88rpx;
+}
+
+.sex {
+  font-size: 24rpx;
+  color: #bbb;
+}
+
+.edit {
+  font-size: 24rpx;
+  color: #bbb;
+  float: right;
+}

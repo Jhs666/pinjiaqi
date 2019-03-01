@@ -1,0 +1,64 @@
+<view class='center'>
+  <!-- tab切换 -->
+  <view class='swiper-tab'>
+    <view class='tab'>
+      <view class="{{selected?'active':'default'}} bbb" bindtap="selected">收藏</view>
+      <view class="{{selected1?'active':'default'}} bbb" bindtap="selected1">浏览历史</view>
+    </view>
+  </view>
+  <view class='clear'></view>
+  <!-- 内容展示 -->
+  <view class="{{selected?'show':'hidden'}}">
+    <view class='list_show'>
+      <view class='li' wx:for="{{inform}}" wx:key="item.id">
+        <view class='inform' data-id='{{item.id}}'>
+          <view class='img'>
+            <image src='{{item.img}}'></image>
+            <view class='tag'>{{item.tag}}</view>
+            <view class='title'>{{item.tit}}</view>
+          </view>
+          <view class='con'>
+            <view class='desc'>{{item.desc}}</view>
+            <view class='num'>{{item.num}}</view>
+            <view class='qian'>{{item.qian}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='clear'></view>
+    <!-- 占位图 -->
+    <view class='kong' wx:if="{{inform==''}}">
+      <image src='http://pin.lanhaihui.net/public/wx_mini/images/shoucang_null.png'></image>
+      <text>回禀小主，这里没有发现你的收藏记录~</text>
+    </view>
+  </view>
+  <view class="{{selected1?'show':'hidden'}}">
+    <view class='list_show'>
+      <view class='history_list' wx:for="{{history}}" wx:key="index">
+        <view class='history'>
+          <view class='date'>{{index}}</view>
+          <view class='li' wx:for="{{item}}" wx:key="item.id">
+            <view class='item' data-id='{{item.id}}' bindtap='product_show'>
+              <view class='img'>
+                <image src='{{item.preview_img}}'></image>
+                <view class='tag'>{{item.type_list}}</view>
+                <view class='title'>{{item.start_space}}出发</view>
+              </view>
+              <view class='con'>
+                <view class='desc'>{{item.title}}</view>
+                <view class='num'>{{item.member_count}}</view>
+                <view class='qian'>￥{{item.price}}起</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='clear'></view>
+    <!-- 占位图 -->
+    <view class='kong' wx:if="{{history==''}}">
+      <image src='http://pin.lanhaihui.net/public/wx_mini/images/history_null.png'></image>
+      <text>回禀小主，这里没有发现你的浏览历史~</text>
+    </view>
+  </view>
+</view>

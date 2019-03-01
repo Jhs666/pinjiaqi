@@ -1,0 +1,65 @@
+<view class='center'>
+    <view class='youhui'>
+        <image src='http://pin.lanhaihui.net/public/wx_mini/images//fangshi.png' class='bg'></image>
+        <view class='content'>
+            <view class='title'>
+                俄罗斯+圣彼得堡双飞七日游俄罗斯+圣彼得堡双飞七日游俄罗斯+圣彼得堡双飞七日游俄罗斯圣彼得堡双飞七日游
+            </view>
+            <text class='success'>抢票成功，将为您保留20分钟，请尽快支付！</text>
+            <view class='money'>
+                <text>支付总额：</text>
+                <rich-text>￥{{price}}</rich-text>
+            </view>
+        </view>
+        <view class='clear'></view>
+        <view class='bottom_line'></view>
+        <view class='shiyong'>
+            <view class='select'>选择支付方式</view>
+            <view class='li'>
+                <view class='icon'>
+                    <image src='http://pin.lanhaihui.net/public/wx_mini/images//chu.png'></image>
+                </view>
+                <view class='line'>
+                    <text>储蓄卡</text>
+                </view>
+                <view class='ri'>
+                    <image src='http://pin.lanhaihui.net/public/wx_mini/images//ri.png' class='right'></image>
+                </view>
+            </view>
+            <view class='li'>
+                <view class='icon'>
+                    <image src='http://pin.lanhaihui.net/public/wx_mini/images//xin.png'></image>
+                </view>
+                <view class='line'>
+                    <text>信用卡</text>
+                </view>
+                <view class='ri'>
+                    <image src='http://pin.lanhaihui.net/public/wx_mini/images//ri.png' class='right'></image>
+                </view>
+            </view>
+            <view class='li'>
+                <view class='icon'>
+                    <image src='http://pin.lanhaihui.net/public/wx_mini/images//zfb.png'></image>
+                </view>
+                <view class='line'>
+                    <text>支付宝</text>
+                </view>
+                <view class='ri'>
+                    <image src='http://pin.lanhaihui.net/public/wx_mini/images//ri.png' class='right'></image>
+                </view>
+            </view>
+            <view class='li'  bindtap='pay'>
+                <view class='icon'>
+                    <image src='http://pin.lanhaihui.net/public/wx_mini/images//wei.png'></image>
+                </view>
+                <view class='line' style='border-bottom:none;'>
+                    <text>微信</text>
+                </view>
+                <view class='ri'>
+                    <image src='http://pin.lanhaihui.net/public/wx_mini/images//ri.png' class='right'></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='clear'></view>
+</view>

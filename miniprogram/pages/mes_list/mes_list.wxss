@@ -1,0 +1,56 @@
+/* 消息列表 */
+.newslist {
+  width: 94%;
+  margin: 0 auto;
+  padding: 0 3%;
+  overflow: hidden;
+}
+.dl {
+  width: 98%;
+  margin: 0 auto;
+}
+.date {
+  text-align: center;
+  font-size: 24rpx;
+  color: #bbb;
+  line-height: 34rpx;
+  margin: 20rpx 0;
+}
+.li {
+  background: #fff;
+  box-shadow: 0 0 16px #ddd;
+  width: 96%;
+  padding: 4% 2% 0;
+}
+.h1 {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 48rpx;
+}
+.desc {
+  font-size: 26rpx;
+  color: #999;
+  line-height: 46rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.btn {
+  display: block;
+  text-align: center;
+  color: #06b3ed;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  margin: 2% 0;
+  border-top: 1px solid #efefef;
+  padding: 20rpx 0;
+}
+/* 修改列数 */
+.ellipsis {
+  -webkit-line-clamp: 3;
+}
+/* 展示全部 */
+.unellipsis {
+  -webkit-line-clamp: 0;
+}

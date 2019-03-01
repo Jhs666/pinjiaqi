@@ -1,0 +1,25 @@
+<view class='center'>
+  <view class='youhui'>
+    <image src='http://pin.lanhaihui.net/public/wx_mini/images//fangshi.png' class='bg'></image>
+    <view class='content'>
+      <view class='title'>{{item_title}}</view>
+      <text class='success'>支付成功，祝您旅途愉快！</text>
+      <view class='money'>
+        <text>支付总额：</text>
+        <rich-text>￥{{price}}</rich-text>
+      </view>
+    </view>
+    <view class='clear'></view>
+    <view class='bottom_line'></view>
+    <view class='shiyong'>
+      <view class='success_img'>
+        <image src='http://pin.lanhaihui.net/public/wx_mini/images//success_img.png'></image>
+      </view>
+      <text class='res'>支付成功</text>
+      <navigator url='../order/order?mkll={{0}}' hover-class='none;'>
+        <view class='back'>返回</view>
+      </navigator>
+    </view>
+  </view>
+  <view class='clear'></view>
+</view>

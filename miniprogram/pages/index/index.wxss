@@ -1,0 +1,287 @@
+.Waiter{
+  background: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.Waiter::after{
+  border: none
+}
+.banner {
+  position: relative;
+}
+
+.swpier {
+  width: 100%;
+  position: relative;
+}
+
+.ban {
+  width: 100%;
+  height: 240px;
+  margin-top: 100rpx;
+}
+
+.slide-image {
+  width: 100%;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 94%;
+  height: 100rpx;
+  margin: 0 auto;
+  padding: 0 3%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.place {
+  width: 16%;
+  height: 100%;
+  overflow: hidden;
+  float: left;
+}
+
+.place image {
+  width: 26rpx;
+  height: 30rpx;
+  margin: 35rpx 0;
+  float: left;
+  margin-left: 12%;
+}
+
+.place text {
+  font-size: 28rpx;
+  color: #fff;
+  line-height: 100rpx;
+  letter-spacing: 2rpx;
+  float: left;
+}
+
+.search {
+  width: 64%;
+  height: 60rpx;
+  background: #fff;
+  border-radius: 30rpx;
+  float: left;
+  margin: 20rpx 0;
+}
+
+.search image {
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+  margin: 10rpx 0 10rpx 3%;
+}
+
+.search input {
+  height: 60rpx;
+  color: #bbb;
+  font-size: 24rpx;
+  line-height: 60rpx;
+}
+
+.ri {
+  width: 20%;
+  overflow: hidden;
+  float: right;
+}
+
+.ri image {
+  width: 50rpx;
+  height: 46rpx;
+  margin: 27rpx 0;
+  float: right;
+}
+
+.ri .im1 {
+  margin-right: 24rpx;
+}
+
+/* 轮播下分类 */
+
+.div {
+  width: 94%;
+  margin: 3% auto;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 16px #ddd;
+}
+
+.div .ul {
+  width: 100%;
+  overflow: hidden;
+}
+
+.div .ul .li {
+  float: left;
+  width: 25%;
+  text-align: center;
+  margin: 5% 0;
+}
+
+.div .ul .li image {
+  display: block;
+  margin: 0 auto;
+}
+
+.div .ul .li .img {
+  width: 50rpx;
+  height: 50rpx;
+  margin-bottom: 3%;
+}
+
+.div .ul .li text {
+  font-size: 28rpx;
+  margin: 2% 0;
+  color: #000;
+}
+
+/* 任务模式 */
+
+.task {
+  width: 94%;
+  margin: 0 auto;
+  border-radius: 16rpx;
+  height: 186rpx;
+  overflow: hidden;
+}
+
+.task image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+/* 大家都在玩 */
+
+.play {
+  width: 94%;
+  margin: 4% auto 3%;
+  overflow: hidden;
+}
+
+.play .play_left {
+  font-size: 32rpx;
+  float: left;
+  font-weight: bolder;
+  color: #000;
+  line-height: 44rpx;
+}
+
+.play .play_right {
+  float: right;
+  font-size: 24rpx;
+  color: #4a4a4a;
+  line-height: 44rpx;
+}
+
+.play .img {
+  width: 28rpx;
+  height: 32rpx;
+  margin-left: 2%;
+}
+.play .ri {
+  width: 40rpx;
+  height: 40rpx;
+  float: right;
+  margin-top: 2rpx;
+}
+.index_list{
+  width: 94%;
+  height: 350rpx;
+  margin: 0 auto 3%;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 16rpx;
+}
+.index_list_left{
+  width: 100%;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+.index_list_left .img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.mask{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+.money{
+  width: 140rpx;
+  height: 46rpx;
+  background: #43EFF9;
+  color: #000;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 46rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.title{
+  font-size: 32rpx;
+  color: #fff;
+  width: 90%;
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 5%;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.index_list_right{
+  width: 35%;
+  height: 94%;
+  float: left;
+  padding: 3% 0 0 3%;
+}
+.dl{
+  width: 100%;
+  height: 54rpx;
+  line-height:54rpx;
+}
+.name{
+  color: #4a4a4a;
+  font-size: 24rpx;
+  float: left;
+  display: block;
+  max-width: 68%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap; 
+}
+.hot{
+  width: 40rpx;
+  height: 22rpx;
+  float: left;
+  margin-left: 6rpx;
+}
+
+/* 查看更多 */
+.more {
+  width: 96%;
+  margin: 3% auto;
+  text-align: center;
+}
+.more text {
+  font-size: 24rpx;
+  color: #d8d8d8;
+}

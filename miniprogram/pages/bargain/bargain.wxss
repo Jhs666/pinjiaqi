@@ -1,0 +1,354 @@
+page{
+    background: #06B3ED; 
+}
+.box{
+    width: 94%;
+    margin: 3% auto 14%;
+    background: #fff;
+    box-shadow: 0 0 32rpx #ddd;
+    border-radius: 12rpx;
+    padding: 1% 0 4%;
+}
+/* 列表 */
+.list_show{
+    width:94%;
+    margin: 3% auto;
+}
+.list_show .li{
+    width: 100%;
+}
+.orders{
+    width: 100%;
+    height: 230rpx;
+    overflow: hidden;
+    margin:0 auto;
+    box-shadow: 0 0 32rpx #ddd;
+    border-radius: 12rpx;
+}
+.li .img{
+    width: 40%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+.li .img image{
+    width: 100%;
+    height: 230rpx;
+    display: block;
+    margin: 0 auto;
+}
+.li .tag{
+    width: 86rpx;
+    height: 34rpx;
+    line-height: 34rpx;
+    position: absolute;
+    top:0;
+    left: 0;
+    background: #43EFF9;
+    color: #000;
+    text-align: center;
+    font-size: 20rpx;
+}
+.li .title{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    text-align: center;
+    line-height: 40rpx;
+    font-size: 20rpx;
+}
+.li .con{
+    float: left;
+    width:54%;
+    height:200rpx;
+    position: relative;
+    padding: 2% 3%;
+}
+.li .con .desc{
+    color: #000;
+    font-size: 28rpx;
+    line-height: 40rpx;
+}
+.li .con .fenshu{
+    position: absolute;
+    font-size: 24rpx;
+    color:#333;
+    left: 3%;
+    bottom: 24%; 
+}
+.li .con .num{
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    color: #9B9B9B;
+    font-size: 24rpx;
+}
+.li .con .qian{
+    position: absolute;
+    bottom: 5%;
+    left: 3%;
+    color: #FF001F;
+    font-size: 32rpx;
+    font-weight: bolder;
+}
+/* 已砍 */
+.cut{
+    width: 100%;
+    overflow: hidden;
+}
+.cut .text{
+    width: 100%;
+    overflow: hidden;
+    margin:0 0 3%;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    color: #333;
+    text-align: center;
+}
+.cut text{
+    color: #06B3ED;
+}
+.jindu{
+    width: 94%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.help{
+    width: 94%;
+    height: 76rpx;
+    margin: 5% auto;
+    line-height: 76rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 28rpx;
+    overflow: hidden;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(#0ED8F7), to(#06B3ED));
+    border-radius: 60rpx;
+}
+.kanjia{
+    width: 100%;
+    /* overflow: hidden; */
+}
+.kanjia .title{
+    font-size: 32rpx;
+    color: #333;
+    text-align: center;
+    display: block;
+}
+.dl{
+    width: 94%;
+    margin: 0 auto;
+    height: 550rpx;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/ 
+.dl::-webkit-scrollbar { 
+    width:8rpx; 
+    height: 8rpx; 
+    background-color: #F5F5F5; 
+} 
+   
+/*定义滚动条轨道 内阴影+圆角*/ 
+.dl::-webkit-scrollbar-track { 
+    box-shadow: inset 0 0 4rpx rgba(0,0,0,0.2); 
+    border-radius: 60rpx; 
+    background-color: #F5F5F9; 
+} 
+   
+/*定义滑块 内阴影+圆角*/ 
+.dl::-webkit-scrollbar-thumb { 
+    border-radius: 60rpx; 
+    box-shadow: inset 0 0 4rpx rgba(0,0,0,.2); 
+    background-color: #ddd; 
+} 
+
+.dt{
+    width: 100%;
+    margin: 3% auto 0;
+    height: 88rpx;
+    overflow: hidden;
+    line-height: 88rpx;
+}
+.user{
+    width: 88rpx;
+    height: 88rpx;
+    overflow: hidden;
+    border-radius: 50%;
+    float: left;
+}
+.user image{
+    width: 100%;
+    height: 88rpx;
+    display: block;
+    margin: 0 auto;
+}
+.name{
+    font-size: 28rpx;
+    color: #666;
+    float: left;
+    margin-left: 30rpx;
+}
+.doler{
+    font-size: 28rpx;
+    color: #666;
+    float: right;
+}
+/* 活动规则 */
+.guize{
+    width: 94%;
+    margin: 3% auto 0;
+}
+.guize .title{
+    font-size: 32rpx;
+    color: #333;
+    text-align: center;
+    display: block;
+    margin: 3% 0;
+}
+.guize .con{
+    font-size: 28rpx;
+    line-height: 50rpx;
+    color: #666;
+}
+.icons{
+    position: relative;
+    width: 100%;
+    height: 2rpx;
+    background: #efefef;
+    margin: 8% 0 5%;
+}
+.titles{
+    font-size: 32rpx;
+    color: #333;
+    width: 170rpx;
+    text-align: center;
+    background: #fff;
+    z-index: 9;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.im1{
+    width: 16rpx;
+    height: 16rpx;
+    position: absolute;
+    top: 0;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.im2{
+    width: 16rpx;
+    height: 16rpx;
+    position: absolute;
+    top: 0;
+    right: 36%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.icon{
+    position: relative;
+    width: 94%;
+    height: 2rpx;
+    background: #efefef;
+    margin: 8% auto 5%;
+}
+.icon .title{
+    font-size: 32rpx;
+    color: #333;
+    width: 170rpx;
+    text-align: center;
+    background: #fff;
+    z-index: 9;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.i1{
+    width: 24rpx;
+    height: 24rpx;
+    position: absolute;
+    top: 0;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.i2{
+    width: 24rpx;
+    height: 24rpx;
+    position: absolute;
+    top: 0;
+    right: 35%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.i3{
+    width: 12rpx;
+    height: 12rpx;
+    position: absolute;
+    left: 43%;
+    transform: translate(-50%, 140%);
+    z-index: 10;
+}
+.i4{
+    width: 12rpx;
+    height: 12rpx;
+    position: absolute;
+    right: 42%;
+    transform: translate(0%, -220%);
+    z-index: 10;
+}
+.dor{
+    width: 60rpx;
+    height: 60rpx;
+    position: absolute;
+    left: -40rpx;
+    top: -30rpx;
+}
+.touxiang{
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto 3%;
+}
+.us{
+    width: 44rpx;
+    height: 44rpx;
+    border-radius: 50%;
+    float: left;
+    overflow: hidden;
+}
+.us image{
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+.nichen{
+    font-size: 24rpx;
+    color: #333;
+    float: left;
+    margin-left: 5%;
+    line-height: 44rpx;
+}
+.dor2{
+    width: 60rpx;
+    height: 60rpx;
+    position: absolute;
+    right: -40rpx;
+    top: -32rpx;
+}
+.bottom{
+    position: fixed;
+    bottom: 0;
+    left: ;
+    width: 100%;
+    height: 60rpx;
+    background: #06B3ED; 
+    z-index: 999;
+}

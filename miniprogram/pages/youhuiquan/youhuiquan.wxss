@@ -1,0 +1,197 @@
+.show {
+  margin-top: 2%;
+  display: block;
+}
+.hidden {
+  display: none;
+}
+.swiper-tab {
+  width: 100%;
+  height: 90rpx;
+  line-height: 84rpx;
+  overflow: hidden;
+  background: #fff;
+}
+.tab {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.bbb {
+  width: 26%;
+  margin: 0 12%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #666;
+}
+.active {
+  color: #06b3ed;
+  border-bottom: 6rpx solid #06b3ed;
+}
+.youhui {
+  width: 94%;
+  overflow: hidden;
+  position: absolute;
+  z-index: 99;
+  top: 0;
+  left: 3%;
+}
+.quan {
+  position: relative;
+  width: 100%;
+  height: 230rpx;
+}
+.quan image {
+  width: 100%;
+  height: 230rpx;
+  display: block;
+}
+.youhui .content {
+  width: 72%;
+  overflow: hidden;
+  padding: 6% 14% 3.5%;
+}
+.youhui .content .left {
+  float: left;
+  text-align: center;
+}
+.youhui .content .left text {
+  color: #ffc802;
+  font-size: 48rpx;
+  line-height: 66rpx;
+}
+.youhui .content .left rich-text {
+  font-size: 20rpx;
+  color: #bbb;
+  line-height: 28rpx;
+}
+.youhui .content .right text {
+  color: #333;
+  font-size: 36rpx;
+  line-height: 50rpx;
+}
+.youhui .content .right rich-text {
+  font-size: 20rpx;
+  color: #bbb;
+  line-height: 40rpx;
+}
+.youhui .content .right {
+  float: right;
+  text-align: center;
+}
+.youhui .shiyong {
+  width: 96%;
+  height: 60rpx;
+  overflow: hidden;
+  padding: 0 2%;
+}
+.youhui .shiyong text {
+  color: #bbb;
+  font-size: 20rpx;
+  line-height: 60rpx;
+}
+/* 过期优惠券 */
+.old {
+  width: 94%;
+  overflow: hidden;
+  position: absolute;
+  left: 3%;
+  top: 0;
+  z-index: 99;
+}
+.guoqi {
+  position: relative;
+  width: 100%;
+  height: 230rpx;
+}
+.guoqi image {
+  width: 100%;
+  height: 230rpx;
+  display: block;
+}
+.old .content {
+  width: 72%;
+  overflow: hidden;
+  padding: 6% 14% 3.5%;
+}
+.old .content .left {
+  float: left;
+  text-align: center;
+}
+.old .content .left text {
+  color: #999;
+  font-size: 48rpx;
+  line-height: 66rpx;
+}
+.old .content .left rich-text {
+  font-size: 20rpx;
+  color: #bbb;
+  line-height: 28rpx;
+}
+.old .content .right text {
+  color: #999;
+  font-size: 36rpx;
+  line-height: 50rpx;
+}
+.old .content .right rich-text {
+  font-size: 20rpx;
+  color: #bbb;
+  line-height: 40rpx;
+}
+.old .content .right {
+  float: right;
+  text-align: center;
+}
+.old .shiyong {
+  width: 96%;
+  height: 60rpx;
+  overflow: hidden;
+  padding: 0 2%;
+}
+.old .shiyong text {
+  color: #bbb;
+  font-size: 20rpx;
+  line-height: 60rpx;
+}
+.null {
+  text-align: center;
+}
+.null image {
+  width: 244rpx;
+  height: 150rpx;
+  display: block;
+  margin: 40% auto 5%;
+}
+.null .null_text {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #06b3ed;
+}
+.null text {
+  color: #bbb;
+  font-size: 20rpx;
+  line-height: 28rpx;
+}
+
+.nulls {
+  text-align: center;
+}
+.guoqi-img {
+  width: 244rpx;
+  height: 150rpx;
+  display: block;
+  margin: 40% auto 5%;
+}
+.nulls_text {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #06b3ed;
+}
+.nulsl_texts {
+  color: #bbb;
+  font-size: 20rpx;
+  line-height: 28rpx;
+}

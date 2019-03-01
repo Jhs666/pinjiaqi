@@ -1,0 +1,56 @@
+<view class='center'>
+  <view class='box'>
+    <!-- 拼团列表 -->
+    <view class='list_show'>
+      <view class='li' wx:key="inform.id">
+        <view class='inform' data-id='{{inform.id}}'>
+          <view class='img'>
+            <image src='{{inform.preview_img}}'></image>
+            <view class='tag'>{{inform.type_list}}</view>
+            <view class='title'>{{inform.start_space}}</view>
+          </view>
+          <view class='con'>
+            <view class='desc'>{{inform.title}}</view>
+            <view class='fenshu'>{{inform.fenshu}}分</view>
+            <view class='num'>{{inform.num}}</view>
+            <view class='qian'>￥{{inform.price}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='clear'></view>
+    <!-- 拼团人列表 -->
+    <view class='Assemble'>
+      <block wx:for="{{team}}" wx:key="item.id">
+        <view class='team' data-id='{{item.id}}'>
+          <view class='li'>
+            <image src='{{item.create_user_profile_photo}}'></image>
+            <!-- <view class='honor'>{{item.honor}}</view> -->
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class='clear'></view>
+    <!-- 名额 -->
+    <view class='ming'>
+      剩余
+      <text class='over'>5</text> 个名额
+    </view>
+    <!-- 结束 -->
+    <view class='end'>
+      <text class='finish'>00:23:20 </text> 后结束
+    </view>
+    <!-- 三个按钮 -->
+    <view class='btn'>
+      <view class='dt'> 合并拼团</view>
+      <view class='dt'> 邀请好友</view>
+      <view class='dt dd'> 发起招募</view>
+    </view>
+  </view>
+  <!-- 用户须知 -->
+  <view class='user'>
+    <text>用户须知</text>
+    <view class='con'>1.发起招募之后，平台其他用户将会看见您所发起的平台，并且可以自由加入您的团中。</view>
+    <view class='con'>2.选择合并拼团将会收取部分服务费用，人工将为您推荐合适的其他团组成一个新的团体。</view>
+  </view>
+</view>

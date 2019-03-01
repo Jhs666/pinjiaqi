@@ -1,0 +1,71 @@
+.banner{
+    width: 100%;
+    overflow: hidden;
+}
+.banner image{
+    width: 100%;
+    display: block;
+}
+.show{
+    width: 94%;
+    padding: 0 3% 10%;
+}
+.title{
+    font-size: 48rpx;
+    color: #000;
+    line-height: 66rpx;
+    font-weight: bolder;
+    margin: 3% 0;
+}
+.show text{
+    color: #333;
+    font-size: 36rpx;
+    line-height: 50rpx;
+}
+.line{
+    width: 70rpx;
+    height: 6rpx;
+    background: #FAC60E;
+    margin-left: 5%;
+}
+.con{
+    width: 94%;
+    overflow: hidden;
+    background: rgba(6,179,237,0.20);
+    padding: 3%;
+    color: #666;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    border-radius: 8rpx;
+    text-align: justify;
+    margin: 3% 0;
+}
+.tit{
+    width: 100%;
+    overflow: hidden;
+}
+.tit image{
+    width: 30rpx;
+    height: 34rpx;
+    float: left;
+    margin: 10rpx 0;
+}
+.tits{
+    font-size: 36rpx;
+    line-height: 50rpx;
+    color: #333;
+    margin-left: 6rpx;
+}
+.li{
+    margin-top: 3%;
+}
+.dl{
+    color: #333;
+    font-size: 28rpx;
+    line-height: 50rpx;
+}
+.dl text{
+    color: #333;
+    font-size: 28rpx;
+    line-height: 50rpx;
+}

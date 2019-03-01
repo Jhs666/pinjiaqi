@@ -1,0 +1,38 @@
+<view class='center'>
+    <view class='banner'>
+        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg' class='slide'></image>
+    </view>
+    <view class='show'>
+        <view class='title'>美食-海鲜</view>
+        <text>“概览</text>
+        <view class='line'></view>
+        <view class='con'>
+            海鲜”，古称“海错”，意谓海中产物，错杂非一。追溯如东海鲜风味菜品的源头，虽无确切的文字依据，但根据考古学家的考证，至少在距今4000－6000年前的新石器时代，人类已懂得采拾贝类以供食用，而且已有熟食加工了。翻开烹饪古籍资料，发现有关海鲜的记载主要有三个方面，一是饮食养生，二是烹饪技巧，三是海鲜菜品。
+        </view>
+        <view class='time'>
+            <view class='tit'>
+                <image src='http://pin.lanhaihui.net/public/wx_mini/images//ri2.png'></image>
+                <text class='tits'>路线指南</text>
+            </view>
+            <view class='li'>
+                <view class='dl'>
+                    开放时间：
+                    <text>早10:00-晚10:00</text>
+                </view>
+                <view class='dl'>
+                    电话：
+                    <text>0311-8965369</text>
+                </view>
+                <view class='dl'>
+                    地址：
+                    <text>河北省石家庄市裕华区体育南大街光明渔港</text>
+                </view>
+                <view class='dl'>
+                    人均消费：
+                    <text>80</text>
+                    元
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

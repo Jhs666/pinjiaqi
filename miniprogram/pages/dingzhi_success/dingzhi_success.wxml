@@ -1,0 +1,8 @@
+<view class='center'>
+    <view class='success'>
+        <image src='http://pin.lanhaihui.net/public/wx_mini/images//success.png'></image>
+        <view class='h1'>定制成功</view>
+        <text>专属定制师将在24小时内联系您
+请保持电话畅通，对您的打扰尽请谅解</text>
+    </view>
+</view>

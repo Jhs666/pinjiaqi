@@ -1,0 +1,187 @@
+.box{
+    width: 94%;
+    overflow: hidden;
+    margin: 3% auto 0;
+    background: #fff;
+    box-shadow: 0 0 32rpx #ddd;
+}
+/* 列表 */
+.list_show{
+    width:94%;
+    margin: 3% auto;
+}
+.list_show .li{
+    width: 100%;
+    height: 230rpx;
+    overflow: hidden;
+    margin:0 auto;
+    border-bottom: 2rpx solid #efefef;
+    padding-bottom: 5%;
+}
+.li .img{
+    width: 40%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+.li .img image{
+    width: 100%;
+    height: 230rpx;
+    display: block;
+    margin: 0 auto;
+}
+.li .tag{
+    width: 86rpx;
+    height: 34rpx;
+    line-height: 34rpx;
+    position: absolute;
+    top:0;
+    left: 0;
+    background: #43EFF9;
+    color: #000;
+    text-align: center;
+    font-size: 20rpx;
+}
+.li .title{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    text-align: center;
+    line-height: 40rpx;
+    font-size: 20rpx;
+}
+.li .con{
+    float: left;
+    width:54%;
+    height:200rpx;
+    position: relative;
+    padding: 2% 3%;
+}
+.li .con .desc{
+    color: #000;
+    font-size: 28rpx;
+    line-height: 40rpx;
+}
+.li .con .fenshu{
+    position: absolute;
+    font-size: 24rpx;
+    color:#317BFF;
+    left: 3%;
+    bottom: 24%; 
+}
+.li .con .num{
+    position: absolute;
+    bottom: 5%;
+    left: 3%;
+    color: #9B9B9B;
+    font-size: 24rpx;
+}
+.li .con .qian{
+    position: absolute;
+    bottom: 5%;
+    right: 3%;
+    color: #FF001F;
+    font-size: 32rpx;
+    font-weight: bolder;
+}
+/* 拼团人列表 */
+.Assemble{
+    width: 100%;
+    overflow: hidden;
+    margin: 3% auto;
+}
+.Assemble .li{
+    width: 16%;
+    height: 114rpx;
+    border-radius: 50%;
+    float: left;
+    margin: 2%;
+    position: relative;
+}
+.Assemble .li image{
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+/* 名额 */
+.ming{
+    font-size: 28rpx;
+    color: #999;
+    line-height: 40rpx;
+    text-align: center;
+}
+.ming text{
+    color: #ff0000;
+}
+/* 结束 */
+.end{
+    font-size: 32rpx;
+    color: #999;
+    line-height: 44rpx;
+    text-align: center;
+    padding: 2% 0;
+    border-bottom: 2rpx solid #efefef;
+    width: 94%;
+    margin: 0 auto;
+}
+.end text{
+    color: #ff0000;
+}
+/* 三个按钮 */
+.btn{
+    width: 90%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.dt{
+    width: 25%;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    color: #999;
+    border:2rpx solid #999;
+    border-radius: 60rpx;
+    text-align: center;
+    float: left;
+    margin: 3% 3.8%;
+}
+.dd{
+    color: #06B3ED;
+    border:2rpx solid #06B3ED;
+}
+/* 用户须知 */
+.user{
+    width: 94%;
+    margin: 0 auto;
+}
+.user text{
+    font-size: 24rpx;
+    color: #999;
+    line-height: 44rpx;
+    text-align: center;
+    display: block;
+    margin: 2% 0;
+}
+.user .con{
+    color: #ff0000;
+    font-size: 24rpx;
+    line-height: 44rpx;
+}
+
+.honor{
+    position: absolute;
+    background: #06B3ED;
+    width: 52rpx;
+    height: 32rpx;
+    color: #fff;
+    font-size: 20rpx;
+    text-align: center;
+    border-radius: 8rpx;
+    top: 0;
+    right: -10%;
+}

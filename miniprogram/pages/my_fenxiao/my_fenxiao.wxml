@@ -1,0 +1,60 @@
+<view class='center'>
+  <!-- 顶部 -->
+  <view class='top'>
+    <view class='back'>
+      <view class='user'>
+        <view class='fenxiao'>
+          <text class='h1'>我的分销</text>
+          <image src='http://pin.lanhaihui.net/public/wx_mini/images//help.png'></image>
+          <text class='rule' bindtap='rule'>规则说明</text>
+        </view>
+        <!-- 分销规则弹出层 -->
+        <view class="mask" catchtouchmove='true' wx:if="{{showModal}}">
+          <view class="modalDlg" wx:if="{{showModal}}">
+            <view class='close_spell' bindtap='close_spell'>×</view>
+            <view class='top_bar'>规则说明</view>
+            <view class='Spell_list'>
+              <view class='speak'>1.东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华</view>
+              <view class='speak'>2.帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东</view>
+              <view class='speak'>3.华帝君东华帝君东华帝君东华帝君东华帝君东华帝</view>
+              <view class='speak'>4.君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君</view>
+              <view class='speak'>5.东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华</view>
+              <view class='speak'>6.帝君东华帝君东华帝君东华帝君</view>
+            </view>
+            <view class='bottom_bar'>请仔细阅读此规则</view>
+          </view>
+        </view>
+        <view class='clear'></view>
+        <view class='ul'>
+          <view class='li'>
+            <rich-text>团队人数（人）</rich-text>
+            <text>{{user.wallet.place_count}}</text>
+          </view>
+          <view class='li'>
+            <rich-text>团队业绩（元）</rich-text>
+            <text>{{user.wallet.place_cash_count}}</text>
+          </view>
+          <view class='li' data-index="0" bindtap='changeToggle'>
+            <rich-text>分销产品</rich-text>
+            <image src='http://pin.lanhaihui.net/public/wx_mini/images//r.png' class='ri'></image>
+          </view>
+          <view class='dl' hidden="{{!selectedFlag[0]}}">
+            <view wx:for="{{inform}}" wx:for-item="item" wx:for-index="index">
+              <view class='img'>
+                <image src='{{item.preview_img}}'></image>
+                <view class='tag'>{{item.type_list}}</view>
+                <view class='title'>{{item.start}}</view>
+              </view>
+              <view class='con'>
+                <view class='desc'>{{item.title}}</view>
+                <view class='num'>已拼{{item.num}}件</view>
+                <view class='qian'>￥{{item.price}}起</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='clear'></view>
+</view>

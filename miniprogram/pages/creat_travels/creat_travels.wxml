@@ -1,0 +1,57 @@
+<view class='center'>
+  <view class='camera'>
+    <view class='photo' bindtap="chooseImg">
+      <image src='http://pin.lanhaihui.net/public/wx_mini/images//zxj.png'></image>
+      <text>图片</text>
+    </view>
+    <!-- 添加图片 -->
+    <view class="imgs" style="background-color:{{pageBackgroundColor}}" wx:for="{{picture}}" wx:for-item="item" wx:key="*this">
+      <image src="{{item}}" mode="widthFix" bindtap="showDialogBtn" class='imgss' style="opacity:{{opacits}}" data-src='{{item}}' data-index="{{index}}"></image>
+      <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+      <view class="modal-dialog" wx:if="{{showModal}}">
+        <view class="modal-footer">
+          <view class="btn-confirm" catchtap="deleteImg" data-src='{{item}}'>删除</view>
+          <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='clear'></view>
+  <!-- 发表标题以及内容 -->
+  <view class='con'>
+    <view class='li'>
+      <text>标题</text>
+      <rich-text>写下玩法/目的地 会被更多人找到</rich-text>
+      <input></input>
+    </view>
+    <view class='li' style='margin-bottom:0;'>
+      <view class='title'>分享有趣的或糟糕的经历，帮助更多热爱的旅行的人</view>
+      <textarea></textarea>
+    </view>
+    <view class='dl'>
+      <text>形式</text>
+      <input placeholder='请输入您的出行方式'></input>
+    </view>
+    <view class='dl'>
+      <text>人群</text>
+      <input placeholder='请输入您的出行人数'></input>
+    </view>
+    <view class='dl'>
+      <text>出行天数</text>
+      <input placeholder='请输入您的出行天数'></input>
+    </view>
+    <view class='dl'>
+      <text>人均花费</text>
+      <input placeholder='请输入您人均花费'></input>
+    </view>
+    <view class='place'>
+      <image src='http://pin.lanhaihui.net/public/wx_mini/images//map2.png'></image>
+      <view class='position'>添加位置</view>
+    </view>
+  </view>
+  <view class='text'>超过50字有机会上首页哦！</view>
+  <!-- 完成按钮 -->
+  <view class='btn'>
+    <text>完成</text>
+  </view>
+</view>

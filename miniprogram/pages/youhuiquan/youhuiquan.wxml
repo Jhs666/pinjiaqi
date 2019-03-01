@@ -1,0 +1,68 @@
+<view class='center'>
+  <view class='swiper-tab'>
+    <view class='tab'>
+      <view class="{{selected?'active':'default'}} bbb" bindtap="selected">未使用</view>
+      <view class="{{selected1?'active':'default'}} bbb" bindtap="selected1">已使用/过期</view>
+    </view>
+  </view>
+  <view class="{{selected?'show':'hidden'}}">
+    <block wx:for="{{quan}}" wx:key="item.id" hidden="{{hidename1}}">
+      <view class='quan' data-id='{{item.id}}'>
+        <image src='http://pin.lanhaihui.net/public/wx_mini/images//youhuiquan.png'></image>
+        <view class='youhui'>
+          <view class='content'>
+            <view class='left'>
+              <text class='qian'>{{item.qian}}</text>
+              <rich-text class='man'>{{item.man}}</rich-text>
+            </view>
+            <view class='right'>
+              <text class='news'>{{item.news}}</text>
+              <rich-text class='date'>{{item.date}}</rich-text>
+            </view>
+          </view>
+          <view class='clear'></view>
+          <view class='shiyong'>
+            <text class='fanwei'>{{item.fanwei}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!-- 占位图1 -->
+    <view class='null' wx:if="{{quan==''}}">
+      <image src='http://pin.lanhaihui.net/public/wx_mini/images//null.png'></image>
+      <view class='null_text'>竟然一点优惠券都没有~</view>
+      <text>你有没有考虑过优惠卷的感受</text>
+    </view>
+  </view>
+  <!-- 已使用/已过期 -->
+  <view class="{{selected1?'show':'hidden'}}">
+    <block wx:for="{{guoqi}}" wx:key="item.id" hidden="{{hidename2}}">
+      <view class='guoqi' data-id='{{item.id}}'>
+        <image src='http://pin.lanhaihui.net/public/wx_mini/images//youhuiquan2.png'></image>
+        <view class='old'>
+          <view class='content'>
+            <view class='left'>
+              <text class='qian'>{{item.qian}}</text>
+              <rich-text class='man'>{{item.man}}</rich-text>
+            </view>
+            <view class='right'>
+              <text class='news'>{{item.news}}</text>
+              <rich-text class='date'>{{item.date}}</rich-text>
+            </view>
+          </view>
+          <view class='clear'></view>
+          <view class='split-line'></view>
+          <view class='shiyong'>
+            <text class='fanwei'>{{item.fanwei}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!-- 占位图2 -->
+    <view class='nulls' wx:if="{{guoqi==''}}">
+      <image src='http://pin.lanhaihui.net/public/wx_mini/images//null.png' class='guoqi-img'></image>
+      <view class='nulls_text'>竟然一点优惠券都没有~</view>
+      <text class='nulsl_texts'>你有没有考虑过优惠卷的感受</text>
+    </view>
+  </view>
+</view>

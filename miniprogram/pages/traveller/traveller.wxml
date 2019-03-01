@@ -1,0 +1,24 @@
+<view class='center'>
+  <!-- 添加按钮 -->
+  <view class='add_btn'>
+    <navigator url='../add_passenger/add_passenger' hover-class='none'>
+      <image src='http://pin.lanhaihui.net/public/wx_mini/images//add.png'></image>
+      <text>新增旅客</text>
+    </navigator>
+  </view>
+  <!-- 列表 -->
+  <view class='list'>
+    <checkbox-group bindchange="checkboxChange">
+      <label class="checkbox" wx:for="{{trip_list}}">
+        <checkbox value="{{item.realname}}" checked="{{item.checked}}" class='active' />
+        <text class='name'>{{item.realname}}</text>
+        <text class='sex'>{{item.sex_name}}</text>
+        <text class='edit'>编辑</text>
+      </label>
+    </checkbox-group>
+  </view>
+  <!-- 完成按钮 -->
+  <view class='btn'>
+    <text bindtap='success'>完成</text>
+  </view>
+</view>

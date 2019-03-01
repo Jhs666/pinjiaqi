@@ -1,0 +1,64 @@
+<view class='center'>
+  <view class='list' wx:for="{{inform}}" wx:key="item.id">
+    <view class='inform' data-id='{{item.id}}'>
+      <view class='banner'>
+        <image src='{{item.preview_img}}' class='slide'></image>
+      </view>
+      <view class='show'>
+        <view class='title'>{{item.title}}</view>
+        <!-- <text>“概览</text>
+        <view class='line'></view> -->
+        <view class='con'>{{item.intro}}</view>
+        <rich-text nodes="{{item.content}}" class='content_desc'></rich-text>
+        <!-- <view class='time'>
+          <view class='tit'>
+            <image src='http://pin.lanhaihui.net/public/wx_mini/images//ri2.png'></image>
+            <text class='tits'>游玩指南</text>
+          </view>
+          <view class='li'>
+            <view class='dl'>
+              建议游玩时间：
+              <text>5</text> 天
+            </view>
+            <view class='dl'>
+              最佳季节：
+              <text>冬季</text>
+            </view>
+            <view class='dl'>
+              交通攻略：
+              <text>日内瓦 卢塞恩 苏黎世</text>
+            </view>
+          </view>
+        </view> -->
+        <!-- <view class='desc'> -->
+          <!-- <image src='http://pin.lanhaihui.net/public/wx_mini/images//tit.png'></image> -->
+          <!-- <text>{{item.title}}</text> -->
+          <!-- <view class='item'>
+            {{item.content}}
+          </view> -->
+          <!-- <rich-text nodes="{{item.content}}" class=''></rich-text> -->
+        <!-- </view> -->
+        <!-- <view class='orders'>
+          <view class='img'>
+            <image src='{{item.img}}'></image>
+            <view class='tag'>{{item.tag}}</view>
+          </view>
+          <view class='cons'>
+            <view class='desc'>{{item.tit}}</view>
+            <view class='fenshu'>副标题</view>
+            <view class='num'>去看看</view>
+            <view class='qian'>{{item.qian}}</view>
+          </view>
+        </view>
+        <view class='clear'></view> -->
+        <!-- <view class='desc'>
+          <image src='http://pin.lanhaihui.net/public/wx_mini/images//tit.png'></image>
+          <text>{{item.title}}</text>
+          <view class='item'>
+            瑞士文化受到其地理位置和多语言性的影响，在文学、艺术、建筑、音乐、宗教及习俗等各个方面表现出多样性。瑞士山区的文化与平原的不同，不同的语言地区的文化差异显著，主要罗马天主教和新教地区之间也存在文化差别。瑞士在宗教改革运动中曾是著名的新教“加尔文教”的主要传播中心。其理论创立这加尔文也曾在瑞士待过，有兴趣的话不妨试着找一找加尔文在这里留下的痕迹。
+          </view>
+        </view> -->
+      </view>
+    </view>
+  </view>
+</view>

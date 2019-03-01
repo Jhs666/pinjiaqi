@@ -1,0 +1,84 @@
+<view class='center'>
+  <view class='what'>
+    <view class='top'>
+      <view class='banner'>
+        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg' class='slide'></image>
+        <view class='meng'></view>
+      </view>
+      <view class='place'>
+        <text class='tit'>风花雪月—大理</text>
+        <rich-text class='date'>2018-08-01</rich-text>
+      </view>
+    </view>
+    <!-- 头像 -->
+    <view class='user'>
+      <view class='photo'>
+        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
+      </view>
+      <view class='name'>东华帝君</view>
+      <view class='li'>
+        <text class='kind'>形式</text>
+        <rich-text class='num'>自驾</rich-text>
+      </view>
+      <view class='li'>
+        <text class='kind'>人群</text>
+        <rich-text class='num'>2人</rich-text>
+      </view>
+      <view class='li'>
+        <text class='kind'>出行天数</text>
+        <rich-text class='num'>3</rich-text>
+      </view>
+      <view class='li'>
+        <text class='kind' style='border-right:none;'>人均花费</text>
+        <rich-text class='num'>500</rich-text>
+      </view>
+    </view>
+    <view class='clear'></view>
+    <!-- 文章 -->
+    <view class='show'>
+      <view class='h2'>
+        <image src='http://pin.lanhaihui.net/public/wx_mini/images//tit.png'></image>
+        <text class='title'>印象洱海</text>
+      </view>
+      <view class='con'>
+        在风平浪静的日子里泛舟洱海，那干净透明的海面宛如碧澄澄的蓝天，给人以宁静而悠远的感受，让人领略那“船在碧波漂，人在画中游”的诗画一般的意境。湖内有“三岛”、“四洲”、“五湖”、“九曲”之胜。三岛：金梭岛、赤文岛、天儿岛;四洲：青莎鼻、大贯础、鸳鸯、马帘;五湖是：南塘湖、北塘湖、联株湖、龙湖、波洲湖;九曲是莲花曲、大激曲、皤肌曲、凤翼曲、萝肘曲、牛角曲、波垠曲、高岩曲。洱海还有许多美丽的海湾，其中较大的有海东湾、挖色湾、康榔湾、双榔湾。尤以海中"三岛，使洱海变得更加绮丽。
+      </view>
+      <view class='h2'>
+        <image src='http://pin.lanhaihui.net/public/wx_mini/images//tit.png'></image>
+        <text class='title'>魅力苍山</text>
+      </view>
+      <view class='con'>
+        经夏不消的苍山雪，是素负盛名的大理“风花雪月”四景之一，也是苍山景观中的一绝。寒冬时节，百里点苍，白雪皑皑，阳春三月，雪线以上仍堆银垒玉。
+        <image src='http://pin.lanhaihui.net/public/wx_mini/images//banner1.jpg'></image>
+      </view>
+    </view>
+    <view class='clear'></view>
+    <view class='all'>
+      <text class='huifu'>全部回复</text>
+      <view class='dd'>
+        <view class='head'>
+          <view class='tu'>
+            <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
+          </view>
+          <view class='header'>
+            <view class='ming'>
+              东华帝君
+              <text class='Grade'>LV1</text>
+            </view>
+            <rich-text class='time'>20个小时前</rich-text>
+          </view>
+          <image src='http://pin.lanhaihui.net/public/wx_mini/images//more2.png' class='more'></image>
+        </view>
+        <view class='lun'>
+          苍山是云岭山脉南端的主峰，由十九座山峰由北而南组成，北起洱源邓川，南至下关天生桥。苍山十九峰，巍峨雄壮，与秀丽的洱海风光形成强烈对照。
+        </view>
+      </view>
+    </view>
+    <view class='clear'></view>
+  </view>
+  <!-- 底部评论 -->
+  <view class='talk'>
+    <input placeholder='说点什么吧…'></input>
+    <image src='http://pin.lanhaihui.net/public/wx_mini/images//xing1.png'></image>
+  </view>
+</view>

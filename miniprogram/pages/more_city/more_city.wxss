@@ -1,0 +1,131 @@
+page{
+    background-color: #fff;
+    height: 100%;
+}
+/* 顶部搜索 */
+.search{
+    width: 94%;
+    margin: 0 auto;
+    padding: 3% 3%;
+    overflow: hidden;
+    border-bottom: 1px solid #efefef;
+}
+.search .left{
+    width: 84%;
+    height: 60rpx;
+    background: #F0F0F0;
+    float: left;
+    padding:0 2%;
+    border-radius: 30rpx;
+}
+.search .left image{
+    width: 40rpx;
+    height: 40rpx;
+    float: left;
+    margin:10rpx 5rpx 10rpx 0;
+}
+.search .left input{
+    height: 60rpx;
+    color: #9B9B9B;
+    font-size: 24rpx;
+    line-height: 34rpx;
+}
+.search text{
+    font-size: 32rpx;
+    color: #000;
+    line-height:60rpx;
+    float: right;
+}
+.swiper-tab{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding:2% 0;
+}
+.tab {
+  width:100%;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.bbb {
+  width: 50%;
+  text-align: center;
+  font-size: 28rpx;
+  color: #bbb;
+  padding-bottom: 2%;
+}
+.active{
+    color:#06B3ED;
+    border-bottom: 6rpx solid #06B3ED;
+}
+.show {
+  width: 94%;
+  padding: 0 3%;
+  display: block;
+}
+.hidden {
+  display: none;
+}
+.nei_wai{
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.position{
+    width: 100%;
+    overflow: hidden;
+}
+ .history{
+    width: 100%;
+    overflow: hidden;
+}
+.hotcity{
+    width: 100%;
+    overflow: hidden;
+}
+.dt{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap:wrap;
+}
+.title{
+    color: #bbb;
+    font-size: 24rpx;
+    line-height: 34rpx;
+    padding: 3% 0;
+}
+.place{
+    width: 150rpx;
+    height: 72rpx;
+    text-align: center;
+    color: #06B3ED;
+    font-size: 32rpx;
+    line-height: 72rpx;
+    border: 2rpx solid #06B3ED;
+    background: rgba(6,179,237,0.20);
+    float: left;
+}
+.his{
+    width: 150rpx;
+    height: 72rpx;
+    text-align: center;
+    color: #06B3ED;
+    font-size: 32rpx;
+    line-height: 72rpx;
+    border: 2rpx solid #06B3ED;
+    background: rgba(6,179,237,0.20);
+    float: left;
+}
+.hot{
+    width:150rpx;
+    height: 72rpx;
+    text-align: center;
+    color: #666;
+    font-size: 32rpx;
+    line-height: 72rpx;
+    border: 2rpx solid #bbb;
+    margin-bottom: 5%;
+}

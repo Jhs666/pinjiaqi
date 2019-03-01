@@ -1,0 +1,79 @@
+<view class='center'>
+  <view class='top'>
+    <view class='topbar'>
+      <view class='img'>
+        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
+      </view>
+      <view class='Route'>
+        <text>路线评分</text>
+        <view class='star'>
+          <block wx:for="{{full_2}}" wx:key="index">
+            <image catchtap='in_xin' id='{{index+1}}' data-in='use_sc2' src='http://pin.lanhaihui.net/public/wx_mini/images//xing2.png'></image>
+          </block>
+          <block wx:for="{{empty_2}}" wx:key="index">
+            <image catchtap='in_xin' id='{{index+1}}' data-in='use_sc' src='http://pin.lanhaihui.net/public/wx_mini/images//xing1.png'></image>
+          </block>
+        </view>
+        <view class='part'>{{full_2}}.0</view>
+      </view>
+    </view>
+    <view class='clear'></view>
+    <textarea placeholder='亲爱的，旅行是否愉快？记录下来，与更多的人一起分享你的美好之旅～' maxlength='-1'></textarea>
+    <view class='photo' bindtap="chooseImg">
+      <image src='http://pin.lanhaihui.net/public/wx_mini/images//zxj.png'></image>
+      <text>添加图片</text>
+    </view>
+    <!-- 添加图片 -->
+    <view class="imgs" style="background-color:{{pageBackgroundColor}}" wx:for="{{picture}}" wx:for-item="item" wx:key="*this">
+      <image src="{{item}}" mode="widthFix" bindtap="showDialogBtn" class='imgss' style="opacity:{{opacits}}" data-src='{{item}}' data-index="{{index}}"></image>
+      <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+      <view class="modal-dialog" wx:if="{{showModal}}">
+        <view class="modal-footer">
+          <view class="btn-confirm" catchtap="deleteImg" data-src='{{item}}'>删除</view>
+          <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+        </view>
+      </view>
+    </view>
+    <view class='niming'>
+      <image src='http://pin.lanhaihui.net/public/wx_mini/images//true.png'></image>
+      <text>匿名</text>
+    </view>
+  </view>
+  <view class='top bottom'>
+    <text class='title'>商品评价</text>
+    <view class='li dl'>
+      <text>好评率</text>
+      <view bindtap="starTap" data-index="{{index}}" class="star" wx:for="{{userStars}}" wx:key="index">
+        <image src="{{item}}"></image>
+      </view>
+    </view>
+    <view class='li dl'>
+      <text>导游讲解</text>
+      <view bindtap="starTap" data-index="{{index}}" class="star" wx:for="{{userStars}}" wx:key="index">
+        <image src="{{item}}"></image>
+      </view>
+    </view>
+    <view class='li dl'>
+      <text>领队服务</text>
+      <view bindtap="starTap" data-index="{{index}}" class="star" wx:for="{{userStars}}" wx:key="index">
+        <image src="{{item}}"></image>
+      </view>
+    </view>
+    <view class='li dl'>
+      <text>行程安排</text>
+      <view bindtap="starTap" data-index="{{index}}" class="star" wx:for="{{userStars}}" wx:key="index">
+        <image src="{{item}}"></image>
+      </view>
+    </view>
+    <view class='li dl'>
+      <text>描述相符</text>
+      <view bindtap="starTap" data-index="{{index}}" class="star" wx:for="{{userStars}}" wx:key="index">
+        <image src="{{item}}"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 完成按钮 -->
+  <view class='btn'>
+    <text>完成</text>
+  </view>
+</view>

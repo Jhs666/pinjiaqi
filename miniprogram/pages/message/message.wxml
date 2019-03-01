@@ -1,0 +1,26 @@
+<view class='center'>
+    <!-- 消息列表 -->
+    <view class='news_list'>
+        <navigator url='../mes_list/mes_list' hover-class='none'>
+            <view class='li'>
+                <view class='icon'>
+                    <image src='http://pin.lanhaihui.net/public/wx_mini/images//mess.png'></image>
+                    <view class='data'>10</view>
+                </view>
+                <view class='title'>
+                    <view class='h1'>通知消息</view>
+                    <text>您的支付已完成</text>
+                </view>
+            </view>
+        </navigator>
+        <view class='li'>
+            <view class='icon'>
+                <image src='http://pin.lanhaihui.net/public/wx_mini/images//hui.png'></image>
+            </view>
+            <view class='title'>
+                <view class='h1'>优惠活动</view>
+                <text>您有一张优惠卷待领取</text>
+            </view>
+        </view>
+    </view>
+</view>

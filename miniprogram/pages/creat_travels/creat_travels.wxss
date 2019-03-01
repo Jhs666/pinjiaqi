@@ -1,0 +1,229 @@
+page {
+  background: #fff;
+}
+
+.camera {
+  width: 94%;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 3% 3% 0;
+  background: #f5f5f9;
+  position: relative;
+}
+
+.photo {
+  width: 152rpx;
+  height: 152rpx;
+  background: #fff;
+  box-shadow: 0 0 16rpx #ddd;
+  border-radius: 12rpx;
+  float: left;
+  text-align: center;
+  margin: 0 3% 3% 0;
+}
+
+.photo image {
+  width: 64rpx;
+  height: 48rpx;
+  display: block;
+  margin: 20% auto 0;
+}
+
+.photo text {
+  font-size: 24rpx;
+  color: #999;
+  line-height: 34rpx;
+}
+
+.text {
+  color: #f00;
+  float: left;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  display: block;
+  width: 100%;
+  margin-top:3%;
+  text-align: center;
+}
+
+.con {
+  width: 94%;
+  overflow: hidden;
+  padding: 5% 3% 0;
+}
+
+.li {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 3%;
+}
+
+.li text {
+  font-size: 32rpx;
+  color: #bbb;
+  line-height: 44rpx;
+  float: left;
+}
+
+.li rich-text {
+  font-size: 24rpx;
+  line-height: 42rpx;
+  color: #bbb;
+  float: left;
+  margin-left: 5%;
+}
+
+.li input {
+  width: 100%;
+  padding: 2% 0;
+  font-size: 32rpx;
+  color: #666;
+  border-bottom: 2rpx solid #efefef;
+}
+
+.title {
+  font-size: 24rpx;
+  line-height: 42rpx;
+  color: #bbb;
+}
+
+textarea {
+  width: 100%;
+  height: 100rpx;
+  padding: 2%;
+  font-size: 32rpx;
+  color: #666;
+  border-bottom: 2rpx solid #efefef;
+}
+
+.place {
+  width: auto;
+  height: 44rpx;
+  background: #efefef;
+  float: left;
+  padding: 0 16rpx;
+  border-radius: 4rpx;
+  margin-top: 20rpx;
+}
+
+.place image {
+  width: 32rpx;
+  height: 32rpx;
+  float: left;
+  margin: 6rpx 0;
+}
+
+.place .position {
+  font-size: 24rpx;
+  color: #999;
+  line-height: 44rpx;
+  float: left;
+}
+
+.btn {
+  width: 100%;
+  height: 100rpx;
+  background: #06b3ed;
+  line-height: 100rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+}
+
+.btn text {
+  color: #fff;
+  font-size: 36rpx;
+  display: block;
+}
+
+.dl {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-bottom: 2rpx solid #efefef;
+}
+
+.dl text {
+  color: #666;
+  font-size: 32rpx;
+  width: 30%;
+  float: left;
+}
+
+.dl input {
+  width: 65%;
+  height: 88rpx;
+  font-size: 24rpx;
+  color: #bbb;
+  line-height: 88rpx;
+  float: left;
+}
+.imgs {
+  width: 152rpx;
+  height: 152rpx;
+  display: inline-block;
+  margin: 0 3% 3% 0;
+}
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+.modal-dialog {
+  width: 96%;
+  height:220rpx;
+  overflow: hidden;
+  position: fixed;
+  bottom: 1%;
+  left: 2%;
+  z-index: 9999;
+}
+.modal-title {
+  margin-top: 70rpx;
+  font-size: 32rpx;
+  color: #434343;
+  text-align: center;
+}
+.modal-footer {
+  width: 100%;
+  height: 220rpx;
+  font-size: 34rpx;
+  position: relative;
+}
+.btn-confirm {
+  width:100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  color: #333;
+  text-align: center;
+  font-size: 32rpx;
+  z-index: 9999;
+  background: #fff;
+  border-radius: 10rpx;
+}
+.btn-cancel {
+  width: 100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  color: #ff0000;
+  text-align: center;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  z-index: 9999;
+}
+.imgss {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+  float: left;
+}

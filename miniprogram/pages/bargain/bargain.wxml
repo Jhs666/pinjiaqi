@@ -1,0 +1,111 @@
+<view class='center'>
+    <view class='box'>
+        <!-- 拼团列表 -->
+        <view class='list_show'>
+            <view class='li' wx:for="{{inform}}" wx:key="item.id">
+                <view class='inform' data-id='{{item.id}}'>
+                    <view class='touxiang'>
+                        <view class='us'>
+                            <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
+                        </view>
+                        <text class='nichen'>微微一笑很倾城</text>
+                    </view>
+                    <view class='orders'>
+                        <view class='img'>
+                            <image src='{{item.img}}'></image>
+                            <view class='tag'>{{item.tag}}</view>
+                            <view class='title'>{{item.tit}}</view>
+                        </view>
+                        <view class='con'>
+                            <view class='desc'>{{item.desc}}</view>
+                            <view class='fenshu'>{{item.fenshu}}后结束</view>
+                            <view class='num'>{{item.num}}人已免费拿</view>
+                            <view class='qian'>{{item.qian}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class='clear'></view>
+        <!-- 已砍 -->
+        <view class='cut'>
+            <view class='text'>
+                已砍
+                <text class='start'>560</text>
+                元,还差
+                <text class='end'>210</text>
+                元
+            </view>
+            <!-- 进度条 -->
+            <view class='jindu'>
+                <progress percent="80" backgroundColor="#d8d8d8" activeColor="red" active></progress>
+            </view>
+        </view>
+        <!-- 大按钮 -->
+        <view class='help'> 喊好友砍一刀</view>
+        <!-- 砍价帮 -->
+        <view class='kanjia'>
+            <view class='icon'>
+                <image src='http://pin.lanhaihui.net/public/wx_mini/images//dor.png' class='dor'></image>
+                <image src='http://pin.lanhaihui.net/public/wx_mini/images//kan.png' class='i1'></image>
+                <image src='http://pin.lanhaihui.net/public/wx_mini/images//yuan.png' class='i3'></image>
+                <text class='title'>砍价帮</text>
+                <image src='http://pin.lanhaihui.net/public/wx_mini/images//yuan.png' class='i4'></image>
+                <image src='http://pin.lanhaihui.net/public/wx_mini/images//kan.png' class='i2'></image>
+            </view>
+            <view class='dl'>
+                <view class='dt'>
+                    <view class='user'>
+                        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
+                    </view>
+                    <text class='name'>东华帝君</text>
+                    <text class='doler'>-40元</text>
+                </view>
+                <view class='dt'>
+                    <view class='user'>
+                        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
+                    </view>
+                    <text class='name'>东华帝君</text>
+                    <text class='doler'>-40元</text>
+                </view>
+                <view class='dt'>
+                    <view class='user'>
+                        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
+                    </view>
+                    <text class='name'>东华帝君</text>
+                    <text class='doler'>-40元</text>
+                </view>
+                <view class='dt'>
+                    <view class='user'>
+                        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
+                    </view>
+                    <text class='name'>东华帝君</text>
+                    <text class='doler'>-40元</text>
+                </view>
+                <view class='dt'>
+                    <view class='user'>
+                        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
+                    </view>
+                    <text class='name'>东华帝君</text>
+                    <text class='doler'>-40元</text>
+                </view>
+            </view>
+        </view>
+        <!-- 活动规则 -->
+        <view class='guize'>
+            <view class='icons'>
+                <image src='http://pin.lanhaihui.net/public/wx_mini/images//hua.png' class='im1'></image>
+                <text class='titles'>活动规则</text>
+                <image src='http://pin.lanhaihui.net/public/wx_mini/images//hua.png' class='im2'></image>
+                <image src='http://pin.lanhaihui.net/public/wx_mini/images//dor.png' class='dor2'></image>
+            </view>
+            <view class='con'>1.邀请亲朋好友参与其中，一起来玩砍价，砍到0元即可免费获得旅游产品；</view>
+            <view class='con'>2.有一个账号只有一次砍价机会；</view>
+            <view class='con'>3.每次砍价金额随机，砍价次数每增加一次或多次，距离0元产品将更近一步；</view>
+            <view class='con'>4.每个账户一天最多帮3个好友砍价；</view>
+            <view class='con'>5.砍价需在24小时之内完成，逾期失效</view>
+            <view class='con'>6.本次活动规则解释权归拼假期app所有。</view>
+        </view>
+    </view>
+    <view class='bottom'></view>
+</view>

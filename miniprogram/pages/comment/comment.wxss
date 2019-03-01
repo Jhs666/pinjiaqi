@@ -1,0 +1,221 @@
+.imgss {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+  float: left;
+}
+.center {
+  padding-bottom: 20%;
+}
+.top {
+  background: #fff;
+  padding: 0 3%;
+  width: 94%;
+  margin: 3% auto 0;
+  overflow: hidden;
+}
+.topbar {
+  width: 100%;
+  overflow: hidden;
+  padding: 3% 0;
+  border-bottom: 2rpx solid #efefef;
+}
+.img {
+  width: 12.5%;
+  height: 88rpx;
+  overflow: hidden;
+  float: left;
+}
+.img image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.Route {
+  width: 82.5%;
+  float: left;
+  margin-left: 5%;
+}
+.Route text {
+  color: #333;
+  font-size: 32rpx;
+  line-height: 84rpx;
+  float: left;
+  margin-right: 3%;
+  font-weight: bolder;
+  display: block;
+}
+.star {
+  float: left;
+}
+.star  image {
+  height: 30rpx;
+  width: 30rpx;
+  display: block;
+  float: left;
+  margin: 30rpx 6rpx;
+}
+.part {
+  float: left;
+  font-size: 32rpx;
+  color: #333;
+  line-height: 84rpx;
+  margin-left: 20rpx;
+  font-weight: bolder;
+}
+textarea {
+  color: #bbb;
+  font-size: 24rpx;
+  padding: 2% 0;
+  width: 100%;
+  height: 150rpx;
+  overflow: auto;
+}
+.photo {
+  width: 152rpx;
+  height: 152rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  float: left;
+  text-align: center;
+  border: 3rpx dashed #999;
+  margin: 0 3% 3% 0;
+}
+.photo image {
+  width: 64rpx;
+  height: 48rpx;
+  display: block;
+  margin: 20% auto 0;
+}
+.photo text {
+  font-size: 24rpx;
+  color: #999;
+  line-height: 34rpx;
+}
+/* 匿名 */
+.niming {
+  width: 100%;
+  overflow: hidden;
+  border-top: 2rpx solid #efefef;
+  padding: 3% 0;
+}
+.niming image {
+  width: 32rpx;
+  height: 32rpx;
+  float: left;
+}
+.niming text {
+  float: left;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  color: #999;
+  margin-left: 20rpx;
+}
+.title {
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #333;
+  font-weight: bolder;
+  display: block;
+  margin-bottom: 2%;
+}
+.li {
+  width: 100%;
+  overflow: hidden;
+}
+.li text {
+  font-size: 28rpx;
+  color: #bbb;
+  line-height: 92rpx;
+  float: left;
+  margin-right: 30rpx;
+  width: 18%;
+  text-align: right;
+}
+.dl text {
+  line-height: 60rpx;
+}
+.dl image {
+  margin: 15rpx 6rpx;
+}
+.btn {
+  width: 100%;
+  height: 100rpx;
+  background: #06b3ed;
+  line-height: 100rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+}
+.btn text {
+  color: #fff;
+  font-size: 36rpx;
+  display: block;
+}
+.bottom {
+  padding: 3% 3% 0;
+}
+.imgs {
+  width: 152rpx;
+  height: 152rpx;
+  display: inline-block;
+  margin: 0 3% 3% 0;
+}
+.modal-mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+.modal-dialog {
+  width: 96%;
+  height:220rpx;
+  overflow: hidden;
+  position: fixed;
+  bottom: 1%;
+  left: 2%;
+  z-index: 9999;
+}
+.modal-title {
+  margin-top: 70rpx;
+  font-size: 32rpx;
+  color: #434343;
+  text-align: center;
+}
+.modal-footer {
+  width: 100%;
+  height: 220rpx;
+  font-size: 34rpx;
+  position: relative;
+}
+.btn-confirm {
+  width:100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  color: #333;
+  text-align: center;
+  font-size: 32rpx;
+  z-index: 9999;
+  background: #fff;
+  border-radius: 10rpx;
+}
+.btn-cancel {
+  width: 100%;
+  height: 98rpx;
+  line-height: 98rpx;
+  color: #ff0000;
+  text-align: center;
+  font-size: 32rpx;
+  margin-top: 20rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  z-index: 9999;
+}

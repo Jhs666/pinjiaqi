@@ -1,0 +1,283 @@
+.top {
+  width: 94%;
+  height: 100rpx;
+  margin: 0 auto;
+  padding: 0 3%;
+  overflow: hidden;
+  background: #06b3ed;
+  /* position: fixed; */
+}
+.top .back {
+  width: 40rpx;
+  height: 100%;
+  float: left;
+  margin-right: 1%;
+}
+.top .back image {
+  width: 40rpx;
+  height: 40rpx;
+  display: block;
+  margin: 30rpx auto;
+}
+.top .place {
+  width: 16%;
+  height: 100%;
+  overflow: hidden;
+  float: left;
+}
+.top .place image {
+  width: 26rpx;
+  height: 36rpx;
+  margin: 32rpx 0;
+  float: left;
+  margin-right: 12%;
+}
+.top .place text {
+  font-size: 28rpx;
+  color: #fff;
+  line-height: 100rpx;
+  letter-spacing: 2rpx;
+}
+.top .search {
+  width: 84%;
+  height: 60rpx;
+  background: #fff;
+  border-radius: 30rpx;
+  float: left;
+  margin: 20rpx 0;
+}
+.top .search image {
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+  margin: 10rpx 0 10rpx 3%;
+}
+.top .search input {
+  height: 60rpx;
+  color: #bbb;
+  font-size: 24rpx;
+  line-height: 60rpx;
+}
+.swiper-tab {
+  width: 94%;
+  height: auto;
+  overflow: hidden;
+  background: #fff;
+  margin: 0 auto;
+  padding: 0 3%;
+}
+.tab {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.active {
+  color: #06b3ed !important;
+  border-bottom: 6rpx solid #06b3ed;
+}
+.bbb {
+  font-size: 32rpx;
+  color: #666;
+}
+.show {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+.all_order{
+  width: 96%;
+  margin: 0 auto;
+}
+.wait_trip{
+  width: 96%;
+  margin: 0 auto;
+}
+.wait_payment{
+  width: 96%;
+  margin: 0 auto;
+}
+.wait_Comment{
+  width: 96%;
+  margin: 0 auto;
+}
+.refund{
+  width: 96%;
+  margin: 0 auto;
+}
+/* 分类标签 */
+.tag {
+  width: 100%;
+  margin: 3% auto;
+  overflow: hidden;
+}
+.tag view {
+  border: 2rpx solid rgba(6, 179, 237, 1);
+  font-size: 28rpx;
+  color: #06b3ed;
+  line-height: 40rpx;
+  float: left;
+  border-radius: 60rpx;
+  padding: 4rpx 22rpx;
+  text-align: center;
+  margin-right: 3%;
+}
+.tag .hot {
+  background: #06b3ed;
+  color: #fff;
+}
+.listshow {
+  width: 100%;
+  height: 296rpx;
+  overflow: hidden;
+  border-radius: 12rpx;
+  position: relative;
+  margin-bottom: 3%;
+}
+.listshow image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.listshow .mask {
+  position: absolute;
+  width: 100%;
+  height: 296rpx;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+}
+.listshow .mask .con {
+  position: absolute;
+  width: 92%;
+  height: 120rpx;
+  padding: 0 4%;
+  bottom: 0;
+  left: 0;
+}
+.listshow .mask .con .title {
+  color: #fff;
+  font-size: 36rpx;
+  line-height: 50rpx;
+}
+.listshow .mask .con text {
+  font-size: 24rpx;
+  color: #fff;
+  line-height: 34rpx;
+}
+/* 优惠券列表 */
+.wrapper1 {
+  width: 100%;
+  margin: 2% auto 0;
+  display: flex;
+  position: relative;
+}
+.bg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.content {
+  flex: 1;
+  width: 60%;
+  padding: 4%;
+  border-radius: 16rpx 0 0 16rpx;
+  position: absolute;
+  left: 2%;
+  top: 0;
+}
+.title1 {
+  color: #333;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.play_date1 {
+  font-size: 20rpx;
+  color: #9b9b9b;
+  line-height: 28rpx;
+}
+.date1 {
+  font-size: 20rpx;
+  color: #9b9b9b;
+  line-height: 28rpx;
+}
+.tip {
+  width: 25%;
+  flex: 0 0 150rpx;
+  text-align: center;
+  padding: 3%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+}
+.money1 {
+  color: #000;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  font-weight: bolder;
+  margin: 15% 0 15%;
+}
+.btn1 {
+  color: #fff;
+  background: #06b3ed;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  border-radius: 60rpx;
+  width: auto;
+  margin: 0 auto;
+  padding: 10rpx 30rpx;
+  display: inline-block;
+}
+.label1 {
+  width: 200rpx;
+  transform: rotate(45deg);
+  position: absolute;
+  top: -4%;
+  right: -45%;
+}
+.label1 text {
+  font-size: 18rpx;
+  color: #fff;
+  padding: 18% 36% 6%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.beijing {
+  width: 100%;
+  height: 230rpx;
+  overflow: hidden;
+}
+.kong {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+.kong image {
+  width: 200rpx;
+  height: 220rpx;
+  display: block;
+  margin: 40% auto 0;
+}
+.kong text {
+  color: #999;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  display: block;
+  margin-top: 8%;
+}

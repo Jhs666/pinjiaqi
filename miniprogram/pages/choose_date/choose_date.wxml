@@ -1,0 +1,76 @@
+<view class="page">
+  <!-- 日历 -->
+  <view class="box">
+    <view class="box-flex">
+      <view class="flex-item">
+        <view class="item-content" bindtap="doDay" data-key='left'>
+          <view class="glyphicon glyphicon-triangle-left">◀</view>
+        </view>
+      </view>
+      <view class="flex-item item-content-current-day">
+        <view class="item-content">{{currentDate}}</view>
+      </view>
+      <view class="flex-item">
+        <view class="item-content" bindtap="doDay" data-key="right">
+          <view class="glyphicon glyphicon-triangle-right">▶</view>
+        </view>
+      </view>
+    </view>
+    <view class="box-flex week">
+      <view class="flex-item">
+        <view class="item-content weekend">一</view>
+      </view>
+      <view class="flex-item">
+        <view class="item-content weekend">二</view>
+      </view>
+      <view class="flex-item">
+        <view class="item-content weekend">三</view>
+      </view>
+      <view class="flex-item">
+        <view class="item-content weekend">四</view>
+      </view>
+      <view class="flex-item">
+        <view class="item-content weekend">五</view>
+      </view>
+      <view class="flex-item">
+        <view class="item-content weekend">六</view>
+      </view>
+      <view class="flex-item">
+        <view class="item-content weekend">日</view>
+      </view>
+    </view>
+    <view class="box-flex">
+      <view class="flex-item" wx:for="{{currentDayList}}" wx:for-index='key' wx:for-item="vo" wx:key="{{key}}">
+        <view data-day="{{vo}}" bindtap='selectDay' class="item-content {{!selectCSS}}" wx:if="{{currentDay != vo}}">{{vo}}</view>
+        <view data-day="{{vo}}" bindtap='selectDay' class="item-content {{selectCSS}}" wx:else>{{vo}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='desc'>
+    由于个人资源实时更新，成人/儿童价格以订单结算页面为准；最少一人起订，儿童价标准，2-12岁（不含）；
+  </view>
+  <!-- 选择日期 -->
+  <view class='date_box'>
+    <view>￥{{totalPrice}}</view>
+    <block  wx:for="{{carts}}"  wx:key="key">
+      <view class='li'>
+        <text class='name'>{{item.title}}</text>
+        <view class='right'>
+          <text class='sub' data-index="{{index}}" bindtap='sub'>-</text>
+          <text class='num'>{{item.num}}</text>
+          <text class='add' data-index="{{index}}" bindtap='add'>+</text>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class='clear'></view>
+  <!-- 备注 -->
+  <view class='Remarks'>
+    <text>价格说明</text>
+    <textarea></textarea>
+  </view>
+  <!-- 下一步按钮 -->
+  <view class='btn'>
+    <text>下一步</text>
+  </view>
+</view>

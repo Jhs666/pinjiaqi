@@ -1,0 +1,42 @@
+<!--pages/info/info.wxml-->
+<view class='center'>
+  <form bindsubmit="formSubmit">
+    <view class='ul'>
+      <view class='li'>
+        <text>头像</text>
+        <view class='user'>
+          <image src='{{user.profile_photo}}'></image>
+        </view>
+      </view>
+      <view class='li'>
+        <text>昵称</text>
+        <input name='username' value='{{user.nickname}}' placeholder='请输入您的用户名' disabled='false'></input>
+      </view>
+      <view class='li'>
+        <text>真实姓名</text>
+        <input name='name' value='{{name}}' placeholder='请输入您的真实姓名' bindinput='nameinput'></input>
+      </view>
+      <view class='li'>
+        <text>性别</text>
+        <input name='sex' value='{{sex}}' placeholder='请选择' disabled='false'></input>
+      </view>
+      <view class='li'>
+        <text>手机号码</text>
+        <input type='number' name='phone' value='{{phone}}' placeholder='请填写您的手机号码' maxlength="11" bindinput='blurPhone'></input>
+      </view>
+      <view class='li'>
+        <text>身份证号码</text>
+        <input type='idcard' name='idcard' value='{{idcard}}' placeholder='请填写您的身份证号码' bindinput='idcardinput'></input>
+      </view>
+      <!-- <view class='li out' bindtap='out_btn'>
+        <text>退出登录</text>
+        <image src='http://pin.lanhaihui.net/public/wx_mini/images//r.png'></image>
+      </view> -->
+    </view>
+    <view class='clear'></view>
+    <!-- 保存按钮 -->
+    <view class='btn'>
+      <button class='commit' formType="submit" bindtap='commit'>保存</button>
+    </view>
+  </form>
+</view>

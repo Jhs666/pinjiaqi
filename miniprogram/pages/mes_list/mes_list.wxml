@@ -1,0 +1,17 @@
+<view class='center'>
+  <!-- 消息列表 -->
+  <view class='newslist'>
+    <block wx:for="{{mes_list}}" wx:key="item.id">
+      <view class='mes_list' data-id='{{item.id}}'>
+        <view class='dl'>
+          <view class='date'>{{item.date}}</view>
+          <view class='li'>
+            <view class='h1'>{{item.h1}}</view>
+            <text class="desc {{ellipsis?'ellipsis':'unellipsis'}}">{{item.desc}}</text>
+            <view class='btn' bindtap='ellipsis'>{{ellipsis?'点击查看':'收起'}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

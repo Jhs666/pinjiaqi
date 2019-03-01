@@ -1,0 +1,59 @@
+<view class='center'>
+  <!-- tab切换 -->
+  <view class='img'>
+    <image src='http://pin.lanhaihui.net/public/wx_mini/images/dingzhi.jpg' class='img_bg'></image>
+    <view class='bg'>
+      <view class='swiper-tab'>
+        <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">个人定制</view>
+        <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">企业定制</view>
+      </view>
+      <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+        <swiper-item>
+          <view class='list'>
+            <view class='li first'>
+              <navigator url='../city/city' hover-class="none">
+                <text class='start'>青岛</text>
+              </navigator>
+              <image src='http://pin.lanhaihui.net/public/wx_mini/images//huan.png'></image>
+              <navigator url='../city/city' hover-class="none">
+                <text class='end'>目的地</text>
+              </navigator>
+            </view>
+            <view class='li'>
+              <input placeholder='出行日期'></input>
+            </view>
+            <view class='li'>
+              <input placeholder='出行人数'></input>
+            </view>
+            <view class='li'>
+              <input placeholder='人均预算'></input>
+            </view>
+          </view>
+          <navigator url='../dingzhi_success/dingzhi_success'>
+            <view class='btn'>免费获取方案</view>
+          </navigator>
+        </swiper-item>
+        <swiper-item>
+          <view class='list'>
+            <view class='li'>
+              <text class='start'>青岛</text>
+              <image src='http://pin.lanhaihui.net/public/wx_mini/images//huan.png'></image>
+              <text class='end'>目的地</text>
+            </view>
+            <view class='li'>
+              <input placeholder='出行日期'></input>
+            </view>
+            <view class='li'>
+              <input placeholder='出行人数'></input>
+            </view>
+            <view class='li'>
+              <input placeholder='人均预算'></input>
+            </view>
+          </view>
+          <view class='btn'>免费获取方案</view>
+        </swiper-item>
+      </swiper>
+    </view>
+  </view>
+  <view class='clear'></view>
+</view>

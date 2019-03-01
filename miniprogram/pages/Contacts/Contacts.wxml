@@ -1,0 +1,38 @@
+<view class='center'>
+    <!-- 搜索 -->
+    <view class='search'>
+        <view class='left'>
+            <image src='http://pin.lanhaihui.net/public/wx_mini/images/sousuo.png'></image>
+            <input placeholder='搜索联系人'></input>
+        </view>
+        <text>搜索</text>
+    </view>
+    <view class='clear'></view>
+    <!-- 列表 -->
+    <view class='list'>
+        <text>全部联系人</text>
+        <block wx:for="{{contact}}" wx:key="item.id">
+            <view class='contact' data-id='{{item.id}}'>
+                <view class='li'>
+                    <view class='user'>
+                        <image src='{{item.img}}'></image>
+                    </view>
+                    <view class='mes'>
+                        <text class='name'>{{item.name}}</text>
+                        <rich-text class='tel'>{{item.tel}}</rich-text>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <!-- 充值时间段 -->
+    <!-- <view class='banner'>
+        <view class='tit_box'>
+            <text class='tit'>选择充值金额</text>
+        </view>
+        <view class='box' data-time="{{item.time}}" wx:for='{{arr}}' data-id="{{item.id}}" bindtap='click'>
+            <view class='arr' data-id="{{item.id}}" style="{{item.id == id?'background:rgb(210, 234, 247);border:1rpx solid #1c9fe3;color:#1c9fe3':'background:{{background}};border:{{border}};color:{{color}}'}}">{{item.time}}小时</view>
+        </view>
+    </view> -->
+    <view class='more'>没有更多了</view>
+</view>

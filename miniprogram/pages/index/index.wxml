@@ -1,0 +1,83 @@
+<view class="center">
+  <!-- 顶部搜索 -->
+  <view class='topbar'>
+    <view class='place' bindtap='tishi'>
+      <text>青岛</text>
+      <image src='http://pin.lanhaihui.net/public/wx_mini/images//b.png'></image>
+    </view>
+    <view class='search'>
+      <image src='http://pin.lanhaihui.net/public/wx_mini/images//sousuo.png'></image>
+      <input placeholder='请搜索目的地或者关键字' bindfocus='search_input'></input>
+    </view>
+    <view class='ri'>
+      <!-- <navigator url='../message/message' hover-class='none;'> -->
+      <image src='http://pin.lanhaihui.net/public/wx_mini/images//xi.png' class='im2' bindtap='tishi'></image>
+      <!-- </navigator> -->
+      <button open-type="contact" class='Waiter'>
+        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ser.png' class='im1'></image>
+      </button>
+    </view>
+  </view>
+  <view class='clear'></view>
+  <!-- 轮播图 -->
+  <view class='banner'>
+    <!-- 轮播图 -->
+    <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="{{indicatorActiveColor}}" indicator-color="{{indicatorColor}}" class='ban'>
+      <block wx:for="{{imgUrls}}" wx:key="image">
+        <swiper-item>
+          <image src="{{item.src}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 轮播图下分类 -->
+  <view class='div'>
+    <view class='ul'>
+      <view class='li' wx:for="{{type}}" wx:key="item.id" wx:for-index="index" bindtap='tab_list' data-id="{{item.id}}" data-index="{{index}}">
+        <image src='{{item.img_show}}' class='img'></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='clear'></view>
+
+  <!-- 广告位图 -->
+  <block wx:for="{{advert}}" wx:key="item.id">
+    <!-- <navigator url='{{item.link}}' hover-class='none'> -->
+    <view class='task'>
+      <image src='{{item.src}}'></image>
+    </view>
+    <!-- </navigator> -->
+  </block>
+  <!-- 大家都在玩 -->
+  <view class='play'>
+    <text class='play_left'>大家都在玩</text>
+    <image src='http://pin.lanhaihui.net/public/wx_mini/images//huo.png' class='img'></image>
+    <!-- <image src='http://pin.lanhaihui.net/public/wx_mini/images//r.png' class='ri'></image>
+    <text class='play_right'>更多</text> -->
+  </view>
+  <view class='clear'></view>
+  <block wx:for="{{index_list_hot}}" wx:key="item.id">
+    <view class='index_list_hot' data-id='{{item.id}}' bindtap='product_show'>
+      <view class='index_list'>
+        <view class='index_list_left'>
+          <image src='{{item.preview_img}}' class='img'></image>
+          <view class='mask'>
+            <view class='money'>{{item.price}}元起</view>
+            <view class='title'>{{item.title}}</view>
+          </view>
+        </view>
+        <!-- <view class='index_list_right'>
+          <view class='dl'>
+            <text class='name'>{{item.name}}</text>
+            <image src='http://pin.lanhaihui.net/public/wx_mini/images//hot.svg' class='hot'></image>
+          </view>
+        </view> -->
+      </view>
+    </view>
+  </block>
+  <!-- 返回顶部 -->
+  <view class='go_top' bindtap="goTop" hidden='{{!floorstatus}}'>
+    <image src='http://pin.lanhaihui.net/public/wx_mini/images/goTop.png'></image>
+  </view>
+</view>
