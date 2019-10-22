@@ -2,8 +2,9 @@
   <!-- 搜索 -->
   <view class='search'>
     <view class='left'>
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//sousuo.png'></image>
-      <input placeholder='请搜索目的地或者关键字' bindinput='get_title' bindconfirm="search_btn"></input>
+      <image src='http://pjqly.com/public/wx_mini/images//sousuo.png'></image>
+      <input placeholder='请搜索目的地或者关键字' bindinput='getSearchKey' bindconfirm="search_btn" value='{{searchKey}}'></input>
+      <view class='search_btn' bindtap='search_btn'>搜索</view>
     </view>
     <text bindtap='back'>取消</text>
   </view>
@@ -12,7 +13,7 @@
     <text>推荐目的地</text>
     <navigator url='../search_fenlei/search_fenlei' hover-class="none">
       <rich-text>查看更多</rich-text>
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//more.png'></image>
+      <image src='http://pjqly.com/public/wx_mini/images//more.png'></image>
     </navigator>
     <view class='tag'>
       <block wx:for="{{place}}" wx:key="item.id">
@@ -22,15 +23,14 @@
       </block>
     </view>
   </view> -->
-  <!-- <view class='intent'>
+  <view class='intent'>
     <text>搜索历史</text>
-    <image src='http://pin.lanhaihui.net/public/wx_mini/images//del.png' class='img'></image>
+    <image src='http://pjqly.com/public/wx_mini/images//del.png' class='img' bindtap='clearHistory'></image>
     <view class='tag'>
-      <block wx:for="{{place}}" wx:key="item.id">
-        <view class='place' data-id='{{item.id}}'>
-          <text>{{item.taglist}}</text>
-        </view>
+      <block wx:for="{{history}}" data-index='{{index}}'>
+        <text bindtap='routeToSearchResPage' data-text='{{item}}'>{{item}}</text>
       </block>
+      <!-- <view class='history'>暂无搜索记录</view> -->
     </view>
-  </view> -->
+  </view>
 </view>

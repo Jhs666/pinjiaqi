@@ -65,32 +65,45 @@ function goTop(e) {
   }
 }
 
-// function check_res_code(res) {
-//   if(res==0){
-//     return true;
-//   }else if(res==1){
-//     wx.showToast({
-//       title: '请求失败',
-//       icon: 'none',
-//       duration: 5000
-//     })
-//   }else if(res==-2){
-//     wx.showToast({
-//       title: '登陆过期',
-//       icon: 'none',
-//       duration: 5000
-//     })
-//   } else if (res == -1){
-//     wx.showToast({
-//       title: '后台异常',
-//       icon: 'none',
-//       duration: 5000
-//     })
-//   }
-// }
+function check_res_code(res, par_msg = false) {
+  if (res.code == 0) {
+    if (par_msg) {
+      wx.showModal({
+        title: '温馨提示',
+        content: res.msg,
+      })
+    }
+    return true;
+  } else if (res.code == 1) {
+    wx.showModal({
+      title: '温馨提示',
+      content: res.msg,
+    })
+    return true;
+  } else if (res.code == -2) {
+    wx.showModal({
+      title: '温馨提示',
+      content: res.msg,
+    })
+    //直接重新登陆,或让用户选择是否重新登陆
+    return true;
+  } else if (res.code == -1) {
+    wx.showModal({
+      title: '温馨提示',
+      content: res.msg,
+    })
+    return false;
+  }
+}
+function loading(){
+  wx.showLoading({
+    title: '加载中...',
+  })
+}
 module.exports = {
   creat_qrcode: creat_qrcode,
   onPageScroll: onPageScroll,
   goTop: goTop,
-  // check_res_code: check_res_code
+  check_res_code: check_res_code,
+  loading: loading
 }

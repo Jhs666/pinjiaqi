@@ -1,0 +1,12 @@
+<view class='center'>
+  <view class='cash'>
+    <image src='http://pjqly.com/public/wx_mini/images/show_money.png' class='img'></image>
+    <view class='commit'>
+      <view class='title'>余额</view>
+      <view class='price'>￥{{user.wallet.balance}}<text class='unit'>(元)</text></view>
+      <view class='btn' bindtap='record'>提现记录▶</view>
+      <view class='Recharge' bindtap='recharge' style='display:none'>充值</view>
+      <view class='confirm' bindtap='confirm'>提现</view>
+    </view>
+  </view>
+</view>

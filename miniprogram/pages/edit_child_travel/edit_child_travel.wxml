@@ -1,0 +1,40 @@
+<view class='center'>
+  <view class='list'>
+    <view class='top'>
+      <view class='li'>
+        <text>旅客姓名</text>
+        <input placeholder='请输入您的姓名' bindinput="nameInput" value='{{inform.realname}}'></input>
+      </view>
+      <view class='li'>
+        <text>性别</text>
+        <picker bindchange="bindsexChange" value="{{sex}}" range="{{sexindex}}">{{sexindex[sex]}}
+        </picker>
+        <image src='http://pjqly.com/public/wx_mini/images//ri.png'></image>
+      </view>
+      <view class='li' style='border-bottom:none;'>
+        <text>出生日期</text>
+        <picker bindchange="binddateChange" value="{{birthday}}" start="1900-01-01" end="2090-12-31" mode="date">{{birthday}}
+        </picker>
+        <image src='http://pjqly.com/public/wx_mini/images//ri.png'></image>
+      </view>
+    </view>
+    <!-- 第三块 -->
+    <view class='top' style='margin-bottom:26%'>
+      <view class='li'>
+        <text>与本人关系</text>
+        <picker bindchange="bindkehuChange" value="{{client_type}}" range="{{kehu}}">{{kehu[client_type]}}
+        </picker>
+        <image src='http://pjqly.com/public/wx_mini/images//ri.png'></image>
+      </view>
+      <view class='li' style='border-bottom:none;'>
+        <text>手机号码</text>
+        <input placeholder='请输入您的手机号码' bindinput="phoneInput" value='{{inform.phone}}'></input>
+      </view>
+    </view>
+  </view>
+  <!-- 保存按钮 -->
+  <view class='bottom' style='display:{{ddd}}'>
+    <view class='cancel' bindtap='delet'>删除</view>
+    <view class='continue' bindtap='save'>确定修改</view>
+  </view>
+</view>

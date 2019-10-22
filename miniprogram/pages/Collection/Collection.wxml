@@ -1,64 +1,62 @@
-<view class='center'>
-  <!-- tab切换 -->
+<view class="center">
   <view class='swiper-tab'>
     <view class='tab'>
-      <view class="{{selected?'active':'default'}} bbb" bindtap="selected">收藏</view>
-      <view class="{{selected1?'active':'default'}} bbb" bindtap="selected1">浏览历史</view>
+      <view class="{{selected?'active':'default'}} bbb" bindtap="selected" data-index='0'>商品收藏</view>
+      <view class="{{selected1?'active':'default'}} bbb" bindtap="selected1" data-index='1'>游记收藏</view>
     </view>
   </view>
-  <view class='clear'></view>
-  <!-- 内容展示 -->
   <view class="{{selected?'show':'hidden'}}">
-    <view class='list_show'>
-      <view class='li' wx:for="{{inform}}" wx:key="item.id">
-        <view class='inform' data-id='{{item.id}}'>
-          <view class='img'>
-            <image src='{{item.img}}'></image>
-            <view class='tag'>{{item.tag}}</view>
-            <view class='title'>{{item.tit}}</view>
-          </view>
-          <view class='con'>
-            <view class='desc'>{{item.desc}}</view>
-            <view class='num'>{{item.num}}</view>
-            <view class='qian'>{{item.qian}}</view>
-          </view>
+    <view class="touch-item {{item.isTouchMove ? 'touch-move-active' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{inform}}" wx:key="item.id" data-item_type='{{item.item_type}}' data-id='{{item.collect}}' data-item_seckill_id='{{item.item_seckill_id}}'
+      data-is_valid='{{item.info.is_valid}}' data-one_status='{{item.info.one_status}}' data-zero_status='{{item.info.zero_status}}' bindtap='product_show'>
+      <view class="content">
+        <view class='img'>
+          <image src='{{item.info.preview_img}}'></image>
+          <view class='title'>{{item.info.start_space}}</view>
+        </view>
+        <view class='con'>
+          <view class='desc'>{{item.info.title}}</view>
+          <view class='qian'>￥{{item.info.price}}起</view>
         </view>
       </view>
+      <view class="del" catchtap="del" data-index="{{index}}" data-id='{{item.id}}'>删除</view>
     </view>
-    <view class='clear'></view>
     <!-- 占位图 -->
-    <view class='kong' wx:if="{{inform==''}}">
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images/shoucang_null.png'></image>
+    <view class='kong' wx:if="{{inform == ''}}">
+      <image src='http://pjqly.com/public/wx_mini/images/shoucang_null.png'></image>
       <text>回禀小主，这里没有发现你的收藏记录~</text>
     </view>
   </view>
   <view class="{{selected1?'show':'hidden'}}">
-    <view class='list_show'>
-      <view class='history_list' wx:for="{{history}}" wx:key="index">
-        <view class='history'>
-          <view class='date'>{{index}}</view>
-          <view class='li' wx:for="{{item}}" wx:key="item.id">
-            <view class='item' data-id='{{item.id}}' bindtap='product_show'>
-              <view class='img'>
-                <image src='{{item.preview_img}}'></image>
-                <view class='tag'>{{item.type_list}}</view>
-                <view class='title'>{{item.start_space}}出发</view>
-              </view>
-              <view class='con'>
-                <view class='desc'>{{item.title}}</view>
-                <view class='num'>{{item.member_count}}</view>
-                <view class='qian'>￥{{item.price}}起</view>
-              </view>
-            </view>
+    <view class="activity" wx:for="{{article}}" wx:key="item.id">
+      <view class='li' data-id="{{item.id}}">
+        <view class='topbar'>
+          <view class='user_photo'>
+            <image src='{{item.info.face}}'></image>
           </view>
+          <view class='nick_name'>{{item.info.nickname}}</view>
+          <view class='delete' data-id="{{item.id}}" bindtap='delete'>
+            <image src='http://pjqly.com/public/wx_mini/images/del5.png'></image>
+          </view>
+        </view>
+        <view class='clear'></view>
+        <view class='imges'>
+          <image src='{{item.info.preview_img}}' mode='widthFix'></image>
+        </view>
+        <view class='titlees'>{{item.info.title}}</view>
+        <view class='bottom'>
+          <view class='date'>发表于：{{item.create_time}}</view>
+          <view class='more' data-id="{{item.info.id}}" bindtap='more'>查看详情→</view>
         </view>
       </view>
     </view>
-    <view class='clear'></view>
     <!-- 占位图 -->
-    <view class='kong' wx:if="{{history==''}}">
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images/history_null.png'></image>
-      <text>回禀小主，这里没有发现你的浏览历史~</text>
+    <view class='kong' wx:if="{{article == ''}}">
+      <image src='http://pjqly.com/public/wx_mini/images/shoucang_null.png'></image>
+      <text>回禀小主，这里没有发现你的收藏记录~</text>
     </view>
+  </view>
+  <!-- 返回顶部 -->
+  <view class='go_top' bindtap="goTop" hidden='{{!floorstatus}}'>
+    <image src='http://pjqly.com/public/wx_mini/images/goTop.png'></image>
   </view>
 </view>

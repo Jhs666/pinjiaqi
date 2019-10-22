@@ -4,9 +4,7 @@ const app = getApp()
 Page({
   data: {
     //1. 轮播图片数据
-    imgUrls: [{
-      src: '',
-    }],
+    imgUrls: [{}],
     //2. 轮播配置
     indicatorDots: true,
     autoplay: true,
@@ -14,392 +12,325 @@ Page({
     duration: 600,
     indicatorColor: 'rgba(255,255,255,0.4)',
     indicatorActiveColor: '#fff',
+    imgheights: 0, //轮播高度
     avatarUrl: './user-unlogin.png',
     userInfo: {},
     logged: false,
     takeSession: false,
     requestResult: '',
-    type: [{
-      id: '',
-      img_show: '',
-      name: ''
-    }, ],
     pageNum: 2,
     //广告位图
     advert: [{
       src: '',
       link: ''
     }],
-    index_list_hot: [{
-      page_id: 1,
-      id: 100,
-      price: '',
-      preview_img: '',
-      title: '',
-      name: '天安门'
-    }],
-    test: app.globalData.requestUrl,
+    index_list_hot: [{}], //大家都在玩
+    hot_list:[{}],//首页列表
+    bgColor: 'rgba(0,0,0,0)',
+    color: 'rgba(0,0,0,0)',
+    statusBarHeight: '',
+    position: '3%',
+    //分类
+    sort:'',
+    //城市
+    city:'定位中...',
+    isPopping: false,//是否已经弹出
+    animationPlus: {},//旋转动画
+    animationcollect: {},//item位移,透明度
+    animationTranspond: {},//item位移,透明度
+    animationInput: {},//item位移,透明度
+    user: [{}],//用户信息
   },
   onLoad: function(options) {
-    // this.ccc = 1;
-    if (options.scene) {
-      var scene = decodeURIComponent(options.scene)
-      wx.request({
-        url: app.data.requestUrl + '/user/set_parent',
-        data: {
-          token: getApp().globalData.user.token, //登陆时返回的user表字段中parent_id:
-          parent_id: scene
-        },
-        method: 'POST',
-        success: function(data) {
-          console.log(data)
-        },
-        error: function(data) {
-          console.log(data)
-        }
-      })
-    } else {
-      var scene = ''
-    }
-    // var text = '+' + scene + '+'
-    // wx.showToast({
-    //   title: text,
-    //   icon: 'success',
-    //   duration: 5000
-    // })
+    var that = this
+    app.onLoad()
     // 调用下拉刷新
-    this.initialize(scene);
-  },
-  tab_list: function(e) {
-    // console.log(e.currentTarget.dataset.id)
-    var a = e.currentTarget.dataset.id;
-    var b = e.currentTarget.dataset.index;
-    if (a == 49) {
-      // wx.navigateTo({
-      //   url: '../dingzhiyou/dingzhiyou',
-      // })
-      wx.showToast({
-        title: '努力开发中，敬请期待~',
-        icon: 'none',
-        duration: 2000
-      })
-    } else {
-      wx.navigateTo({
-        url: '../recommend/recommend?id=' + a + '&index=' + b,
-      })
-    }
-  },
-  // 提示
-  tishi:function(){
-    wx.showToast({
-      title: '努力开发中，敬请期待~',
-      icon: 'none',
-      duration: 2000
+    that.onPullDownRefresh();
+    //自动获取当前位置
+    wx.getLocation({
+      type: 'wgs84',
+      success(res) {
+        var latitude = res.latitude //纬度
+        var longitude = res.longitude //经度
+        var speed = res.speed //速度
+        var accuracy = res.accuracy //位置的精确度
+        wx.showLoading({
+          title: '定位中...',
+        })
+        wx.request({
+          url: app.data.requestUrl + '/tool/location',
+          data: {
+            latitude: longitude,
+            longitude: latitude
+          },
+          method: "post",
+          success: function (data) {
+            // console.log(data)
+            that.setData({
+              city:data.data.msg
+            })
+            wx.setStorageSync('city_show', that.data.city)
+            wx.hideLoading()
+          },
+          error: function (data) {
+            console.log(data)
+          }
+        })
+      }
+    })
+    //获取设备状态栏高度
+    wx.getSystemInfo({
+      success(res) {
+        that.setData({
+          statusBarHeight: res.statusBarHeight
+        })
+      }
+    })
+    //首页所有商品列表
+    wx.request({
+      url: app.data.requestUrl + '/item2/get_list',
+      data: {
+        page_id: 1,
+        call_type:1
+      },
+      method: 'POST',
+      success: function (data) {
+        // console.log(data)
+        that.setData({
+          hot_list: data.data.data,
+        })
+      },
+      error: function (data) {
+        console.log(data)
+      }
     })
   },
   // 上拉加载
   onReachBottom: function() {
     var that = this;
-    wx.showLoading({
-      title: '加载中',
-      duration: 2000
-    }, 2000)
+    common.loading()
     wx.request({
-      url: app.data.requestUrl + '/item/item_list',
+      url: app.data.requestUrl + '/item2/get_list',
       data: {
-        token: getApp().globalData.user.token, //登陆时返回的user表字段中
         page_id: that.data.pageNum++,
-        type: 100
+        call_type: 1
       },
       method: "post",
       success: function(data) {
+        // console.log(data)
         that.setData({
-          index_list_hot: that.data.index_list_hot.concat(data.data.data)
+          hot_list: that.data.hot_list.concat(data.data.data)
         })
-        // console.log(data.data.data)
         if (data.data.data == '') {
           wx.showToast({
             title: '没有更多了',
             icon: 'none',
-            duration: 2000
+            duration: 3000
           })
         }
         // 隐藏加载框
-        setTimeout(function() {
-          wx.hideLoading()
-        }, 2000)
+        wx.hideLoading()
       },
       error: function(data) {
         console.log(data)
       }
     })
   },
-  // 下拉刷新函数
   initialize: function(e) {
-    // console.log(e)
-    app.onLoad();
+    wx.showNavigationBarLoading();
     var that = this
-    wx.request({
-      url: app.data.requestUrl + '/item/item_type',
-      data: {
-        token: getApp().globalData.user.token, //登陆时返回的user表字段中
-      },
-      method: 'POST',
-      success: function(data) {
-        if (data.data.msg == "登陆过期") {
-          wx.login({
-            success(res) {
-              if (res.code) {
-                // 发起网络请求
-                wx.request({
-                  url: app.data.requestUrl + '/login/miniprogramlogin',
-                  data: {
-                    js_code: res.code,
-                    parend_id: e,
-                  },
-                  method: 'POST',
-                  header: {
-                    'content-type': 'application/x-www-form-urlencoded'
-                  },
-                  success: function(data) {
-                    // 重新定义全局token
-                    app.globalData.user = data.data.data;
-                    var user_token = data.data.data.token;
-                    wx.request({
-                      url: app.data.requestUrl + '/item/item_type',
-                      data: {
-                        token: user_token, //登陆时返回的user表字段中
-                      },
-                      method: 'POST',
-                      success: function(data) {
-                        // console.log(data);
-                        that.setData({
-                          type: data.data.data
-                        })
-                      }
-                    })
-                  },
-                  error: function(data) {
-                    console.log(data)
-                  }
-                })
-              } else {
-                console.log('获取用户登录态失败！' + res.errMsg)
-              }
-            }
-          })
-        }
-      },
-      error: function(data) {
-        console.log(data)
-      }
-    })
-    wx.request({
-      url: app.data.requestUrl + '/item/item_list',
-      data: {
-        token: getApp().globalData.user.token, //登陆时返回的user表字段中
-        page_id: 1,
-        type: 100,
-        // lable: ''
-      },
-      method: 'POST',
-      success: function(data) {
-        if (data.data.msg == "登陆过期") {
-          wx.login({
-            success(res) {
-              if (res.code) {
-                // 发起网络请求
-                wx.request({
-                  url: app.data.requestUrl + '/login/miniprogramlogin',
-                  data: {
-                    js_code: res.code,
-                  },
-                  method: 'POST',
-                  header: {
-                    'content-type': 'application/x-www-form-urlencoded'
-                  },
-                  success: function(data) {
-                    // 重新定义全局token
-                    app.globalData.user = data.data.data;
-                    var user_token = data.data.data.token;
-                    wx.request({
-                      url: app.data.requestUrl + '/item/item_list',
-                      data: {
-                        token: getApp().globalData.user.token, //登陆时返回的user表字段中
-                        page_id: 1,
-                        type: 100
-                      },
-                      method: 'POST',
-                      success: function(data) {
-                        // console.log(data)
-                        that.setData({
-                          index_list_hot: data.data.data
-                        })
-                      }
-                    })
-                  },
-                  error: function(data) {
-                    console.log(data)
-                  }
-                })
-              } else {
-                console.log('获取用户登录态失败！' + res.errMsg)
-              }
-            }
-          })
-        } else {
-          that.setData({
-            left_list: data.data.data
-          })
-        }
-      },
-      error: function(data) {
-        console.log(data)
-      }
-    })
+    common.loading()
     // 轮播图
     wx.request({
       url: app.data.requestUrl + '/minibanner/get_list',
-      data: {
-        token: getApp().globalData.user.token, //登陆时返回的user表字段中
-      },
+      data: '',
       method: 'POST',
-      success: function(data) {
-        if (data.data.msg == "登陆过期") {
-          wx.login({
-            success(res) {
-              if (res.code) {
-                // 发起网络请求
-                wx.request({
-                  url: app.data.requestUrl + '/login/miniprogramlogin',
-                  data: {
-                    js_code: res.code,
-                  },
-                  method: 'POST',
-                  header: {
-                    'content-type': 'application/x-www-form-urlencoded'
-                  },
-                  success: function(data) {
-                    // console.log(data)
-                    // 重新定义全局token
-                    app.globalData.user = data.data.data;
-                    var user_token = data.data.data.token;
-                    wx.request({
-                      url: app.data.requestUrl + '/minibanner/get_list',
-                      data: {
-                        token: getApp().globalData.user.token, //登陆时返回的user表字段中
-                      },
-                      method: 'POST',
-                      success: function(data) {
-                        // console.log(data)
-                        that.setData({
-                          imgUrls: data.data.data
-                        })
-                      }
-                    })
-                  },
-                  error: function(data) {
-                    console.log(data)
-                  }
-                })
-              } else {
-                console.log('获取用户登录态失败！' + res.errMsg)
-              }
-            }
-          })
-        } else {
-          that.setData({
-            imgUrls: data.data.data
-          })
-        }
+      success: function (data) {
+        that.setData({
+          imgUrls: data.data.data
+        })
+        wx.hideNavigationBarLoading();
+        // 停止下拉动作
+        wx.stopPullDownRefresh();
       },
-      error: function(data) {
+      error: function (data) {
+        console.log(data)
+      }
+    })
+    //首页分类
+    wx.request({
+      url: app.data.requestUrl + '/tool/classify',
+      data: '',
+      method: 'POST',
+      success: function (data) {
+        that.setData({
+          sort:data.data.data
+        })
+        wx.hideNavigationBarLoading();
+        // 停止下拉动作
+        wx.stopPullDownRefresh();
+      },
+      error: function (data) {
         console.log(data)
       }
     })
     // 广告位图
     wx.request({
       url: app.data.requestUrl + '/miniad/get_list',
+      data: '',
+      method: 'POST',
+      success: function (data) {
+        that.setData({
+          advert: data.data.data
+        })
+        wx.hideNavigationBarLoading();
+        // 停止下拉动作
+        wx.stopPullDownRefresh();
+      },
+      error: function (data) {
+        console.log(data)
+      }
+    })
+    //大家都在玩调0元的列表
+    wx.request({
+      url: app.data.requestUrl + '/item2/get_list',
       data: {
-        token: getApp().globalData.user.token, //登陆时返回的user表字段中
+        page_id: 1,
+        call_type: 3
       },
       method: 'POST',
       success: function(data) {
-        if (data.data.msg == "登陆过期") {
-          wx.login({
-            success(res) {
-              if (res.code) {
-                // 发起网络请求
-                wx.request({
-                  url: app.data.requestUrl + '/login/miniprogramlogin',
-                  data: {
-                    js_code: res.code,
-                  },
-                  method: 'POST',
-                  header: {
-                    'content-type': 'application/x-www-form-urlencoded'
-                  },
-                  success: function(data) {
-                    // console.log(data)
-                    // 重新定义全局token
-                    app.globalData.user = data.data.data;
-                    var user_token = data.data.data.token;
-                    wx.request({
-                      url: app.data.requestUrl + '/miniad/get_list',
-                      data: {
-                        token: getApp().globalData.user.token, //登陆时返回的user表字段中
-                      },
-                      method: 'POST',
-                      success: function(data) {
-                        // console.log(data)
-                        that.setData({
-                          advert: data.data.data
-                        })
-                      }
-                    })
-                  },
-                  error: function(data) {
-                    console.log(data)
-                  }
-                })
-              } else {
-                console.log('获取用户登录态失败！' + res.errMsg)
-              }
-            }
-          })
-        } else {
-          that.setData({
-            advert: data.data.data
-          })
-        }
+        that.setData({
+          index_list_hot: data.data.data
+        })
+        wx.hideNavigationBarLoading();
+        // 停止下拉动作
+        wx.stopPullDownRefresh();
+        wx.hideLoading()
       },
       error: function(data) {
         console.log(data)
       }
     })
   },
+  // 点击轮播图下分类的跳转
+  tab_list: function (e) {
+    var sort_id = e.currentTarget.dataset.id; //id
+    if (sort_id == 1){//跳至零元列表
+      wx.switchTab({
+        url: '../tuijian_two/tuijian_two',
+      })
+    } else if (sort_id == 2) {//跳至商品列表
+      wx.navigateTo({
+        url: '../recommend/recommend',
+      })
+    } else if (sort_id == 3) {//跳至限时抢购列表
+      wx.navigateTo({
+        url: '../Flash_sale/Flash_sale',
+      })
+    } else if (sort_id == 4) {//跳至活动专区列表
+      wx.navigateTo({
+        url: '../activity_list/activity_list',
+      })
+    }
+  },
+  //零元砍价
+  zero: function () {
+    wx.switchTab({
+      url: '../tuijian_two/tuijian_two',
+    })
+  },
+  //低价拼团
+  piece: function () {
+    wx.navigateTo({
+      url: '../recommend/recommend',
+    })
+  },
+  //限时抢购
+  time: function () {
+    wx.navigateTo({
+      url: '../Flash_sale/Flash_sale',
+    })
+  },
+  //活动专区
+  link: function () {
+    wx.navigateTo({
+      url: '../activity_list/activity_list',
+    })
+  },
+  // 点击首页地名跳转至更多城市页面
+  more_city: function () {
+    wx.navigateTo({
+      url: '../more_city/more_city',
+    })
+  },
+  // 大家都在玩进入详情页
   product_show: function(options) {
     var dataset = options.currentTarget.dataset;
     wx.navigateTo({
-      url: '../goods_show/goods_show?id=' +
+      url: '../zero_goods_show/zero_goods_show?id=' +
         dataset.id + '&title=' + dataset.title,
     })
   },
+  // 列表进入详情页
+  show_details: function (options) {
+    var dataset = options.currentTarget.dataset;
+    wx.navigateTo({
+      url: '../goods_show/goods_show?id=' + dataset.id.id +
+        '&title=' + dataset.id.title +
+        '&type_list=' + dataset.id.type_list +
+        '&start_space=' + dataset.id.start_space +
+        '&preview_img=' + dataset.id.preview_img,
+    })
+  },
+  //更多
+  index_hot_more(){
+    wx.navigateTo({
+      url: '../recommend/recommend',
+    })
+  },  
   // 点击搜索进入搜索页面
-  search_input: function (e) {
+  search_input: function(e) {
     wx.navigateTo({
       url: '../city/city'
     })
-    // wx.showToast({
-    //   title: '努力开发中，敬请期待~',
-    //   icon: 'none',
-    //   duration: 2000
-    // })
+  },
+  // 轮播图片高度自适应
+  imgHeight: function(e) {
+    var imgheight = e.detail.height;
+    this.setData({
+      imgheights: imgheight
+    })
   },
   // 获取滚动条位置
   onPageScroll: function(e) {
     var that = this;
     common.onPageScroll(e, that)
+    if (e.scrollTop > 0) {
+      that.setData({
+        bgColor: '#06b3ed',
+        color: '#fff'
+      })
+    } else {
+      that.setData({
+        bgColor: 'rgba(0,0,0,0)',
+        color: 'rgba(0,0,0,0)'
+      })
+    }
+    wx.getSystemInfo({
+      success: function (res) {
+        // console.log(res.windowHeight)
+      }
+    })
+    if (e.scrollTop > 0) {
+      that.setData({
+        position: '-8%'
+      });
+    } else {
+      that.setData({
+        position: '3%'
+      });
+    }
   },
   //回到顶部
   goTop: function(e) {
@@ -409,7 +340,108 @@ Page({
   onPullDownRefresh: function() {
     this.initialize();
   },
+  // 更多
+  index_more: function() {
+    wx.switchTab({
+      url: '../tuijian_two/tuijian_two',
+    })
+  },
+  // 消息中心
+  message: function() {
+    wx.navigateTo({
+      url: '../message/message',
+    })
+  },
+  //点击弹出
+  plus: function () {
+    if (this.data.isPopping) {
+      //缩回动画
+      popp.call(this);
+      this.setData({
+        isPopping: false
+      })
+    } else {
+      //弹出动画
+      takeback.call(this);
+      this.setData({
+        isPopping: true
+      })
+    }
+  },
+  //点击推广
+  input: function () {
+    wx.navigateTo({
+      url: '../my_fenxiao/my_fenxiao',
+    })
+  },
+  //点击定制
+  transpond: function () {
+    wx.navigateTo({
+      url: '../dingzhiyou/dingzhiyou',
+    })
+  },
   onShareAppMessage: function() {
 
   }
 })
+
+//弹出动画
+function popp() {
+  //plus顺时针旋转
+  var animationPlus = wx.createAnimation({
+    duration: 500,
+    timingFunction: 'ease-out'
+  })
+  var animationcollect = wx.createAnimation({
+    duration: 500,
+    timingFunction: 'ease-out'
+  })
+  var animationTranspond = wx.createAnimation({
+    duration: 500,
+    timingFunction: 'ease-out'
+  })
+  var animationInput = wx.createAnimation({
+    duration: 500,
+    timingFunction: 'ease-out'
+  })
+  animationPlus.rotateZ(225).step();
+  animationcollect.translate(-60, -80).rotateZ(360).opacity(1).step();
+  animationTranspond.translate(-120, 0).rotateZ(360).opacity(1).step();
+  animationInput.translate(-60, 80).rotateZ(360).opacity(1).step();
+  this.setData({
+    animationPlus: animationPlus.export(),
+    animationcollect: animationcollect.export(),
+    animationTranspond: animationTranspond.export(),
+    animationInput: animationInput.export(),
+  })
+}
+//收回动画
+function takeback() {
+  //plus逆时针旋转
+  var animationPlus = wx.createAnimation({
+    duration: 500,
+    timingFunction: 'ease-out'
+  })
+  var animationcollect = wx.createAnimation({
+    duration: 500,
+    timingFunction: 'ease-out'
+  })
+  var animationTranspond = wx.createAnimation({
+    duration: 500,
+    timingFunction: 'ease-out'
+  })
+  var animationInput = wx.createAnimation({
+    duration: 500,
+    timingFunction: 'ease-out'
+  })
+  animationPlus.rotateZ(0).step();
+  animationcollect.translate(0, 0).rotateZ(0).opacity(0).step();
+  animationTranspond.translate(0, 0).rotateZ(0).opacity(0).step();
+  animationInput.translate(0, 0).rotateZ(0).opacity(0).step();
+  this.setData({
+    animationPlus: animationPlus.export(),
+    animationcollect: animationcollect.export(),
+    animationTranspond: animationTranspond.export(),
+    animationInput: animationInput.export(),
+  })
+}

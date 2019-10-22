@@ -1,0 +1,78 @@
+<view class='center'>
+  <!-- 搜索 -->
+  <view class='search'>
+    <view class='left'>
+      <image src='http://pjqly.com/public/wx_mini/images//sousuo.png'></image>
+      <input placeholder='请输入手机号进行搜索' bindinput='get_title' bindconfirm="search_btn"></input>
+      <view class='search_btn' bindtap='search_btn'>搜索</view>
+    </view>
+    <text bindtap='back'>取消</text>
+  </view>
+  <view class='body'>
+    <!-- 背景图 -->
+    <image src='http://pjqly.com/public/wx_mini/images/jiangquan.png' mode='widthFix' class='img_bg'></image>
+    <!-- 三块连接 -->
+    <view class='box'>
+      <!-- 商品 -->
+      <view class='all_order'>
+        <view class='wallet_li'>
+          <view class='img_title'>
+            <view class='left_img'>
+              <image src='{{all_order.preview_img}}'></image>
+            </view>
+            <view class='title'>
+              <view class='tit'>{{all_order.title}}</view>
+              <text class='price'>￥{{all_order.price}}</text>
+            </view>
+          </view>
+          <view class='clear'></view>
+          <view class='frame'>
+            <image src='http://pjqly.com/public/wx_mini/images/tag_bg.png' class="tag_bg"></image>
+            <view class='left_show'>
+              <text class='date'>预定日期：{{all_order.create_time}}</text>
+              <text class='order_number'>订单号：{{all_order.orderform_sn}}</text>
+            </view>
+            <view class='right_show'>
+              <text class='status'>{{all_order.one_shop_status_name}}</text>
+            </view>
+          </view>
+        </view>
+        <view class='lianjie'>
+          <image src='http://pjqly.com/public/wx_mini/images/lianjie.png' class='lianjie_img'></image>
+        </view>
+        <view class='lianjie'>
+          <image src='http://pjqly.com/public/wx_mini/images/lianjie.png' class='lianjie_img2'></image>
+        </view>
+      </view>
+      <view class='clear'></view>
+      <!-- 中奖号码 -->
+      <view class='zhongjian'>
+        <view class='Winning_num'>
+          <view class='num_title'>中奖号码</view>
+          <view class='num_con'>
+            <view class='result_num'>{{all_order.ticket}}</view>
+          </view>
+        </view>
+        <view class='lianjie'>
+          <image src='http://pjqly.com/public/wx_mini/images/lianjie.png' class='lianjie_img'></image>
+        </view>
+        <view class='lianjie'>
+          <image src='http://pjqly.com/public/wx_mini/images/lianjie.png' class='lianjie_img2'></image>
+        </view>
+      </view>
+      <view class='clear'></view>
+      <!-- 号码滚动 -->
+      <view class='all_result'>
+        <view class='line'>
+          <swiper vertical="true" autoplay="true" circular="true" interval="2000" display-multiple-items='4' class='roll'>
+            <block wx:for="{{ticket_list}}"  wx:key="item.id">
+              <swiper-item>
+                <view class='num_list'>{{item}}</view>
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,72 @@
+.center{
+  padding-top: 3%;
+}
+.cash{
+  width: 94%;
+  height: 515px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+.cash .img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin:0 auto;
+}
+.title{
+  color: #fff;
+  font-size:64rpx;
+  text-align: center; 
+}
+.price{
+  color: #fff;
+  font-size: 80rpx;
+  text-align: center;
+  margin-top: 8%;
+}
+.unit{
+  font-size: 48rpx;
+  margin-left: 2%;
+}
+.Recharge{
+  width: 60%;
+  height: 76rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 76rpx;
+  font-size: 32rpx;
+  border:2rpx solid #fff;
+  border-radius: 40rpx;
+  position: absolute;
+  bottom: 18%;
+  left: 20%;
+}
+.confirm{
+  width: 60%;
+  height: 76rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 76rpx;
+  font-size: 32rpx;
+  border:2rpx solid #fff;
+  border-radius: 40rpx;
+  position: absolute;
+  bottom: 6%;
+  left: 20%;
+}
+.commit{
+  width: 100%;
+  height: 75%;
+  position: absolute;
+  top: 0;
+  padding: 16% 0 10%;
+  z-index: 99;
+}
+.btn{
+  color:#fff;
+  font-size: 28rpx;
+  float: right;
+  margin-right: 5%;
+  margin-top: 12%;
+}

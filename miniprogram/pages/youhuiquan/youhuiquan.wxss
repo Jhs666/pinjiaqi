@@ -32,7 +32,7 @@
   border-bottom: 6rpx solid #06b3ed;
 }
 .youhui {
-  width: 94%;
+  width: 96%;
   overflow: hidden;
   position: absolute;
   z-index: 99;
@@ -41,8 +41,9 @@
 }
 .quan {
   position: relative;
-  width: 100%;
+  width: 96%;
   height: 230rpx;
+  margin:0 auto;
 }
 .quan image {
   width: 100%;
@@ -52,7 +53,7 @@
 .youhui .content {
   width: 72%;
   overflow: hidden;
-  padding: 6% 14% 3.5%;
+  padding: 10% 14% 3.5%;
 }
 .youhui .content .left {
   float: left;
@@ -76,7 +77,7 @@
 .youhui .content .right rich-text {
   font-size: 20rpx;
   color: #bbb;
-  line-height: 40rpx;
+  /* line-height: 40rpx; */
 }
 .youhui .content .right {
   float: right;
@@ -92,10 +93,28 @@
   color: #bbb;
   font-size: 20rpx;
   line-height: 60rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; 
+}
+.status_name{
+  width: 140rpx;
+  height: 46rpx;
+  background: #ffc802;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 46rpx;
+  position: absolute;
+  top: 18rpx;
+  right: 5rpx;
 }
 /* 过期优惠券 */
 .old {
-  width: 94%;
+  width: 96%;
   overflow: hidden;
   position: absolute;
   left: 3%;
@@ -104,8 +123,9 @@
 }
 .guoqi {
   position: relative;
-  width: 100%;
+  width: 96%;
   height: 230rpx;
+  margin: 0 auto;
 }
 .guoqi image {
   width: 100%;
@@ -134,12 +154,11 @@
 .old .content .right text {
   color: #999;
   font-size: 36rpx;
-  line-height: 50rpx;
+  line-height: 66rpx;
 }
 .old .content .right rich-text {
   font-size: 20rpx;
   color: #bbb;
-  line-height: 40rpx;
 }
 .old .content .right {
   float: right;
@@ -194,4 +213,16 @@
   color: #bbb;
   font-size: 20rpx;
   line-height: 28rpx;
+}
+.status_name_end{
+  width: 140rpx;
+  height: 46rpx;
+  background: #999;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 46rpx;
+  position: absolute;
+  top: 18rpx;
+  right: 5rpx;
 }

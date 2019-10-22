@@ -2,11 +2,11 @@
   <!-- tab按钮 -->
   <view class='swiper-tab'>
     <view class='tab'>
-      <view class="{{selected?'active':'default'}} bbb" bindtap="selected">全部</view>
-      <view class="{{selected1?'active':'default'}} bbb" bindtap="selected1">待出行</view>
-      <view class="{{selected2?'active':'default'}} bbb" bindtap="selected2">待付款</view>
-      <view class="{{selected3?'active':'default'}} bbb" bindtap="selected3">待点评</view>
-      <view class="{{selected4?'active':'default'}} bbb" bindtap="selected4">退款/售后</view>
+      <view class="{{selected?'active':'default'}} bbb" bindtap="selected" data-index='0'>全部</view>
+      <view class="{{selected1?'active':'default'}} bbb" bindtap="selected1" data-index='1'>待出行</view>
+      <view class="{{selected2?'active':'default'}} bbb" bindtap="selected2" data-index='2'>待付款</view>
+      <view class="{{selected3?'active':'default'}} bbb" bindtap="selected3" data-index='3'>待点评</view>
+      <view class="{{selected4?'active':'default'}} bbb" bindtap="selected4" data-index='4'>退款/售后</view>
     </view>
   </view>
   <view class='clear'></view>
@@ -15,7 +15,8 @@
       <view class='all_order' data-id='{{item.id}}'>
         <view class='wrapper1'>
           <view class='beijing'>
-            <image src='http://pin.lanhaihui.net/public/wx_mini/images/yi.png' class='bg'></image>
+            <image src='http://pjqly.com/public/wx_mini/images/yi.png' class='bg' wx:if='{{item.order_pay_status == 2}}'></image>
+            <image src='http://pjqly.com/public/wx_mini/images/dai_h.png' class='bg' wx:if='{{item.order_pay_status == 1}}'></image>
           </view>
           <view class='content'>
             <view class='title1'>{{item.item_title}}</view>
@@ -24,17 +25,18 @@
           </view>
           <view class='tip'>
             <view class='label1'>
-              <text class='result1'>{{item.order_pay_status_name}}</text>
+              <text class='result1'>{{item.pay_status_name}}</text>
             </view>
-            <view class='money1'>￥{{item.item_price}}</view>
-            <view class='btn1' data-suixiuha='{{item.item_id}}' data-sew='{{item.buy_type}}' bindtap='look_order'>查看</view>
+            <view class='money1'>￥{{item.item_price_sum}}</view>
+            <view class='btn1' data-suixiuha='{{item.id}}' data-sew='{{item.buy_type}}' data-laoda='{{item.zero_id}}' data-qikeyiyas='{{item.one_shop_id}}' bindtap='look_order' data-look='{{item.team_id}}' wx:if='{{item.order_pay_status == 2}}'>查看</view>
+            <view class='btn2' data-suixiuha='{{item.id}}' data-sew='{{item.buy_type}}' data-laoda='{{item.zero_id}}' data-qikeyiyas='{{item.one_shop_id}}' bindtap='look_order' data-look='{{item.team_id}}' wx:if='{{item.order_pay_status == 1}}'>查看</view>
           </view>
         </view>
       </view>
     </block>
     <!-- 全部订单为空时的占位图 -->
     <view class='kong' wx:if="{{all_order==''}}">
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//kong.png'></image>
+      <image src='http://pjqly.com/public/wx_mini/images/kong.png'></image>
       <text>回禀小主，这里没有发现你的订单~</text>
     </view>
   </view>
@@ -44,7 +46,7 @@
       <view class='wait_trip' data-id='{{item.id}}'>
         <view class='wrapper1'>
           <view class='beijing'>
-            <image src='http://pin.lanhaihui.net/public/wx_mini/images/yi.png' class='bg'></image>
+            <image src='http://pjqly.com/public/wx_mini/images/yi.png' class='bg'></image>
           </view>
           <view class='content'>
             <view class='title1'>{{item.item_title}}</view>
@@ -53,17 +55,17 @@
           </view>
           <view class='tip'>
             <view class='label1'>
-              <text class='result1'>{{item.order_pay_status_name}}</text>
+              <text class='result1'>{{item.trip_status_name}}</text>
             </view>
-            <view class='money1'>￥{{item.item_price}}</view>
-            <view class='btn1' data-suixiuha='{{item.item_id}}' data-sew='{{item.buy_type}}' bindtap='look_order'>查看</view>
+            <view class='money1'>￥{{item.item_price_sum}}</view>
+            <view class='btn1' data-suixiuha='{{item.id}}' data-sew='{{item.buy_type}}' data-laoda='{{item.zero_id}}' data-qikeyiyas='{{item.one_shop_id}}' bindtap='look_order' data-look='{{item.team_id}}'>查看</view>
           </view>
         </view>
       </view>
     </block>
     <!-- 待出行订单为空时的占位图 -->
     <view class='kong' wx:if="{{wait_trip==''}}">
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//kong.png'></image>
+      <image src='http://pjqly.com/public/wx_mini/images/kong.png'></image>
       <text>回禀小主，这里没有发现你的待出行订单~</text>
     </view>
   </view>
@@ -73,7 +75,7 @@
       <view class='wait_payment' data-id='{{item.id}}'>
         <view class='wrapper1'>
           <view class='beijing'>
-            <image src='http://pin.lanhaihui.net/public/wx_mini/images/yi.png' class='bg'></image>
+            <image src='http://pjqly.com/public/wx_mini/images/dai_h.png' class='bg'></image>
           </view>
           <view class='content'>
             <view class='title1'>{{item.item_title}}</view>
@@ -82,17 +84,17 @@
           </view>
           <view class='tip'>
             <view class='label1'>
-              <text class='result1'>{{item.order_pay_status_name}}</text>
+              <text class='result1'>{{item.pay_status_name}}</text>
             </view>
-            <view class='money1'>￥{{item.item_price}}</view>
-            <view class='btn1' data-suixiuha='{{item.item_id}}' data-sew='{{item.buy_type}}' bindtap='look_order'>查看</view>
+            <view class='money1'>￥{{item.item_price_sum}}</view>
+            <view class='btn1 btn2' data-suixiuha='{{item.id}}' data-sew='{{item.buy_type}}' data-laoda='{{item.zero_id}}' data-qikeyiyas='{{item.one_shop_id}}' bindtap='look_order' data-look='{{item.team_id}}'>查看</view>
           </view>
         </view>
       </view>
     </block>
     <!-- 待支付订单为空时的占位图 -->
     <view class='kong' wx:if="{{wait_payment==''}}">
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//kong.png'></image>
+      <image src='http://pjqly.com/public/wx_mini/images/kong.png'></image>
       <text>回禀小主，这里没有发现你的待付款订单~</text>
     </view>
   </view>
@@ -102,7 +104,7 @@
       <view class='wait_Comment' data-id='{{item.id}}'>
         <view class='wrapper1'>
           <view class='beijing'>
-            <image src='http://pin.lanhaihui.net/public/wx_mini/images/yi.png' class='bg'></image>
+            <image src='http://pjqly.com/public/wx_mini/images/yi.png' class='bg'></image>
           </view>
           <view class='content'>
             <view class='title1'>{{item.item_title}}</view>
@@ -111,17 +113,17 @@
           </view>
           <view class='tip'>
             <view class='label1'>
-              <text class='result1'>{{item.order_pay_status_name}}</text>
+              <text class='result1'>{{item.grade_status_name}}</text>
             </view>
-            <view class='money1'>￥{{item.item_price}}</view>
-            <view class='btn1' data-suixiuha='{{item.item_id}}' data-sew='{{item.buy_type}}' bindtap='look_order'>查看</view>
+            <view class='money1'>￥{{item.item_price_sum}}</view>
+            <view class='btn1' data-suixiuha='{{item.id}}' data-sew='{{item.buy_type}}' data-laoda='{{item.zero_id}}' data-qikeyiyas='{{item.one_shop_id}}' data-preview_img='{{item.preview_img}}' data-item_id='{{item.item_id}}' bindtap='evaluate' data-look='{{item.team_id}}'>去评价</view>
           </view>
         </view>
       </view>
     </block>
     <!-- 待点评订单为空时的占位图 -->
     <view class='kong' wx:if="{{wait_Comment==''}}">
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//kong.png'></image>
+      <image src='http://pjqly.com/public/wx_mini/images/kong.png'></image>
       <text>回禀小主，这里没有发现你的待点评订单~</text>
     </view>
   </view>
@@ -131,7 +133,7 @@
       <view class='refund' data-id='{{item.id}}'>
         <view class='wrapper1'>
           <view class='beijing'>
-            <image src='http://pin.lanhaihui.net/public/wx_mini/images/yi.png' class='bg'></image>
+            <image src='http://pjqly.com/public/wx_mini/images/yi.png' class='bg'></image>
           </view>
           <view class='content'>
             <view class='title1'>{{item.item_title}}</view>
@@ -140,19 +142,23 @@
           </view>
           <view class='tip'>
             <view class='label1'>
-              <text class='result1'>{{item.order_pay_status_name}}</text>
+              <text class='result1'>{{item.refund_status_name}}</text>
             </view>
-            <view class='money1'>￥{{item.item_price}}</view>
-            <view class='btn1' data-suixiuha='{{item.item_id}}' data-sew='{{item.buy_type}}' bindtap='look_order'>查看</view>
+            <view class='money1'>￥{{item.item_price_sum}}</view>
+            <view class='btn1' data-suixiuha='{{item.id}}' data-laoda='{{item.zero_id}}' data-qikeyiyas='{{item.one_shop_id}}' data-sew='{{item.buy_type}}' data-look='{{item.team_id}}' bindtap='refund_info'>查看</view>
           </view>
         </view>
       </view>
     </block>
     <!-- 退款为空时的占位图 -->
     <view class='kong' wx:if="{{refund==''}}">
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//kong.png'></image>
+      <image src='http://pjqly.com/public/wx_mini/images/kong.png'></image>
       <text>回禀小主，这里没有发现你的退款订单~</text>
     </view>
   </view>
   <view class='clear'></view>
+  <!-- 返回顶部 -->
+  <view class='go_top' bindtap="goTop" hidden='{{!floorstatus}}'>
+    <image src='http://pjqly.com/public/wx_mini/images/goTop.png'></image>
+  </view>
 </view>

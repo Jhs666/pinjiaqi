@@ -1,0 +1,14 @@
+<view class='center'>
+  <view class='cash'>
+    <image src='http://pjqly.com/public/wx_mini/images/cash_success.png' class='img'></image>
+    <view class='commit'>
+      <view class='logo'>
+        <image src='http://pjqly.com/public/wx_mini/images/dui.png'></image>
+      </view>
+      <view class='text'>
+        提现申请成功，系统将在7个工作日内处理您的提现申请，给您造成的不便敬请谅解，为保障您的账户安全，请保持通话顺畅。
+      </view>
+      <view class='confirm' bindtap='cash_success'>确定</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,152 @@
+.center{
+  padding-top: 3%;
+}
+.list_show{
+  width: 88%;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 20rpx #ddd;
+  border-radius: 12rpx;
+  margin-bottom: 3%;
+  padding: 3%;
+}
+.top{
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+}
+.status{
+  width: 24rpx;
+  height: 24rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  border:2rpx solid #FFAF00;
+  float: left;
+  box-shadow: 0 0 5rpx #FFAF00;
+  margin:8rpx 0;
+}
+.heart{
+  width: 16rpx;
+  height: 16rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #FFAF00;
+  margin: 4rpx 4rpx;
+}
+.status2{
+  width: 24rpx;
+  height: 24rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  border:2rpx solid #53A3FF;
+  float: left;
+  box-shadow: 0 0 5rpx #53A3FF;
+  margin:8rpx 0;
+}
+.heart2{
+  width: 16rpx;
+  height: 16rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #53A3FF;
+  margin: 4rpx 4rpx;
+}
+.status3{
+  width: 24rpx;
+  height: 24rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  border:2rpx solid #bbb;
+  float: left;
+  box-shadow: 0 0 5rpx #bbb;
+  margin:8rpx 0;
+}
+.heart3{
+  width: 16rpx;
+  height: 16rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #bbb;
+  margin: 4rpx 4rpx;
+}
+.status4{
+  width: 24rpx;
+  height: 24rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  border:2rpx solid #62cf4c;
+  float: left;
+  box-shadow: 0 0 5rpx #62cf4c;
+  margin:8rpx 0;
+}
+.heart4{
+  width: 16rpx;
+  height: 16rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #62cf4c;
+  margin: 4rpx 4rpx;
+}
+.status_title{
+  color: #333;
+  font-size: 28rpx;
+  float:left;
+  margin-left: 2%;
+}
+.time{
+  font-size: 24rpx;
+  color: #999;
+  float: right;
+}
+.desc{
+  font-size: 24rpx;
+  color: #999;
+  margin-top: 2%;
+  text-align: justify;
+  line-height: 36rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-left: 6%;
+}
+.onclick{
+  text-align: right;
+  color: #06b3ed;
+  font-size: 24rpx;
+  margin-top: 2%;
+}
+/* .onclick image{
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+} */
+/* 修改列数 */
+.ellipsis {
+  -webkit-line-clamp: 2;
+}
+/* 展示全部 */
+.unellipsis {
+  -webkit-line-clamp: 0;
+}
+.kong {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+.kong image {
+  width: 280rpx;
+  height: 288rpx;
+  display: block;
+  margin: 35% auto 0;
+}
+.kong text {
+  color: #999;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  display: block;
+  margin-top: 8%;
+}

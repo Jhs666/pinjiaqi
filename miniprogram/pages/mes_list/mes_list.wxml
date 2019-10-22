@@ -1,17 +1,23 @@
 <view class='center'>
   <!-- 消息列表 -->
   <view class='newslist'>
-    <block wx:for="{{mes_list}}" wx:key="item.id">
+    <block wx:for="{{mes_list}}" wx:key="item.id" hidden="{{hidename1}}">
       <view class='mes_list' data-id='{{item.id}}'>
         <view class='dl'>
-          <view class='date'>{{item.date}}</view>
+          <view class='date'>{{item.create_time}}</view>
           <view class='li'>
-            <view class='h1'>{{item.h1}}</view>
-            <text class="desc {{ellipsis?'ellipsis':'unellipsis'}}">{{item.desc}}</text>
-            <view class='btn' bindtap='ellipsis'>{{ellipsis?'点击查看':'收起'}}</view>
+            <view class='h1'>{{item.title}}</view>
+            <rich-text class="desc {{item.ellipsis?'ellipsis':'unellipsis'}}" nodes="{{item.content}}"></rich-text>
+            <view class='btn' data-index='{{index}}' bindtap='ellipsis' style='display:{{show}}'>{{item.ellipsis?'点击查看':'收起'}}</view>
+            <view class='btn2' data-index='{{index}}' bindtap='ellipsis' style='display:{{hide}}'>{{item.ellipsis?'点击查看':'收起'}}</view>
           </view>
         </view>
       </view>
     </block>
+    <!-- 消息列表为空时的占位图 -->
+    <view class='kong' wx:if="{{mes_list==''}}">
+      <image src='http://pjqly.com/public/wx_mini/images/no_msg.png'></image>
+      <text>暂无消息通知</text>
+    </view>
   </view>
 </view>

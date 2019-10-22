@@ -1,0 +1,37 @@
+<view class='center'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class='box'>
+      <!-- 顶部 -->
+      <view class='topbg'>
+        <view class='top'>
+          <view class='title'>{{dateTime.title}}</view>
+        </view>
+      </view>
+      <!-- 备注 -->
+      <view class='Remarks'>
+        <text>备注：</text>
+        <textarea name='remarks' placeholder='备注信息'></textarea>
+      </view>
+    </view>
+    <!-- 提交 -->
+    <view class='commit'>
+      <view class='Total'>
+        <text>￥{{dateTime.price}}</text>
+        <rich-text bindtap='showModal'>明细</rich-text>
+        <image src='http://pjqly.com/public/wx_mini/images//bo.png' class='img1' bindtap='showModal'></image>
+        <image src='http://pjqly.com/public/wx_mini/images//kefu2.png' class='img2'></image>
+      </view>
+      <view class='submit'>
+        <button class='btn' formType="submit">提交</button>
+      </view>
+    </view>
+    <!-- 弹出层 -->
+    <view class="screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+    <view class='marks' animation="{{animationData}}" wx:if="{{showModalStatus}}">
+      <view class='pays first'>
+        <text class='one'>支付金额：</text>
+        <text class='two'>￥{{dateTime.price}}</text>
+      </view>
+    </view>
+  </form>
+</view>

@@ -1,6 +1,6 @@
 <view class='center'>
     <view class='banner'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg' class='slide'></image>
+        <image src='http://pjqly.com/public/wx_mini/images//ceshi.jpg' class='slide'></image>
     </view>
     <view class='show'>
         <view class='title'>南京-新街口</view>
@@ -11,7 +11,7 @@
         </view>
         <view class='time'>
             <view class='tit'>
-                <image src='http://pin.lanhaihui.net/public/wx_mini/images//ri2.png'></image>
+                <image src='http://pjqly.com/public/wx_mini/images//ri2.png'></image>
                 <text class='tits'>路线指南</text>
             </view>
             <view class='li'>

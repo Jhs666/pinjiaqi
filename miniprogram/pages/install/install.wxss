@@ -50,10 +50,15 @@
 }
 
 .li .ri {
-  width: 18rpx;
-  height: 32rpx;
+  width: 42rpx;
+  height: 42rpx;
   float: right;
-  margin: 34rpx 0;
+  margin: 30rpx 0;
+}
+navigator{
+  width: 100%;
+  height: 100rpx !important;
+  display: block;
 }
 
 /* 保存按钮 */
@@ -80,12 +85,14 @@
   line-height: 100rpx;
 }
 /* 退出登录 */
-.out text{
+.login_out{
+  width: 94%;
+  height: 80rpx;
+  margin:  0 auto;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 28rpx;
   color: #ff0000;
-}
-.out image{
-  width: 50rpx;
-  height: 46rpx;
-  margin: 27rpx 0;
-  float: right;
+  background: rgba(245,246,247,0.9);
+  margin-top: 12%;
 }

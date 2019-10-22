@@ -1,0 +1,23 @@
+<view class='center'>
+  <block wx:for='{{cash_list}}' wx:key="item.id" hidden="{{hidename}}">
+    <view class='list_show' data-id='{{item.id}}'>
+      <view class='top'>
+        <view class='status' wx:if='{{item.status == 4}}'><view class='heart'></view></view>
+        <view class='status2' wx:if='{{item.status == 2}}'><view class='heart2'></view></view>
+        <view class='status3' wx:if='{{item.status == 3}}'><view class='heart3'></view></view>
+        <view class='status4' wx:if='{{item.status == 1}}'><view class='heart4'></view></view>
+        <view class='status_title'>{{item.status_name}}</view>
+        <view class='time'>{{item.create_time}}</view>
+      </view>
+      <view class='clear'></view>
+      <view class="desc {{item.ellipsis?'ellipsis':'unellipsis'}}">{{item.msg}}</view>
+      <view class='onclick' data-index='{{index}}' bindtap='ellipsis'>{{item.ellipsis?'查看':'收起'}}</view>
+    </view>
+    <view class='clear'></view>
+  </block>
+  <!-- 全部订单为空时的占位图 -->
+  <view class='kong' wx:if="{{cash_list==''}}">
+    <image src='http://pjqly.com/public/wx_mini/images/kong.png'></image>
+    <text>回禀小主，这里没有发现你的提现记录~</text>
+  </view>
+</view>

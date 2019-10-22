@@ -1,32 +1,76 @@
 // pages/mes_list/mes_list.js
-let _page;
+const app = getApp()
+var template = require('../../app.js');
+var common = require('../../utils/public.js')
+var WxParse = require('../../wxParse/wxParse.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    ellipsis: true,
-    mes_list: [{
-        date: '2018年11月7日  11:09',
-        h1: '消息通知',
-        desc: '亲～玩的如何？您有笔订单待点评，发表优质点评即可获得10元门票代金劵红包哦！亲～玩的如何？您有笔订单待点评，发表优质点评即可获得10元门票代金劵红包哦！亲～玩的如何？您有笔订单待点评，发表优质点评即可获得10元门票代金劵红包哦！亲～玩的如何？您有笔订单待点评，发表优质点评即可获得10元门票代金劵红包哦！',
-      }
-    ]
-  },
-  ellipsis() {
-    _page = this;
-    let value = !this.data.ellipsis;
-    _page.setData({
-      ellipsis: value
-    })
+    mes_list:[],
+    show:'',
+    hide:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    var that = this
+    common.loading()
+    wx.request({
+      url: app.data.requestUrl + '/message/get_message',
+      data: {
+        token: getApp().globalData.user.token
+      },
+      method: 'POST',
+      success: function (data) {
+        // console.log(data)
+        if (false === common.check_res_code(data.data, false)) {
+          return false;
+        }
+        that.setData({
+          mes_list:data.data.data.message_list,
+        })
+        if (data.data.data.new_message_count != 0){
+          that.setData({
+            show:'block',
+            hide:'none',
+          })
+        }else{
+          that.setData({
+            show: 'none',
+            hide: 'block'
+          })
+        }
+        WxParse.wxParse('article', 'html', that.data.content, that, 5);
+        wx.hideLoading()
+      },
+      error: function (data) {
+        console.log(data)
+      }
+    })
+    if (that.data.mes_list != '') {
+      that.setData({
+        hidename1: false,
+      })
+    } else if (that.data.mes_list == '') {
+      that.setData({
+        hidename1: true,
+      })
+    }
+  },
+  //点击展开
+  ellipsis(e) {
+    let index = e.currentTarget.dataset.index;
+    let ellipsis = this.data.mes_list[index];
+    let ellipsis1 = 'mes_list[' + index + ']';
+    ellipsis.ellipsis = !this.data.mes_list[index].ellipsis
+    this.setData({
+      [ellipsis1]: ellipsis
+    })
   },
 
   /**

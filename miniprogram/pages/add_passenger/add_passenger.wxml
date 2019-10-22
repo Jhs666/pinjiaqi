@@ -6,16 +6,16 @@
         <input placeholder='请输入您的姓名' bindinput="nameInput" value='{{realname}}'></input>
       </view>
       <view class='li'>
-        <text>中文姓名</text>
-        <input placeholder='请输入您的中文姓名' bindinput="china_nameInput" value='{{china_name}}'></input>
-      </view>
-      <view class='li'>
-        <text>拼音姓</text>
-        <input placeholder='请输入您的拼音姓' bindinput="spellInput" value='{{spell_family_name}}'></input>
+        <text>性别</text>
+        <picker bindchange="bindsexChange" value="{{sex}}" range="{{sexindex}}">{{sexindex[sex]}}
+        </picker>
+        <image src='http://pjqly.com/public/wx_mini/images//ri.png'></image>
       </view>
       <view class='li' style='border-bottom:none;'>
-        <text>拼音名</text>
-        <input placeholder='请输入您的拼音名' bindinput="spell_nameInput" value='{{spell_name}}'></input>
+        <text>出生日期</text>
+        <picker bindchange="binddateChange" value="{{birthday}}" start="1900-01-01" end="2090-12-31" mode="date">{{birthday}}
+        </picker>
+        <image src='http://pjqly.com/public/wx_mini/images//ri.png'></image>
       </view>
     </view>
     <!-- 第二块 -->
@@ -24,36 +24,20 @@
         <text>证件类型</text>
         <picker bindchange="bindcardChange" value="{{card_type}}" range="{{array}}">{{array[card_type]}}
         </picker>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ri.png'></image>
-      </view>
-      <view class='li'>
-        <text>证件号码</text>
-        <input placeholder='请输入您的证件号码' bindinput="id_cardInput" value='{{idcard}}'></input>
+        <image src='http://pjqly.com/public/wx_mini/images//ri.png'></image>
       </view>
       <view class='li' style='border-bottom:none;'>
-        <text>国籍</text>
-        <input placeholder='请输入您的国籍' bindinput="countryInput" value='{{country}}'></input>
+        <text>证件号码</text>
+        <input placeholder='请输入您的证件号码' bindinput="id_cardInput" value='{{idcard}}'></input>
       </view>
     </view>
     <!-- 第三块 -->
     <view class='top'>
       <view class='li'>
-        <text>性别</text>
-        <picker bindchange="bindsexChange" value="{{sex}}" range="{{sexindex}}">{{sexindex[sex]}}
-        </picker>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ri.png'></image>
-      </view>
-      <view class='li'>
-        <text>出生日期</text>
-        <picker bindchange="binddateChange" value="{{birthday}}" start="1978-01-01" end="2017-1-23" mode="date">{{birthday}}
-        </picker>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ri.png'></image>
-      </view>
-      <view class='li'>
-        <text>客户类型</text>
+        <text>与本人关系</text>
         <picker bindchange="bindkehuChange" value="{{client_type}}" range="{{kehu}}">{{kehu[client_type]}}
         </picker>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ri.png'></image>
+        <image src='http://pjqly.com/public/wx_mini/images//ri.png'></image>
       </view>
       <view class='li' style='border-bottom:none;'>
         <text>手机号码</text>

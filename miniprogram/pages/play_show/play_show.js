@@ -8,17 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    inform: [{
-      id: '',
-      intro:'',
-      preview_img:'',
-      title:'',
-      content:'',
-      tag: '邮轮游',
-      img: 'http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg',
-      tit: '海洋量子号 六天五晚福冈+长崎海洋量子号 六天五晚福冈+长崎',
-      qian: '￥5633'
-    }],
+    inform: [{}],
+    content:''
   },
 
   /**
@@ -34,9 +25,10 @@ Page({
       },
       method: 'POST',
       success: function (data) {
-        // console.log(data)
+        console.log(data)
         that.setData({
-          inform: data.data.data
+          inform: data.data.data,
+          content: data.data.data[0].content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
         })
         WxParse.wxParse('article', 'html', that.data.content, that, 5);
       },

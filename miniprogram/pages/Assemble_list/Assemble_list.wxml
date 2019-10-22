@@ -1,0 +1,74 @@
+<view class='center'>
+  <view class="arrow" style='top:{{statusBarHeight}}px;margin-top:15px' bindtap="goback"></view>
+  <view class='bar' style='background:{{bgColor}}'>
+    <view class='top_title' style='color:{{color}};padding-top:{{statusBarHeight}}px'>我的拼团</view>
+    <view class="arrow_two" style='top:{{statusBarHeight}}px;border-left:{{border}};border-top:{{border}};margin-top:15px' bindtap="goback"></view>
+  </view>
+  <view class='topbar'>
+    <image src='http://pjqly.com/public/wx_mini/images/pining.png' mode='widthFix'></image>
+  </view>
+  <!-- 列表 -->
+  <view class='list_show'>
+    <view class='li' wx:for="{{inform}}" wx:key="item.id">
+      <view class='inform' data-suixiuha='{{item.id}}' data-buy_type='{{item.buy_type}}' data-look='{{item.team_id}}' data-laoda='{{item.zero_id}}' bindtap='product_show'>
+        <view class='img'>
+          <image src='{{item.preview_img}}'></image>
+          <view class='title'>{{item.start_space}}出发</view>
+        </view>
+        <view class='con'>
+          <view class='desc'>{{item.item_title}}</view>
+          <view class='jindu' wx:if='{{item.buy_type == 2}}'>
+            <view class='bb'>
+              <progress percent="{{100 - item.cash_user_count / item.piece_count * 100}}" activeColor='#fc6b15' border-radius="30" active></progress>
+            </view>
+            <view class='success'>还差
+              <text>{{item.cash_user_count / item.piece_count * 100 |Int}}</text>%
+            </view>
+          </view>
+          <view class='jindu' wx:if='{{item.buy_type == 3}}'>
+            <view class='bb'>
+              <progress percent="{{100 - item.cash_user_count / item.piece_count * 100}}" activeColor='#fc6b15' border-radius="30" active></progress>
+            </view>
+            <view class='success'>还差
+              <text>{{item.cash_user_count / item.piece_count * 100 |Int}}</text>%
+            </view>
+          </view>
+          <view class='jindu' wx:if='{{item.buy_type == 4}}'>
+            <view class='bb'>
+              <progress percent="{{100 - item.cash_ticket_count / item.ticket_count * 100}}" activeColor='#fc6b15' border-radius="30" active></progress>
+            </view>
+            <view class='success'>还差
+              <text>{{item.cash_ticket_count / item.ticket_count * 100 |Int}}</text>%
+            </view>
+          </view>
+          <view class='jindu' wx:if='{{item.buy_type == 5}}'>
+            <view class='bb'>
+              <progress percent="{{100 - item.cash_ticket_count / item.ticket_count * 100}}" activeColor='#fc6b15' border-radius="30" active></progress>
+            </view>
+            <view class='success'>还差
+              <text>{{item.cash_ticket_count / item.ticket_count * 100 |Int}}</text>%
+            </view>
+          </view>
+          <view class='jindu' wx:if='{{item.buy_type == 6}}'>
+            <view class='bb'>
+              <progress percent="{{100 - item.help_count / item.zero_count * 100}}" activeColor='#fc6b15' border-radius="30" active></progress>
+            </view>
+            <view class='success'>还差
+              <text>{{100 - item.help_count / item.zero_count * 100 |Int}}</text>%
+            </view>
+          </view>
+          <view class='clear'></view>
+          <view class='aa'>
+            <text class='Original' wx:if='{{item.buy_type == 5}}'>{{item.one_shop_status_name}}</text>
+            <text class='Original' wx:if='{{item.buy_type == 4}}'>{{item.one_shop_status_name}}</text>
+            <text class='Original' wx:if='{{item.buy_type == 2}}'>{{item.team_status_name}}</text>
+            <text class='Original' wx:if='{{item.buy_type == 3}}'>{{item.team_status_name}}</text>
+            <text class='Original' wx:if='{{item.buy_type == 6}}'>{{item.team_status_name}}</text>
+            <view class='btn'>查看进度</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='kong' wx:if="{{inform == ''}}">暂无拼团数据~</view>
+  </view>
+</view>

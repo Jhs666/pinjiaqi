@@ -1,0 +1,91 @@
+.list {
+  width: 100%;
+  overflow: hidden;
+}
+
+.top {
+  background: #fff;
+  width: 94%;
+  overflow: hidden;
+  margin-top: 3%;
+  padding: 0 3%;
+}
+
+.li {
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-bottom: 2rpx solid #efefef;
+}
+
+.li text {
+  color: #666;
+  font-size: 32rpx;
+  width: 30%;
+  float: left;
+}
+
+picker {
+  width: 65%;
+  float: left;
+  font-size: 24rpx;
+  color: #888;
+  line-height: 88rpx;
+}
+
+input {
+  width: 65%;
+  height: 88rpx;
+  font-size: 24rpx;
+  color: #bbb;
+  line-height: 88rpx;
+  float: left;
+}
+
+.li image {
+  width: 32rpx;
+  height: 32rpx;
+  float: right;
+  margin: 28rpx 0;
+}
+
+/* 保存按钮 */
+.bottom{
+  width: 80%;
+  height: 90rpx;
+  position: fixed;
+  bottom: 0;
+  left:0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: #fff;
+  z-index: 999;
+  padding: 2% 10%;
+  border-top: 2rpx solid #efefef;
+}
+.continue{
+  width: 40%;
+  height: 100%;
+  /* margin: 0 5%; */
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  background: #06B3ED;
+  float: left;
+  color: #fff;
+  border-radius: 60rpx;
+}
+.cancel{
+  width: 40%;
+  height: 100%;
+  /* margin: 0 5%; */
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  background: #fff;
+  float: left;
+  color: #06B3ED;
+  border-radius: 60rpx;
+  border:2rpx solid #06B3ED;
+}

@@ -238,7 +238,7 @@
   color: #d8d8d8;
   font-size: 20rpx;
   margin-left: 10rpx;
-  text-decoration: line-through;
+  /* text-decoration: line-through; */
 }
 
 .end {
@@ -860,12 +860,14 @@ navigator {
   width: 94%;
   padding: 0 3%;
   background: #fff;
+  margin-top: 3%;
 }
 .mans {
   width: 100%;
   overflow: hidden;
   padding: 3% 0;
   line-height: 44rpx;
+  border-top:2rpx solid #efefef;
   border-bottom:2rpx solid #efefef;
 }
 .mans image {
@@ -906,8 +908,8 @@ navigator {
   overflow: hidden;
 }
 .dd{
-  background: #06B3ED;
-  color: #fff;
+  background: #efefef;
+  color: #999;
   font-size: 24rpx;
   width: 22%;
   height: 46rpx;
@@ -1063,4 +1065,105 @@ save_btn:active{
   color: #333;
   line-height: 42rpx;
   text-align: justify;
+}
+
+.Total{
+  width: 100%;
+  overflow: hidden;
+  padding: 4% 0;
+  border-bottom: 2rpx solid #efefef;
+}
+.Total_left{
+  width: 40%;
+  float: left;
+  text-align: center;
+}
+.Total_right{
+  width: 60%;
+  float: right;
+}
+.grades{
+  color: #06b3ed;
+  font-size: 72rpx;
+}
+.unit{
+  font-size: 24rpx;
+  color: #bbb;
+}
+.discuss{
+  color: #bbb;
+  font-size: 24rpx;
+}
+.ha{
+  width: 100%;
+  color: #bbb;
+  font-size:24rpx;
+  overflow: hidden;
+  margin-bottom:2%; 
+}
+.Name{
+  text-align: right;
+  float: left;
+  width: 124rpx;
+}
+.ha .hei{
+  width: 28rpx;
+  height: 28rpx;
+  float: left;
+  margin: 0 10rpx 0 20rpx;
+}
+.length{
+  width: 20%;
+  height: 20rpx;
+  background: #FAC60E;
+  float: left;
+  margin: 6rpx 0;
+}
+.percent{
+  float: left;
+  margin-left: 4%;
+}
+.suspend{
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  position: fixed;
+  bottom: 38%;
+  color: #fff;
+  background: #06b3ed;
+  font-size: 32rpx;
+  padding: 2% 1%;
+  writing-mode: vertical-rl;
+  border-radius: 8rpx;
+  letter-spacing:4rpx; 
+}
+.transition {
+  transition: all 0.3s ease-out;
+}
+.body_box{
+  margin-bottom: 25%;
+}
+.null{
+  position: absolute;
+  top: -160%;
+  left: 50%;
+  z-index: 999;
+  font-size: 32rpx;
+  color: #999;
+  transform: translate(-50%, -50%);
+}
+.second{
+  margin-left: 16%;
+}
+
+.focus{
+  background: #06B3ED;
+  color: #fff;
+}
+
+.mull_comment{
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+  line-height: 80rpx;
 }

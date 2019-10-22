@@ -6,22 +6,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    item_title: '',
-    price: '',
+    price: '',//价格
+    title:''//标题
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options)
+    var dateTime = wx.getStorageSync('orderDetail')[0];
     var that = this
-    // var id = options.id
     var item_price = options.item_price
-    var item_title = options.item_title
     that.setData({
       price: item_price,
-      item_title: item_title,
+      dateTime: dateTime
     })
   },
   /**

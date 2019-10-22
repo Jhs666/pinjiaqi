@@ -1,0 +1,209 @@
+button {
+  border-radius: 0;
+}
+
+.topbg {
+  width: 94%;
+  overflow: hidden;
+  padding: 0 3%;
+  background: #06b3ed;
+}
+
+.top {
+  width: 94%;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 16px #ddd;
+  border-radius: 16rpx;
+  margin: 0 0 3%;
+  padding: 3% 3% 0 3%;
+}
+
+.topbg .top .title {
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #333;
+}
+
+.topbg .top .date {
+  width: 100%;
+  overflow: hidden;
+  margin: 3% 0;
+}
+
+.topbg .top .date text {
+  float: left;
+  /* line-height: 34rpx; */
+  font-size: 24rpx;
+  color: #999;
+}
+
+.topbg .top .date rich-text {
+  float: left;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 3%;
+}
+
+.topbg .top .man {
+  width: 100%;
+  overflow: hidden;
+}
+
+.topbg .top .man text {
+  float: left;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  color: #999;
+}
+
+.topbg .top .man .num {
+  float: left;
+  line-height: 34rpx;
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 3%;
+}
+/* 提交 */
+.commit {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  overflow: hidden;
+  background: #fff;
+  z-index: 99999;
+}
+.Total {
+  float: left;
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 60%;
+  padding-left: 3%;
+}
+.Total text {
+  color: #f00;
+  font-size: 36rpx;
+  float: left;
+  padding-right: 3%;
+}
+.Total rich-text {
+  font-size: 24rpx;
+  color: #999;
+  float: left;
+}
+.submit {
+  float: right;
+}
+.btn {
+  width: 248rpx;
+  height: 100rpx;
+  text-align: center;
+  background: #06b3ed;
+  color: #fff;
+  font-size: 36rpx;
+  line-height: 100rpx;
+  float: right;
+}
+.img1 {
+  width: 36rpx;
+  height: 36rpx;
+  margin: 38rpx 0;
+  transform: rotate(180deg);
+}
+.img2 {
+  width: 36rpx;
+  height: 36rpx;
+  float: right;
+  margin: 38rpx 0;
+}
+/* 备注 */
+.Remarks {
+  width: 94%;
+  padding: 0 3%;
+  margin: 3% 0;
+}
+.Remarks text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 40rpx;
+}
+textarea {
+  width: 94%;
+  height: 150rpx;
+  overflow: hidden;
+  background: #fff;
+  border: 2rpx solid rgba(216, 216, 216, 1);
+  margin-top: 10rpx;
+  color: #bbb;
+  font-size: 24rpx;
+  padding: 3%;
+  border-radius: 12rpx;
+}
+.box {
+  padding-bottom: 15%;
+}
+.hao {
+  width: 100%;
+  overflow: hidden;
+}
+.hao text {
+  float: left;
+  font-size: 24rpx;
+  color: #999;
+  line-height: 88rpx;
+  height: 88rpx;
+}
+.hao input {
+  float: left;
+  color: #999;
+}
+input {
+  color: #bbb;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-size: 24rpx;
+  float: left;
+}
+.marks {
+  width: 94%;
+  height: auto;
+  padding: 0 3%;
+  position: fixed;
+  bottom: 100rpx;
+  left: 0;
+  background: #fff;
+  border-top: 2rpx solid #efefef;
+  box-shadow: 0rpx -6rpx 20rpx #ddd;
+  z-index: 99;
+}
+.pays {
+  width: 100%;
+  height: 100rpx;
+  overflow: hidden;
+  line-height: 100rpx;
+}
+.one {
+  color: #333;
+  font-size: 32rpx;
+  float: left;
+}
+.first {
+  border-bottom: 2rpx solid #efefef;
+}
+.two {
+  color: #f00;
+  font-size: 32rpx;
+  float: right;
+}
+.screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  z-index: 9;
+}

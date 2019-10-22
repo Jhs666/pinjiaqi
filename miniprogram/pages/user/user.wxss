@@ -1,6 +1,6 @@
 .top {
   width: 100%;
-  height: 440rpx;
+  height: 564rpx;
   overflow: hidden;
 }
 .back {
@@ -34,6 +34,15 @@
   width: 100%;
   height: 40rpx;
 }
+.red_dian{
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #ff0000;
+}
 .user {
   width: 94%;
   height: auto;
@@ -57,6 +66,7 @@
   overflow: hidden;
   border-radius: 50%;
   float: left;
+  margin:34rpx 0; 
 }
 .user .touxiang .img image {
   width: 100%;
@@ -117,17 +127,13 @@
   line-height: 56rpx;
   margin-left: 2%;
 }
-.user .line {
-  width: 94%;
-  height: 1px;
-  background: #efefef;
-  margin: 0 auto;
-}
 .user .ul {
   width: 96%;
-  padding: 2%;
+  padding: 2% 0;
   margin: 0 auto;
   overflow: hidden;
+  border-top: 2rpx solid #efefef;
+  border-bottom: 2rpx solid #efefef;
 }
 .user .ul .li {
   float: left;
@@ -194,9 +200,15 @@
   float: left;
   text-align: center;
 }
-.goods .ul .li image {
+.img_icon{
   width: 46rpx;
-  height: 44rpx;
+  height: 46rpx;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.goods .ul .li image {
+  width: 100%;
+  height: 100%;
   display: block;
   margin: 0 auto;
 }
@@ -346,4 +358,20 @@
 }
 .btn::after{
   border: none
+}
+.balance{
+  width: 94%;
+  margin: 0 auto;
+  color: #999;
+  font-size: 28rpx;
+  line-height: 70rpx;
+}
+.total{
+  float: right;
+}
+.balance image {
+  width: 24rpx;
+  height: 24rpx;
+  float: right;
+  margin: 23rpx 0 23rpx 10rpx;
 }

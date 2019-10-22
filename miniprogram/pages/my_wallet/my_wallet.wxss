@@ -1,0 +1,182 @@
+.swiper-tab {
+  width: 94%;
+  height: auto;
+  overflow: hidden;
+  background: #fff;
+  margin: 0 auto;
+  padding: 0 3%;
+}
+.tab {
+  width: 100%;
+  height: 90rpx;
+  line-height: 84rpx;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.active {
+  color: #06b3ed !important;
+  border-bottom: 6rpx solid #06b3ed;
+}
+.bbb {
+  font-size: 32rpx;
+  color: #666;
+}
+.show {
+  display: block;
+  margin-top: 3%;
+}
+.hidden {
+  display: none;
+}
+.all_order{
+  width: 96%;
+  margin: 0 auto;
+}
+.wait_trip{
+  width: 96%;
+  margin: 0 auto;
+}
+.wait_payment{
+  width: 96%;
+  margin: 0 auto;
+}
+.wait_Comment{
+  width: 96%;
+  margin: 0 auto;
+}
+.refund{
+  width: 96%;
+  margin: 0 auto;
+}
+.kong {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+.kong image {
+  width: 332rpx;
+  height: 240rpx;
+  display: block;
+  margin: 40% auto 0;
+}
+.kong text {
+  color: #999;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  display: block;
+  margin-top: 8%;
+}
+/* 奖券列表 */
+.wallet_li{
+  width: 92%;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 0 18rpx #d9d9d9;
+  border-radius: 10rpx;
+  margin-bottom: 3%; 
+  padding: 5% 3%;
+}
+.img_title{
+  width: 100%;
+  overflow: hidden;
+}
+.left_img{
+  width: 17%;
+  height: 120rpx;
+  border-radius: 16rpx;
+  float: left;
+  overflow: hidden;
+}
+.left_img image{
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.title{
+  width: 80%;
+  float: left;
+  margin-left: 3%;
+}
+.tit{
+  font-size: 32rpx;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; 
+}
+.price{
+  color: #ff0000;
+  font-size: 28rpx;
+}
+.frame{
+  width: 80%;
+  height: 120rpx;
+  float: right;
+  overflow: hidden;
+  margin-top: 3%;
+  position: relative;
+}
+.tag_bg{
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin:0 auto;
+}
+.left{
+  position: absolute;
+  top: 22%;
+  left:6%;
+  z-index: 99;
+  width: 66%;
+  overflow: hidden;
+  border-right: 2rpx dashed #06B3ED;
+}
+.date{
+  font-size: 20rpx;
+  color: #666;
+  float: left;
+}
+.order_number{
+  color: #666;
+  font-size: 20rpx;
+  float: left;
+  display: block;
+  margin-top: 4%;
+}
+.right{
+  position: absolute;
+  top:22%;
+  right: 0;
+  z-index: 99;
+  width: 28%;
+  overflow: hidden;
+}
+.status{
+  color: #06B3ED;
+  font-size: 20rpx;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.look_btn{
+  color: #fff;
+  background: #06B3ED;
+  border-radius: 60rpx;
+  font-size: 20rpx;
+  width: 76rpx;
+  height: 36rpx;
+  line-height: 36rpx;
+  text-align: center;
+  margin: 5% auto 0;
+  display: block;
+}

@@ -1,5 +1,5 @@
 .show {
-  margin-top: 2%;
+  margin-top: 15%;
   display: block;
 }
 .hidden {
@@ -7,10 +7,14 @@
 }
 .swiper-tab {
   width: 100%;
-  height: 88rpx;
+  height: 90rpx;
+  line-height: 84rpx;
   overflow: hidden;
-  line-height: 82rpx;
   background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
 }
 .tab {
   width: 100%;
@@ -31,64 +35,45 @@
   color: #06b3ed;
   border-bottom: 6rpx solid #06b3ed;
 }
-
-
-/* 隐藏滚动条 */
-::-webkit-scrollbar {
-  width: 0;
-  height: 0;
-  color: transparent;
-}
-
-/* 列表 */
-.list_show {
+.touch-item {
+  display: flex;
+  justify-content: space-between;
   width: 94%;
-  margin: 0 auto;
-}
-
-.list_show .li {
-  width: 100%;
   height: 230rpx;
   overflow: hidden;
-  margin: 0 auto;
-  margin-bottom: 3%;
+  margin: 0 auto 3%;
   background: #fff;
-  border-radius: 8px;
   box-shadow: 0 0 16px #ddd;
-}
-.item{
-  width: 100%;
-  overflow: hidden;
+  border-radius: 8px;
 }
 
-.list_show .li .img {
+.content {
+  width: 100%;
+  /* height: 100%; *//* padding: 10px;
+  line-height: 22px; */
+  margin-right: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  margin-left: -90px;
+}
+
+.img {
   width: 40%;
   height: 100%;
   float: left;
   position: relative;
 }
 
-.list_show .li .img image {
+.img image {
   width: 100%;
-  height: 230rpx;
+  height: 100%;
   display: block;
   margin: 0 auto;
 }
 
-.list_show .li .tag {
-  width: 86rpx;
-  height: 34rpx;
-  line-height: 34rpx;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: #43eff9;
-  color: #000;
-  text-align: center;
-  font-size: 20rpx;
-}
-
-.list_show .li .title {
+.title {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -100,7 +85,7 @@
   font-size: 20rpx;
 }
 
-.list_show .li .con {
+.con {
   float: left;
   width: 54%;
   height: 200rpx;
@@ -108,7 +93,7 @@
   padding: 2% 3%;
 }
 
-.list_show .li .con .desc {
+.desc {
   color: #000;
   font-size: 28rpx;
   line-height: 40rpx;
@@ -120,54 +105,147 @@
   -webkit-line-clamp: 2;
 }
 
-.list_show .li .con .num {
+.qian {
   position: absolute;
   bottom: 5%;
   left: 3%;
-  color: #9b9b9b;
-  font-size: 24rpx;
-}
-
-.list_show .li .con .qian {
-  position: absolute;
-  bottom: 5%;
-  right: 3%;
   color: #ff001f;
   font-size: 32rpx;
   font-weight: bolder;
 }
 
-.no {
-  color: #999;
-  font-size: 24rpx;
-  line-height: 34rpx;
-  margin: 5% auto;
-  text-align: center;
+.del {
+  background-color: #ea4f3d;
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  -webkit-transform: translateX(90px);
+  transform: translateX(90px);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  font-size: 32rpx;
 }
 
-.date {
-  color: #999;
-  font-size: 28rpx;
-  line-height: 40rpx;
-  text-align: center;
-  margin-bottom: 3%;
+.touch-move-active .content, .touch-move-active .del {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
 }
+
 .kong {
   width: 100%;
   height: auto;
   margin: 0 auto;
   text-align: center;
 }
+
 .kong image {
-  width: 200rpx;
-  height: 220rpx;
+  width: 280rpx;
+  height: 288rpx;
   display: block;
   margin: 40% auto 0;
 }
+
 .kong text {
   color: #999;
   font-size: 28rpx;
   line-height: 40rpx;
   display: block;
   margin-top: 8%;
+}
+.activity{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.li{
+  width: 90%;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto 3%;
+  background: #fff;
+  box-shadow: 0 0 20rpx #ddd;
+  border-radius: 10rpx;
+  padding: 0 2% 0;
+}
+.imges{
+  width: 100%;
+  height: 300rpx;
+  overflow: hidden;
+}
+.imges image{
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.titlees{
+  font-size: 28rpx;
+  color: #333;
+  text-align: justify;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin: 2% 0;
+}
+.bottom{
+  width: 100%;
+  overflow: hidden;
+  border-top: 2rpx dashed #efefef;
+  line-height: 68rpx;
+}
+.date{
+  font-size: 24rpx;
+  color: #999;
+  float: left;
+}
+.more{
+  font-size: 24rpx;
+  color: #999;
+  float: right;
+}
+.topbar{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  overflow: hidden;
+}
+.user_photo{
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+  margin: 16rpx 0;
+}
+.user_photo image{
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.nick_name{
+  font-size: 28rpx;
+  color: #999;
+  float: left;
+  margin-left:3%;
+}
+.delete{
+  width: 42rpx;
+  height: 42rpx;
+  float: right;
+  overflow: hidden;
+  margin: 29rpx 0;
+}
+.delete image{
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
 }

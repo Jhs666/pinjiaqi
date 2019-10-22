@@ -1,3 +1,4 @@
 {
-    "navigationBarTitleText": "我的分销"
+  "navigationBarTitleText": "推广中心",
+  "enablePullDownRefresh": true
 }

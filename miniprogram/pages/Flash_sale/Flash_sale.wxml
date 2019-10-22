@@ -1,0 +1,57 @@
+<view class='banner'>
+  <view class="arrow" style='top:{{statusBarHeight}}px;margin-top:15px' bindtap="goback"></view>
+  <view class='bar' style='background:{{bgColor}}'>
+    <view class='top_title' style='color:{{color}};padding-top:{{statusBarHeight}}px'>限时抢购</view>
+    <view class="arrow_two" style='top:{{statusBarHeight}}px;border-left:{{border}};border-top:{{border}};margin-top:15px' bindtap="goback"></view>
+  </view>
+  <image src='http://pjqly.com/public/wx_mini/images/flash.jpg' mode='widthFix' class='page_img'></image>
+  <!-- 时间轴 -->
+  <view class="{{scrollTop>80 ? 'topnavFixed' : 'topnavAbsolute'}}" style='top:{{top}};background:{{back}}'>
+    <view class='time_axis'>
+      <scroll-view class="scroll-view_x" scroll-with-animation scroll-left="{{scrollLeft}}" scroll-x style="width: auto;overflow:hidden;">
+        <view class='list' wx:for="{{timelist}}" wx:key="item.id">
+          <view class="{{index == curHdIndex?'active':'default'}} li" data-index='{{index}}' data-id='{{item.id}}' data-status='{{item.status}}' bindtap='choose_tab'>
+            <text class='name'>{{item.time}}</text>
+            <text class='status'>{{item.status}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class='clear'></view>
+    <view wx:if="{{hour == '00' && minute == '00' && second == '00' }}" class='Count_down'>
+      <text class='text'>当前时间段抢购活动已结束，请君看看别的吧~</text>
+    </view>
+    <view wx:else class='Count_down'>
+      <text class='text'>距结束仅剩</text>
+      <text class='num'>{{hour}}</text>：
+      <text class='num'>{{minute}}</text>：
+      <text class='num'>{{second}}</text>
+    </view>
+  </view>
+  <!-- 列表 -->
+  <view class='list_show'>
+    <view class='li' wx:for="{{inform}}" wx:key="item.id">
+      <view class='inform' data-id='{{item.id}}' data-price='{{item.item_seckill_list[0].price}}' data-sell='{{item.item_seckill_list[0].sell}}' data-inventory='{{item.item_seckill_list[0].inventory}}' data-preview_img='{{item.preview_img}}' data-item_seckill_id='{{item.item_seckill_id}}'
+        bindtap='product_show'>
+        <view class='img'>
+          <image src='{{item.preview_img}}'></image>
+          <view class='title'>{{item.start_space}}出发</view>
+        </view>
+        <view class='con'>
+          <view class='desc'>{{item.title}}</view>
+          <view class='bb'>
+            <progress percent="{{100 - item.item_seckill_list[0].sell / item.item_seckill_list[0].inventory * 100}}" activeColor='#fc6b15' border-radius="30" active></progress>
+          </view>
+          <view class='success'>已抢
+            <text>{{item.item_seckill_list[0].sell / item.item_seckill_list[0].inventory * 100}} </text>%</view>
+          <view class='clear'></view>
+          <view class='aa'>
+            <text class='Original'>￥{{item.item_seckill_list[0].price}}</text>
+            <text class='qian'>￥{{item.price}}</text>
+            <view class='btn'>马上抢</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

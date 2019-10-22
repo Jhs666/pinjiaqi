@@ -17,7 +17,7 @@
 .tab {
   width: 94%;
   height: 90rpx;
-  line-height: 90rpx;
+  line-height: 84rpx;
   padding: 0 3%;
   overflow: hidden;
   display: flex;
@@ -32,29 +32,29 @@
   padding: 0 3%;
   overflow: hidden;
   background: #06b3ed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
-
 .top .back {
   width: 40rpx;
   height: 100%;
   float: left;
   margin-right: 1%;
 }
-
 .top .back image {
   width: 40rpx;
   height: 40rpx;
   display: block;
   margin: 30rpx auto;
 }
-
 .top .place {
-  width: 16%;
+  width: 20%;
   height: 100%;
   overflow: hidden;
   float: left;
 }
-
 .top .place image {
   width: 26rpx;
   height: 36rpx;
@@ -62,16 +62,14 @@
   float: left;
   margin-right: 12%;
 }
-
 .top .place text {
   font-size: 28rpx;
   color: #fff;
   line-height: 100rpx;
   letter-spacing: 2rpx;
 }
-
 .top .search {
-  width: 84%;
+  width: 80%;
   height: 60rpx;
   background: #fff;
   border-radius: 30rpx;
@@ -80,17 +78,29 @@
 }
 
 .top .search image {
-  width: 40rpx;
+  width:7%;
   height: 40rpx;
   float: left;
   margin: 10rpx 0 10rpx 3%;
 }
 
 .top .search input {
+  width: 72%;
   height: 60rpx;
   color: #bbb;
   font-size: 24rpx;
   line-height: 60rpx;
+  float: left;
+}
+.search_btn{
+  width: 15%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  color: #bbb;
+  text-align: center;
+  float: right;
+  border-left: 2rpx solid #efefef;
 }
 
 .swiper-tab {
@@ -98,11 +108,12 @@
   height: auto;
   overflow: hidden;
   background: #fff;
+  margin-top: 100rpx;
 }
 
 .active {
-  color: #333;
-  border-bottom: 6rpx solid #06b3ed;
+  color: #333 !important;
+  border-bottom: 6rpx solid #06b3ed !important;
 }
 
 swiper {
@@ -113,7 +124,6 @@ swiper {
 }
 
 /* 隐藏滚动条 */
-
 ::-webkit-scrollbar {
   width: 0;
   height: 0;
@@ -121,7 +131,6 @@ swiper {
 }
 
 /* 分类标签 */
-
 .types {
   width: 100%;
   height: 90rpx;
@@ -147,7 +156,6 @@ swiper {
   line-height: 40rpx;
   border-radius: 60rpx;
   padding: 4rpx 22rpx;
-  /* text-align: center; */
 }
 
 .tag .hot {
@@ -166,7 +174,6 @@ swiper {
 
 .listshow image {
   width: 100%;
-  /* height: 100%; */
   display: block;
   margin: 0 auto;
 }
@@ -219,7 +226,7 @@ swiper {
   position: fixed;
   right: 3%;
   bottom: 3%;
-  z-index: 99;
+  z-index: 99999;
 }
 
 .btn image {
@@ -236,42 +243,26 @@ swiper {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9;
+  z-index: 999;
 }
 
 .btn2 {
-  width: auto;
-  height: auto;
-}
-
-.names {
-  font-size: 28rpx;
-  color: #fff;
-  position: fixed;
-  right: 18%;
-  bottom: 15%;
-}
-
-.img1 {
   width: 88rpx;
   height: 88rpx;
-  display: block;
-  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 50%;
   position: fixed;
   right: 3%;
   bottom: 3%;
-  z-index: 99;
+  z-index: 9999;
+  opacity: 0;
 }
 
 .img2 {
-  width: 88rpx;
-  height: 88rpx;
+  width: 100%;
+  height: 100%;
   display: block;
   margin: 0 auto;
-  position: fixed;
-  right: 3%;
-  bottom: 13%;
-  z-index: 99;
 }
 
 .youji {
@@ -302,6 +293,7 @@ swiper {
   overflow: hidden;
   box-shadow: 0 0 20rpx #ddd;
   padding: 0 0 4%;
+  width: 99%;
 }
 
 .item-ava {
@@ -310,11 +302,12 @@ swiper {
   border-radius: 20rpx;
   flex: 0 0 40rpx;
   float: left;
+  margin: 15rpx 0;
 }
 
 .heart {
-  width: 24rpx;
-  height: 22rpx;
+  width: 24px;
+  height: 24px;
   float: right;
 }
 
@@ -325,6 +318,7 @@ swiper {
 
 .item-img {
   width: 100%;
+  /* min-height: 300rpx; */
 }
 
 .item-title {
@@ -342,7 +336,6 @@ swiper {
 .item .name {
   width: 96%;
   overflow: hidden;
-  /* display: flex; */
   padding: 0 2%;
   align-items: center;
   font-size: 22rpx;
@@ -363,7 +356,6 @@ swiper {
 
 .name-title {
   margin-left: 18rpx;
-  /* float: left; */
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -374,7 +366,6 @@ swiper {
 
 .name text:last-child {
   color: #c4c4c4;
-  /* float: right; */
 }
 
 .left, .right {
@@ -389,4 +380,11 @@ swiper {
 
 .donghua {
   float: left;
+  margin: 12rpx 0;
+}
+.go_top{
+  bottom: 26% !important;
+}
+.transition {
+  transition: all 0.3s ease-out;
 }

@@ -51,14 +51,6 @@ image {
   transform: scale(0.6, 0.6);
 }
 
-.name {
-  font-size: 24rpx;
-  color: #666;
-  width: 120rpx;
-  line-height: 88rpx;
-  display: inline-block;
-}
-
 label {
   width: 100%;
   height: 88rpx;
@@ -71,10 +63,21 @@ label {
 .sex {
   font-size: 24rpx;
   color: #bbb;
+  margin-left: 10%;
+}
+.type {
+  font-size: 24rpx;
+  color: #bbb;
+  margin-left: 10%;
 }
 
 .edit {
   font-size: 24rpx;
   color: #bbb;
   float: right;
+}
+.checkbox{
+  font-size: 24rpx;
+  color: #666;
+  line-height: 88rpx;
 }

@@ -5,10 +5,9 @@
       <view class="{{selected1?'active':'default'}} bbb" bindtap="selected1">详情</view>
       <view class="{{selected2?'active':'default'}} bbb" bindtap="selected2">评价</view>
     </view>
-    <view class='right'>
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images/xing2.png' class='img1' bindtap="selected2"></image>
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images/more2.png' class='img2' bindtap="selected2"></image>
-    </view>
+    <!-- <view class='right'>
+      <image src='http://pjqly.com/public/wx_mini/images/more2.png' class='img2' bindtap="selected2"></image>
+    </view> -->
   </view>
   <view class='clear'></view>
   <view class="{{selected?'show':'hidden'}}">
@@ -40,7 +39,7 @@
           <view class='biaoti'>
             <text class='title'>{{item.title}}</text>
             <view class='share' bindtap='showModal'>
-              <image src='http://pin.lanhaihui.net/public/wx_mini/images//fen.png'></image>
+              <image src='http://pjqly.com/public/wx_mini/images//fen.png'></image>
               <view>分享</view>
             </view>
           </view>
@@ -58,14 +57,14 @@
         <view class='clear'></view>
       </view>
     </block>
-    <view class='man'>
+    <view class='man' style='display:{{team_list_show}}'>
       <text class='num'>正在拼单，可直接参与</text>
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//ri.png'></image>
+      <image src='http://pjqly.com/public/wx_mini/images//ri.png'></image>
       <text class='more' bindtap="look_more">查看更多</text>
     </view>
-    <swiper vertical="true" autoplay="true" circular="true" interval="2000" display-multiple-items='{{asd}}' class='roll'>
+    <swiper vertical="true" autoplay="true" circular="true" interval="2500" display-multiple-items='{{asd}}' class='roll' style='display:{{team_list_show}}'>
       <view class='being'>
-        <block wx:for="{{team_list[0]}}">
+        <block wx:for="{{one_shop_list[0]}}">
           <swiper-item class='list_shows'>
             <view class='li'>
               <view class='img'>
@@ -76,11 +75,11 @@
                 <view class='times'>
                   <view class='ren'>
                     还差
-                    <text class='cha'>{{item.lack_user_count}}人</text> 拼成
+                    <text class='cha'>{{item.lack_ticket_count}}人</text> 拼成
                   </view>
                   <text class='sheng'>剩余{{item.lack_time}}</text>
                 </view>
-                <view class='go' bindtap='go_spell_order'>去拼单</view>
+                <view class='go' bindtap='go_spell_order' data-groupid='{{item.id}}'>去拼单</view>
               </view>
             </view>
           </swiper-item>
@@ -94,7 +93,7 @@
         <view class='close_spell' bindtap='close_spell'>×</view>
         <view class='top_bar'>正在拼单</view>
         <view class='Spell_list'>
-          <block wx:for="{{team_list[0]}}">
+          <block wx:for="{{one_shop_list[0]}}">
             <view class='dl'>
               <view class='using_img'>
                 <image src='{{item.create_user_profile_photo}}'></image>
@@ -102,11 +101,11 @@
               <view class='use_time'>
                 <view class='user_top'>
                   <text class='user_name'>{{item.create_user_nickname}}</text>
-                  <text class='user_num'>还差{{item.lack_user_count}}人</text>
+                  <text class='user_num'>还差{{item.lack_ticket_count}}人</text>
                 </view>
                 <text class='sheng2'>剩余{{item.lack_time}}</text>
               </view>
-              <view class='go' bindtap='go_spell_order'>去拼单</view>
+              <view class='go' bindtap='go_spell_order' data-groupid='{{item.id}}'>去拼单</view>
             </view>
           </block>
         </view>
@@ -115,67 +114,57 @@
     </view>
     <view class='clear'></view>
     <view class='pingjia'>
-      <!-- <view class='mans'>
+      <view class='mans'>
         <text class='num'>评价</text>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ri.png'></image>
+        <image src='http://pjqly.com/public/wx_mini/images//ri.png'></image>
         <text class='more' bindtap="selected2">查看更多</text>
       </view>
-      <view class='star'>
+      <view class='star' style='display:{{comment_show}}'>
         <view class='a1'>
-          <image src='http://pin.lanhaihui.net/public/wx_mini/images//xing2.png'></image>
-          <image src='http://pin.lanhaihui.net/public/wx_mini/images//xing2.png'></image>
-          <image src='http://pin.lanhaihui.net/public/wx_mini/images//xing2.png'></image>
-          <image src='http://pin.lanhaihui.net/public/wx_mini/images//xing2.png'></image>
-          <image src='http://pin.lanhaihui.net/public/wx_mini/images//xing2.png'></image>
+          <block wx:for='{{one_1}}'>
+            <image src='http://pjqly.com/public/wx_mini/images//xing2.png'></image>
+          </block>
+          <block wx:for='{{two_1}}'>
+            <image src='http://pjqly.com/public/wx_mini/images//xing1.png'></image>
+          </block>
           <view class='total'>
-            <text class='grade'>5.0</text>
-            <text class='dianping'>（125条点评）</text>
+            <text class='grade'>{{comment_grade}}</text>
+            <text class='dianping'>（{{comment.commit_sum}}条点评）</text>
           </view>
         </view>
         <view class='clear'></view>
         <view class='unit'>
-          <view class='dd'>好评（120）</view>
-          <view class='dd'>差评（0）</view>
-          <view class='dd'>有图（60）</view>
-          <view class='dd'>好评（120）</view>
-          <view class='dd'>好评（120）</view>
-          <view class='dd'>好评（120）</view>
-          <view class='dd'>好评（120）</view>
+          <view class="dd {{'0' == curHdIndex?'focus':'default'}}" data-index='0' bindtap='comment_tab'>全部（{{comment.commit_sum}}）</view>
+          <view class="dd {{'3' == curHdIndex?'focus':'default'}}" data-index='3' bindtap='comment_tab'>好评（{{comment.good_sum}}）</view>
+          <view class="dd {{'1' == curHdIndex?'focus':'default'}}" data-index='1' bindtap='comment_tab'>差评（{{comment.negative_sum}}）</view>
+          <view class="dd {{'4' == curHdIndex?'focus':'default'}}" data-index='4' bindtap='comment_tab'>有图（{{comment.have_img_sum}}）</view>
         </view>
       </view>
-      <view class='desc'>
-        <view class='user'>
-          <view class='user_img'>
-            <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
+      <block wx:for='{{comment_list}}' wx:key='item.id'>
+        <view class='desc'>
+          <view class='user'>
+            <view class='user_img'>
+              <image src='{{item.profile_photo}}'></image>
+            </view>
+            <text class='nickname'>{{item.nickname}}</text>
+            <text class='update_time'>{{item.create_time}}</text>
           </view>
-          <text class='nickname'>东华帝君</text>
-          <text class='update_time'>2018-05-11</text>
-        </view>
-        <view class='con'>
-          游记是最珍贵的记忆资产！告别这个时代的浮躁，回归自然；向那些用纸笔记录的年代致敬，并开启蚂蜂窝游记的新纪元！旅行趣闻，结伴故事，偶得的诗句，统统记录到这里！
-        </view>
-        <view class='img_list'>
-          <view class='img_box'>
-            <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
-          </view>
-          <view class='img_box'>
-            <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
-          </view>
-          <view class='img_box'>
-            <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
-          </view>
-          <view class='img_box'>
-            <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
-          </view>
-          <view class='img_box'>
-            <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
+          <view class='con'>{{item.content}}</view>
+          <view class='img_list'>
+            <block wx:for='{{item.img_list}}' wx:for-item="item2" wx:key="item2">
+              <view class='img_box'>
+                <image src='{{item2.name}}'></image>
+              </view>
+            </block>
           </view>
         </view>
-        <view class='more_pingjia' bindtap="selected2">更多用户点评></view>
-      </view> -->
+        <view class='clear'></view>
+      </block>
+      <view class='mull_comment' wx:if="{{comment_list == ''}}">暂无评论</view>
+      <view class='more_pingjia' bindtap="selected2" style='display:{{comment_show}}'>更多用户点评></view>
       <view class='mans'>
         <text class='num'>详情</text>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ri.png'></image>
+        <image src='http://pjqly.com/public/wx_mini/images//ri.png'></image>
         <text class='more' bindtap="selected1">查看更多</text>
       </view>
       <rich-text nodes="{{detial}}" class='temporary'></rich-text>
@@ -201,86 +190,98 @@
   </view>
 </view>
 <view class="{{selected2?'show':'hidden'}}" style='width:94%;padding:0 3%;background:#fff;margin-top:80rpx;'>
-  <view class='desc'>
-    <view class='user'>
-      <view class='user_img'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
+  <view class='body_box'>
+    <view class='Total' style='display:{{comment_show}}'>
+      <view class='Total_left'>
+        <view class='grades'>{{comment_grade}}
+          <text class='unit'>分</text>
+        </view>
+        <text class='discuss'>共{{comment.commit_sum}}条评论</text>
       </view>
-      <text class='nickname'>东华帝君</text>
-      <text class='update_time'>2018-05-11</text>
-    </view>
-    <view class='con'>
-      游记是最珍贵的记忆资产！告别这个时代的浮躁，回归自然；向那些用纸笔记录的年代致敬，并开启蚂蜂窝游记的新纪元！旅行趣闻，结伴故事，偶得的诗句，统统记录到这里！
-    </view>
-    <view class='img_list'>
-      <view class='img_box'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
+      <view class='Total_right'>
+        <view class='ha'>
+          <text class='Name'>路线评分</text>
+          <image src='http://pjqly.com/public/wx_mini/images//xing1.png' class='hei'></image>
+          <view class='length'>
+            <progress percent="{{comment.line_sum / comment.line_sum * 100}}" activeColor='#FAC60E' border-radius="30" active></progress>
+          </view>
+          <text class='percent'>{{comment.line_sum_percent}}</text>
+        </view>
+        <view class='ha'>
+          <text class='Name'>导游讲解</text>
+          <image src='http://pjqly.com/public/wx_mini/images//xing1.png' class='hei'></image>
+          <view class='length'>
+            <progress percent="{{comment.tour_sum / comment.tour_sum * 100}}" activeColor='#FAC60E' border-radius="30" active></progress>
+          </view>
+          <text class='percent'>{{comment.tour_sum_percent}}</text>
+        </view>
+        <view class='ha'>
+          <text class='Name'>领队服务</text>
+          <image src='http://pjqly.com/public/wx_mini/images//xing1.png' class='hei'></image>
+          <view class='length'>
+            <progress percent="{{comment.lead_sum / comment.lead_sum * 100}}" activeColor='#FAC60E' border-radius="30" active></progress>
+          </view>
+          <text class='percent'>{{comment.lead_sum_percent}}</text>
+        </view>
+        <view class='ha'>
+          <text class='Name'>行程安排</text>
+          <image src='http://pjqly.com/public/wx_mini/images//xing1.png' class='hei'></image>
+          <view class='length'>
+            <progress percent="{{comment.journey_sum / comment.journey_sum * 100}}" activeColor='#FAC60E' border-radius="30" active></progress>
+          </view>
+          <text class='percent'>{{comment.journey_sum_percent}}</text>
+        </view>
+        <view class='ha'>
+          <text class='Name'>描述相符</text>
+          <image src='http://pjqly.com/public/wx_mini/images//xing1.png' class='hei'></image>
+          <view class='length'>
+            <progress percent="{{comment.describe_sum / comment.describe_sum * 100}}" activeColor='#FAC60E' border-radius="30" active></progress>
+          </view>
+          <text class='percent'>{{comment.describe_sum_percent}}</text>
+        </view>
       </view>
-      <view class='img_box'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
-      </view>
-      <view class='img_box'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
-      </view>
-      <view class='img_box'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
-      </view>
-      <view class='img_box'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
-      </view>
-    </view>
-  </view>
-  <view class='clear'></view>
-
-  <view class='desc'>
-    <view class='user'>
-      <view class='user_img'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
-      </view>
-      <text class='nickname'>东华帝君</text>
-      <text class='update_time'>2018-05-11</text>
-    </view>
-    <view class='con'>
-      游记是最珍贵的记忆资产！告别这个时代的浮躁，回归自然；向那些用纸笔记录的年代致敬，并开启蚂蜂窝游记的新纪元！旅行趣闻，结伴故事，偶得的诗句，统统记录到这里！
-    </view>
-    <view class='img_list'>
-      <view class='img_box'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
-      </view>
-      <view class='img_box'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
-      </view>
-      <view class='img_box'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
-      </view>
-      <view class='img_box'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
-      </view>
-      <view class='img_box'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg'></image>
+      <view class='unit'>
+        <view class="dd {{'0' == curHdIndex?'focus':'default'}}" data-index='0' bindtap='comment_tab'>全部（{{comment.commit_sum}}）</view>
+        <view class="dd {{'3' == curHdIndex?'focus':'default'}}" data-index='3' bindtap='comment_tab'>好评（{{comment.good_sum}}）</view>
+        <view class="dd {{'1' == curHdIndex?'focus':'default'}}" data-index='1' bindtap='comment_tab'>差评（{{comment.negative_sum}}）</view>
+        <view class="dd {{'4' == curHdIndex?'focus':'default'}}" data-index='4' bindtap='comment_tab'>有图（{{comment.have_img_sum}}）</view>
       </view>
     </view>
+    <view class='clear'></view>
+    <block wx:for='{{comment_list}}' wx:key='item.id'>
+      <view class='desc'>
+        <view class='user'>
+          <view class='user_img'>
+            <image src='{{item.profile_photo}}'></image>
+          </view>
+          <text class='nickname'>{{item.nickname}}</text>
+          <text class='update_time'>{{item.create_time}}</text>
+        </view>
+        <view class='con'>{{item.content}}</view>
+        <view class='img_list'>
+          <block wx:for='{{item.img_list}}' wx:for-item="item2" wx:key="item2">
+            <view class='img_box'>
+              <image src='{{item2.name}}'></image>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class='clear'></view>
+    </block>
+    <view class='mull_comment' wx:if="{{comment_list == ''}}">暂无评论</view>
   </view>
 </view>
 <view class='bottom'>
-  <view class='fir'>
-    <button open-type="contact" class='Waiter'>
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//kefu2.png'></image>
-      <rich-text>客服</rich-text>
-    </button>
+  <view class='fir' bindtap='publish'>
+    <image src='http://pjqly.com/public/wx_mini/images/back_index.png'></image>
+    <rich-text>返回首页</rich-text>
   </view>
-  <view class='fir' bindtap='add_cart'>
-    <image src='http://pin.lanhaihui.net/public/wx_mini/images/add_car.png'></image>
-    <rich-text>加入购物车</rich-text>
-  </view>
-  <view class='fir' bindtap='add_cart'>
-    <!-- <navigator url='../shop_car/shop_car' hover-class="none"> -->
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//car.png'></image>
-      <rich-text>购物车</rich-text>
-    <!-- </navigator> -->
+  <view class='fir second' bindtap='collection'>
+    <image src="{{isClick?'http://pjqly.com/public/wx_mini/images/xing2.png':'http://pjqly.com/public/wx_mini/images/xing1.png'}}"></image>
+    <rich-text>{{collec_status}}</rich-text>
   </view>
   <view class='btn'>
-    <view class='dandu' bindtap='buy'>单独购买</view>
+    <view class='dandu' bindtap='alone_buy'>单独购买</view>
     <view class='pintuan' bindtap='launch'>发起拼单</view>
   </view>
 </view>
@@ -289,11 +290,11 @@
 <view class="screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
 <view class='marks' animation="{{animationData}}" wx:if="{{showModalStatus}}">
   <button class='dt' open-type="share" hover-class="btn-hover">
-    <image src='http://pin.lanhaihui.net/public/wx_mini/images/wechat.png'></image>
+    <image src='http://pjqly.com/public/wx_mini/images/wechat.png'></image>
     <text>发送给微信好友/群</text>
   </button>
   <button class='dt' bindtap='share' hover-class="btn-hover">
-    <image src='http://pin.lanhaihui.net/public/wx_mini/images/friend.png'></image>
+    <image src='http://pjqly.com/public/wx_mini/images/friend.png'></image>
     <text>保存至手机相册</text>
   </button>
   <view class='cancel' bindtap="hideModal">取消</view>

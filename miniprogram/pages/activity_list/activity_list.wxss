@@ -1,0 +1,75 @@
+.activity{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto;
+  padding-top: 3%;
+}
+.li{
+  width: 90%;
+  height: auto;
+  overflow: hidden;
+  margin: 0 auto 3%;
+  background: #fff;
+  box-shadow: 0 0 20rpx #ddd;
+  border-radius: 10rpx;
+  padding: 2% 2% 0;
+}
+.img{
+  width: 100%;
+  height: 300rpx;
+  overflow: hidden;
+}
+.img image{
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.title{
+  font-size: 28rpx;
+  color: #333;
+  text-align: justify;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin: 2% 0;
+}
+.bottom{
+  width: 100%;
+  overflow: hidden;
+  border-top: 2rpx dashed #efefef;
+  line-height: 68rpx;
+}
+.date{
+  font-size: 24rpx;
+  color: #999;
+  float: left;
+}
+.more{
+  font-size: 24rpx;
+  color: #999;
+  float: right;
+}
+.kong {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+.kong image {
+  width: 428rpx;
+  height: 396rpx;
+  display: block;
+  margin: 30% auto 0;
+}
+.kong text {
+  color: #999;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  display: block;
+  margin-top: 8%;
+}

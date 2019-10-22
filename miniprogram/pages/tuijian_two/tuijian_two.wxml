@@ -1,26 +1,51 @@
 <view class='center'>
   <!-- 顶部搜索 -->
   <view class='top'>
-    <view class='place' bindtap='tishi'>
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//map.png'></image>
-      <text>青岛</text>
+    <view class='place'>
+      <image src='http://pjqly.com/public/wx_mini/images//map.png'></image>
+      <text>{{city}}</text>
     </view>
     <view class='search'>
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//sousuo.png' bindtap='search_btn'></image>
+      <image src='http://pjqly.com/public/wx_mini/images//sousuo.png' bindtap='search_btn'></image>
       <input placeholder='请搜索目的地或者关键字' bindinput='get_title' bindconfirm="search_btn"></input>
+      <view class='search_btn' bindtap='search_btn'>搜索</view>
     </view>
   </view>
   <view class='clear'></view>
   <!-- 筛选 -->
   <view class='shai'>
     <view class='list'>
-      <view class="li {{index == curHdIndex?'active':'default'}} " bindtap='one_choose_tab' data-index='{{index}}'>一元拼</view>
-      <view class="li {{index1 == curHdIndex?'active':'default'}}" bindtap='zero_choose_tab' data-index='{{index1}}'>0元砍</view>
+      <view class="li {{'0' == curHdIndex?'active':'default'}}" bindtap='one_choose_tab' data-index='0'>零元砍</view>
+      <view class="li {{'1' == curHdIndex?'active':'default'}}" bindtap='one_choose_tab' data-index='1'>一元拼</view>
     </view>
-    <view class='btn' bindtap='tishi'>
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//shai.png'></image>
+    <view class='btn' bindtap='filter'>
+      <image src='http://pjqly.com/public/wx_mini/images//shai.png'></image>
       <text>筛选</text>
     </view>
+  </view>
+  <view class='clear'></view>
+  <view class='animation' animation="{{animationData}}" style="height:100%;position:fixed;visibility:{{show ? 'visible':'hidden'}}" catchtouchmove='true'>
+    <view class='marks' bindtap='close_gg'></view>
+    <form bindsubmit="formSubmit">
+      <view class='animation-content'>
+        <view class='pricezone'>
+          <view class='pztitle'>价格区间（元）</view>
+          <view class='inputzone'>
+            <input type='digit' value='{{price_start}}' bindinput="lowInput" placeholder="最低价" />
+            <text class='sign'>-</text>
+            <input type='digit' value='{{price_end}}' bindinput="highInput" placeholder="最高价" />
+          </view>
+        </view>
+        <view class='end'>
+          <view class='pztitle'>目的地</view>
+          <input type='text' value='{{end_space}}' bindinput="placeInput" placeholder="请输入目的地"></input>
+        </view>
+        <view class='bottom'>
+          <button form-type='submit' class='right_btn'>确定</button>
+          <button form-type='reset' class='left_btn'>重置</button>
+        </view>
+      </view>
+    </form>
   </view>
   <!-- 列表 -->
   <view class='list_show'>
@@ -37,16 +62,18 @@
             <!-- <text class='mark'>{{item.mark}}分</text> -->
           </view>
           <view class='bb'>
-            <text class='num'>{{item.num}}</text>
+            <text class='num'>已售{{item.sale_count}}件</text>
           </view>
           <view class='aa'>
-            <!-- <view class='cc'>
-              <text class='time'>{{item.time}}</text> 后结束
-            </view> -->
-            <text class='qian'>￥{{item.price}}元拼</text>
+            <text class='qian'>￥{{item.price}}元</text>
           </view>
         </view>
       </view>
+    </view>
+    <!-- 为空时的占位图 -->
+    <view class='kong' wx:if="{{inform == ''}}">
+      <image src='http://pjqly.com/public/wx_mini/images/activity.png'></image>
+      <text>回禀小主，暂时没有相关产品~</text>
     </view>
   </view>
   <view class='clear'></view>

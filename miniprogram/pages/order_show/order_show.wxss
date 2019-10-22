@@ -1,0 +1,265 @@
+.line {
+  width: 94%;
+  height: 20rpx;
+  background: linear-gradient(to bottom, #06B3ED 0%, #13FFEB 100%);
+  border-radius: 20rpx;
+  margin: 3% auto 0;
+}
+.bg {
+  width: 92%;
+  background: #fff;
+  margin: 0 auto;
+  margin-top: -6rpx;
+  box-shadow: 0 0 8rpx #ccc;
+}
+.top {
+  width: 90%;
+  overflow: hidden;
+  border-bottom: 2rpx solid #efefef;
+  padding-bottom: 3%;
+  background: rgba(6,179,237,0.16);
+  padding: 3% 5%;
+}
+.success{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin-top: 5%;
+}
+.pay_status{
+  color: #333;
+  font-size: 40rpx;
+  float: left;
+}
+.btn_refund{
+  font-size: 28rpx;
+  color: #fff;
+  background: #06B3ED;
+  float: right;
+  border-radius: 50rpx;
+  height: 52rpx;
+  width: auto;
+  line-height: 52rpx;
+  text-align: center;
+  padding: 0 3%;
+}
+.status{
+  color: #333;
+  font-size: 24rpx;
+  line-height: 90rpx;
+}
+.name{
+  width: 94%;
+  padding: 0 3%;
+  border-bottom: 2rpx solid #efefef; 
+}
+.title{
+  color: #333;
+  font-size: 24rpx;
+  padding: 3% 0;
+}
+.order{
+  color: #333;
+  font-size: 24rpx;
+  padding-bottom: 3%;
+}
+.price{
+  color: #ff0000;
+  font-size: 24rpx;
+  padding-left: 3%;
+}
+.order_mes{
+  width: 94%;
+  padding:3%;
+}
+.tit{
+  font-size: 28rpx;
+  color: #666;
+  display: block;
+  width: 100%;
+  border-left:6rpx solid #06B3ED;
+  padding-left: 2%;
+}
+.li{
+  width: 96%;
+  overflow: hidden;
+  color: #999;
+  font-size: 24rpx;
+  margin-top: 4%;
+  padding:0 2%;
+}
+.left{
+  float: left;
+  display: block;
+  width: 130rpx;
+}
+.dl{
+  border-bottom: 2rpx solid #efefef;
+  padding-bottom: 5%;
+}
+.con{
+  margin-left:5%;
+  color: #666;
+}
+.bottom{
+  width: 80%;
+  height: 90rpx;
+  position: fixed;
+  bottom: 30rpx;
+  left:10%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.continue{
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  background: #06B3ED;
+  float: left;
+  color: #fff;
+  border-radius: 60rpx;
+}
+.cancel{
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  background: #fff;
+  float: left;
+  color: #06B3ED;
+  border-radius: 60rpx;
+  border:2rpx solid #06B3ED;
+}
+.confirm_trip{
+  width: 40%;
+  height: auto;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  background: #06B3ED;
+  color: #fff;
+  border-radius: 60rpx;
+  margin: 22% auto 0;
+}
+.confirm_trip2{
+  width: 40%;
+  height: auto;
+  text-align: center;
+  font-size: 30rpx;
+  line-height: 90rpx;
+  background: #999;
+  color: #fff;
+  border-radius: 60rpx;
+  margin: 22% auto 0;
+}
+.cons{
+  color: #fff;
+  background: #06B3ED;
+  float: right;
+  border-radius: 50rpx;
+  height: 46rpx;
+  width: 110rpx;
+  line-height: 46rpx;
+  text-align: center;
+}
+.haha{
+  color: #06B3ED;
+}
+.hehe{
+  color: #ff0000;
+}
+
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+.commodity_attr_box {
+  width: 90%;
+  height: auto;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  border-top-left-radius: 16rpx;
+  border-top-right-radius: 16rpx;
+  padding:5%;
+}
+.sum{
+  color: #333;
+  font-size: 28rpx;
+}
+.sum text{
+  color: #ff0000;
+}
+.hot_line{
+  width: 100%;
+  height: 74rpx;
+  line-height: 74rpx;
+  color: #333;
+  font-size: 28rpx;
+  margin-top: 3%;
+}
+.hot_line .line_phone{
+  float: left;
+}
+.hot_line input{
+  float: left;
+  border:2rpx solid #efefef;
+  border-radius: 8rpx;
+  color: #999;
+  width: 76%;
+  padding-left: 2%;
+  margin: 10rpx 0;
+}
+.Reason{
+  color: #333;
+  font-size: 28rpx;
+  margin-top: 3%;
+}
+.Reason text{
+  color: #ff0000;
+}
+.version{
+  width: 96%;
+  height: 200rpx;
+  border:2rpx solid #efefef;
+  border-radius: 4px;
+  color: #999;
+  font-size: 28rpx;
+  margin-top: 3%;
+  padding: 2%;
+}
+.btn_region{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 70%;
+  margin: 6% auto 0;
+}
+.cancels{
+  width: 40%;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(to right, #7bdbfb, #06b3ed);
+  border-radius: 50rpx;
+  font-size: 30rpx;
+}
+.submit{
+  background: #317bff;
+}

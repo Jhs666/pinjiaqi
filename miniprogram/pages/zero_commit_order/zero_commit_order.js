@@ -1,205 +1,252 @@
 // pages/commit_order/commit_order.js
 const app = getApp()
+var common = require('../../utils/public.js')
 Page({
 
-    /**
-     * 页面的初始数据
-     */
-    data: {
-        showModalStatus: false,
-        animationData: '',
-        item_title: '',
-        price: '',
-        orderform_sn: '',
-        value: '',
-        realname: '',
-        phone: '',
-        email: ''
-    },
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    showModalStatus: false,
+    animationData: '',
+    title: '', //标题
+    price: '', //价格
+    orderform_sn: '', //订单号
+    value: [], //出行人姓名
+    idArr: [], //出行人id
+    realname: app.globalData.realname ? app.globalData.realname : '', //联系人
+    phone: app.globalData.phone ? app.globalData.phone : '', //电话
+    email: app.globalData.email ? app.globalData.email : '', //邮箱
+    item_id: '', //商品id
+    tihuoWay: '', //出行日期
+    yyyy: "", //优惠券
+    go_num: '', //出行人数
+    travel_human_type: '',//成人出行数量
+    travel_child_human_type: '',//儿童出行数量
+    travel_total: '',//出行类型合并
+  },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-        // console.log(options)
-        var that = this
-        this.data.iid = options.id
-        that.setData({
-            price: app.globalData.item_price,
-            item_title: app.globalData.item_title,
-            orderform_sn: app.globalData.orderform_sn
-        })
-        var item_price = that.data.price
-        var item_title = that.data.item_title
-        if (app.globalData.value) {
-            that.setData({
-                value: app.globalData.value
-            })
-        }
-    },
-    // 输入出行人、联系人、手机号、邮箱
-    trip_nameInput: function (e) {
-        var that = this
-        that.setData({
-            value: app.globalData.value
-        })
-        console.log(app.globalData.value);
-    },
-    realnameInput: function (e) {
-        var that = this
-        that.setData({
-            realname: e.detail.value
-        })
-        // console.log(that.data.realname);
-    },
-    phoneInput: function (e) {
-        var that = this
-        that.setData({
-            phone: e.detail.value
-        })
-        // console.log(that.data.phone);
-    },
-    emailInput: function (e) {
-        var that = this
-        that.setData({
-            email: e.detail.value
-        })
-        // console.log(that.data.email);
-    },
-    formSubmit: function (options) {
-        var that = this
-        var item_price = app.globalData.item_price
-        var item_title = app.globalData.item_title
-        // 检验出行人、联系人、手机号、邮箱
-        var value = that.data.value
-        var realname = that.data.realname
-        var phone = that.data.phone
-        var email = that.data.email
-        var phonetel = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/
-        var str = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/
-        var msg = ''
-        if (email == '') {
-            msg = '请输入邮箱'
-        } else if (!str.test(email)) {
-            msg = '邮箱格式不正确'
-        }
-        if (phone == '') {
-            msg = '请输入手机号'
-        } else if (!phonetel.test(phone)) {
-            msg = '手机号格式不正确'
-        }
-        if (realname == '') {
-            msg = '请选择联系人'
-        }
-        if (value == '') {
-            msg = '请选择出行人'
-        }
-        if (msg) {
-            wx.showToast({
-                title: msg,
-                icon: 'none'
-            })
-            return
-        }
-        wx.request({
-            url: app.data.requestUrl + '/orderform/create_zero',
-            data: {
-                item_id: that.data.iid,
-                buy_type: 6,
-                trip_id: getApp().globalData.user.id,
-                token: getApp().globalData.user.token
-            },
-            method: 'POST',
-            success: function (res) {
-                console.log(res);
-                return false
-                wx.navigateTo({
-                    url: '../bargain/bargain',
-                })
-            },
-            error: function (data) {
-                console.log(data)
-            }
-        })
-    },
-    showModal: function () {
-        // 显示遮罩层
-        var animation = wx.createAnimation({
-            duration: 100,
-            timingFunction: "ease-in-out",
-            delay: 0
-        })
-        this.animation = animation
-        animation.translateY(500).step()
-        this.setData({
-            animationData: animation.export(),
-            showModalStatus: true
-        })
-        setTimeout(function () {
-            animation.translateY(0).step()
-            this.setData({
-                animationData: animation.export()
-            })
-        }.bind(this), 0.1)
-    },
-    hideModal: function () {
-        this.setData({
-            showModalStatus: false,
-        })
-    },
-    //选择出行人
-    choose_triper: function () {
-        wx.navigateTo({
-            url: '../traveller/traveller',
-        })
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    var that = this
+    var dateTime = wx.getStorageSync('orderDetail')[0];
+    that.setData({
+      price: app.globalData.jiage, //价格
+      go_num: app.globalData.shuliang, //出行人数
+      tihuoWay: app.globalData.go_date, //时间
+      dateTime: dateTime,
+      timeID: app.globalData.timeID, //时间id
+      realname: app.globalData.realname ? app.globalData.realname : '', //联系人
+      phone: app.globalData.phone ? app.globalData.phone : '', //电话
+      email: app.globalData.email ? app.globalData.email : '', //邮箱
+      travel_human_type: app.globalData.travel_human_type,//成人出行数量
+      travel_child_human_type: app.globalData.travel_child_human_type,//儿童出行数量
+      travel_total: app.globalData.travel_total,//出行类型合并
+    })
+    app.globalData.travlist = 1;
+    // 出行人标识
+    app.globalData.num = 1;
+    this.data.iid = dateTime.id //商品id
+    // 获取出行人值和id
+    if (app.globalData.value) {
+      var nameList = [];
+      var idList = [];
+      for (var i = 0; i < app.globalData.value.length; i++) {
+        var name = app.globalData.value[i].split(',')[1];
+        var id = app.globalData.value[i].split(',')[0];
+        nameList.push(name)
+        idList.push(id)
+      }
+      that.setData({
+        value: nameList.join(','),
+        idArr: idList.join(',')
+      })
     }
+  },
+  // 输入出行人、联系人、手机号、邮箱
+  trip_nameInput: function(e) {
+    var that = this
+    that.setData({
+      value: app.globalData.value
+    })
+    console.log(app.globalData.value);
+  },
+  realnameInput: function(e) {
+    var that = this
+    that.setData({
+      realname: e.detail.value
+    })
+    // console.log(that.data.realname);
+  },
+  phoneInput: function(e) {
+    var that = this
+    that.setData({
+      phone: e.detail.value
+    })
+    // console.log(that.data.phone);
+  },
+  emailInput: function(e) {
+    var that = this
+    that.setData({
+      email: e.detail.value
+    })
+    // console.log(that.data.email);
+  },
+  formSubmit: function(options) {
+    var that = this
+    var id = that.data.idArr //出行人id
+    var timeID = that.data.timeID //出行时间id
+    var go_num = that.data.go_num //出行人数
+    var realname = that.data.realname
+    var phone = that.data.phone
+    var email = that.data.email
+    var phonetel = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/
+    var msg = ''
+    if (phone == '') {
+      msg = '请输入手机号'
+    } else if (!phonetel.test(phone)) {
+      msg = '手机号格式不正确'
+    }
+    if (realname == '') {
+      msg = '请选择联系人'
+    }
+    if (id == '') {
+      msg = '请选择出行人'
+    }
+    if (msg) {
+      wx.showToast({
+        title: msg,
+        icon: 'none'
+      })
+      return
+    }      
+    //此处请求砍价购买
+    common.loading()
+    var v_data = {
+      openid: getApp().globalData.user.openid, //登陆时返回的user表字段中
+      token: getApp().globalData.user.token, //登陆时返回的user表字段中
+      item_id: that.data.iid, //商品id,应该在点击商品的时间中获取商品id/commodity_id
+      buy_type: 6, //购买方式
+      share_status: 1, //公开拼团状态
+      trip_id: that.data.idArr, //出行人id
+      item_num: go_num, //数量，也就是出行人数
+      integral_use_sum: 0, //用户购买商品所想使用的积分,当前填0就可以
+      trip_time_id: timeID, //出行时间
+      urgency_name: realname,//联系人
+      urgency_phone: phone,//电话
+      urgency_email: email,//邮箱
+    };
+    console.log(v_data)
+    wx.request({
+      url: app.data.requestUrl + '/orderform/create',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: v_data,
+      success: function(res) {
+        console.log(res)
+        if (false === common.check_res_code(res.data, false)) {
+          return false;
+        }else{
+          wx.navigateTo({
+            url: '../order/order?mkll=0',
+          })
+        }
+        wx.hideLoading();
+      },
+      error: function(data) {
+        console.log(data)
+      }
+    })
+  },
+  showModal: function() {
+    // 显示遮罩层
+    var animation = wx.createAnimation({
+      duration: 100,
+      timingFunction: "ease-in-out",
+      delay: 0
+    })
+    this.animation = animation
+    animation.translateY(500).step()
+    this.setData({
+      animationData: animation.export(),
+      showModalStatus: true
+    })
+    setTimeout(function() {
+      animation.translateY(0).step()
+      this.setData({
+        animationData: animation.export()
+      })
+    }.bind(this), 0.1)
+  },
+  hideModal: function() {
+    this.setData({
+      showModalStatus: false,
+    })
+  },
+  //选择出行人
+  choose_triper: function () {
+    app.globalData.realname = this.data.realname//联系人
+    app.globalData.phone = this.data.phone//电话
+    app.globalData.email = this.data.email//邮箱
+    app.globalData.go_num = this.data.go_num//出行总人数
+    app.globalData.travel_human_type = this.data.travel_human_type//成人出行人数
+    app.globalData.travel_child_human_type = this.data.travel_child_human_type//儿童出行人数
+    app.globalData.travel_total = this.data.travel_total//出行类型合并
+    wx.navigateTo({
+      url: '../traveller/traveller?donghua=1',
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function() {
+
+  }
 })

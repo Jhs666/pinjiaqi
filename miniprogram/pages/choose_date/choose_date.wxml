@@ -3,15 +3,15 @@
   <view class="box">
     <view class="box-flex">
       <view class="flex-item">
-        <view class="item-content" bindtap="doDay" data-key='left'>
+        <view class="item-content topbar" bindtap="doDay" data-key='left'>
           <view class="glyphicon glyphicon-triangle-left">◀</view>
         </view>
       </view>
       <view class="flex-item item-content-current-day">
-        <view class="item-content">{{currentDate}}</view>
+        <view class="item-content topbar">{{currentDate}}</view>
       </view>
       <view class="flex-item">
-        <view class="item-content" bindtap="doDay" data-key="right">
+        <view class="item-content topbar" bindtap="doDay" data-key="right">
           <view class="glyphicon glyphicon-triangle-right">▶</view>
         </view>
       </view>
@@ -40,9 +40,24 @@
       </view>
     </view>
     <view class="box-flex">
-      <view class="flex-item" wx:for="{{currentDayList}}" wx:for-index='key' wx:for-item="vo" wx:key="{{key}}">
-        <view data-day="{{vo}}" bindtap='selectDay' class="item-content {{!selectCSS}}" wx:if="{{currentDay != vo}}">{{vo}}</view>
-        <view data-day="{{vo}}" bindtap='selectDay' class="item-content {{selectCSS}}" wx:else>{{vo}}</view>
+      <view class="flex-item {{((vo.date < currentDay1 && currentMonth == currentMonth1 &&  currentYear == currentYear1) || currentYear < currentYear1 || (currentMonth < currentMonth1 && currentYear == currentYear1)) && vo.date ? 'active':''}}" wx:for="{{currentDayList1}}"
+        wx:for-index='key' wx:for-item="vo" wx:key="{{key}}">
+        <view data-day="{{vo.date}}" data-price="{{vo.price}}" data-piece_price="{{vo.piece_price}}" data-child_price="{{vo.child_price}}" data-child_piece_price="{{vo.child_piece_price}}" data-id='{{vo.id}}' bindtap='selectDay' class="item-content {{!selectCSS}}"
+          wx:if="{{currentDay != vo.date}}">{{vo.date}}</view>
+        <view data-day="{{vo.date}}" data-price="{{vo.price}}" data-piece_price="{{vo.piece_price}}" data-child_price="{{vo.child_price}}" data-child_piece_price="{{vo.child_piece_price}}" data-id='{{vo.id}}' bindtap='selectDay' class="item-content {{selectCSS}}"
+          wx:else>{{vo.date}}</view>
+        <block wx:if="{{flag == 1}}">
+          <view data-day="{{vo.date}}" data-price="{{vo.price}}" data-piece_price="{{vo.piece_price}}" data-child_price="{{vo.child_price}}" data-child_piece_price="{{vo.child_piece_price}}" data-id='{{vo.id}}' bindtap='selectDay' class="item-price {{!selectCSS}}"
+            wx:if="{{currentDay != vo.date}}">{{vo.price}}</view>
+          <view data-day="{{vo.date}}" data-price="{{vo.price}}" data-piece_price="{{vo.piece_price}}" data-child_price="{{vo.child_price}}" data-child_piece_price="{{vo.child_piece_price}}" data-id='{{vo.id}}' bindtap='selectDay' class="item-price {{selectCSS}}"
+            wx:else>{{vo.price}}</view>
+        </block>
+        <block wx:else>
+          <view data-day="{{vo.date}}" data-price="{{vo.price}}" data-piece_price="{{vo.piece_price}}" data-child_price="{{vo.child_price}}" data-child_piece_price="{{vo.child_piece_price}}" data-id='{{vo.id}}' bindtap='selectDay' class="item-price {{!selectCSS}}"
+            wx:if="{{currentDay != vo.date}}">{{vo.piece_price}}</view>
+          <view data-day="{{vo.date}}" data-price="{{vo.price}}" data-piece_price="{{vo.piece_price}}" data-child_price="{{vo.child_price}}" data-child_piece_price="{{vo.child_piece_price}}" data-id='{{vo.id}}' bindtap='selectDay' class="item-price {{selectCSS}}"
+            wx:else>{{vo.piece_price}}</view>
+        </block>
       </view>
     </view>
   </view>
@@ -51,26 +66,59 @@
   </view>
   <!-- 选择日期 -->
   <view class='date_box'>
-    <view>￥{{totalPrice}}</view>
-    <block  wx:for="{{carts}}"  wx:key="key">
-      <view class='li'>
-        <text class='name'>{{item.title}}</text>
-        <view class='right'>
-          <text class='sub' data-index="{{index}}" bindtap='sub'>-</text>
-          <text class='num'>{{item.num}}</text>
-          <text class='add' data-index="{{index}}" bindtap='add'>+</text>
+    <view class='li' wx:if='{{flag == 1}}'>
+      <text class='name'>成人</text>
+      <view class='right'>
+        <view class='total_price'>￥{{alone.money}}</view>
+        <view class='click'>
+          <text class='sub' bindtap='add' data-what="alone" data-tap="-">-</text>
+          <input class='num' disabled='false' value='{{alone.num}}'></input>
+          <text class='add' bindtap='add' data-what="alone" data-tap="+">+</text>
         </view>
       </view>
-    </block>
+    </view>
+    <view class='li' wx:else>
+      <text class='name'>成人</text>
+      <view class='right'>
+        <view class='total_price'>￥{{alone_piece.money}}</view>
+        <view class='click'>
+          <text class='sub' bindtap='add' data-what="alone_piece" data-tap="-">-</text>
+          <input class='num' disabled='false' value='{{alone_piece.num}}'></input>
+          <text class='add' bindtap='add' data-what="alone_piece" data-tap="+">+</text>
+        </view>
+      </view>
+    </view>
+    <view class='li' wx:if='{{flag == 2}}'>
+      <text class='name'>儿童</text>
+      <view class='right'>
+        <view class='total_price'>￥{{alone_child_piece.money}}</view>
+        <view class='click'>
+          <text class='sub' bindtap='add' data-what="alone_child_piece" data-tap="-">-</text>
+          <input class='num' disabled='false' value='{{alone_child_piece.num}}'></input>
+          <text class='add' bindtap='add' data-what="alone_child_piece" data-tap="+">+</text>
+        </view>
+      </view>
+    </view>
+    <view class='li' wx:else>
+      <text class='name'>儿童</text>
+      <view class='right'>
+        <view class='total_price'>￥{{alone_child.money}}</view>
+        <view class='click'>
+          <text class='sub' bindtap='add' data-what="alone_child" data-tap="-">-</text>
+          <input class='num' disabled='false' value='{{alone_child.num}}'></input>
+          <text class='add' bindtap='add' data-what="alone_child" data-tap="+">+</text>
+        </view>
+      </view>
+    </view>
   </view>
   <view class='clear'></view>
   <!-- 备注 -->
-  <view class='Remarks'>
+  <view class='Remarks' style='display:none'>
     <text>价格说明</text>
-    <textarea></textarea>
+    <textarea disabled='false'></textarea>
   </view>
   <!-- 下一步按钮 -->
   <view class='btn'>
-    <text>下一步</text>
+    <text bindtap='next_page'>下一步</text>
   </view>
 </view>

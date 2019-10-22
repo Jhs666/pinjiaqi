@@ -104,7 +104,6 @@ page {
 
 .show {
   width: 94%;
-  /* background: #fff; */
   padding: 0 3% 3%;
   overflow: hidden;
 }
@@ -125,7 +124,6 @@ page {
   font-size: 36rpx;
   line-height: 50rpx;
   color: #333;
-  margin-left: 6rpx;
 }
 
 .con {
@@ -150,6 +148,7 @@ page {
   bottom: 0;
   left: 0;
   background: #fff;
+  border-top: 2rpx solid #efefef;
 }
 
 input {
@@ -260,4 +259,31 @@ input {
 
 .what {
   padding-bottom: 100rpx;
+}
+.entry{
+  width: 92%;
+  height: 60rpx;
+  background: #efeff4;
+  border-radius: 30rpx;
+  float: left;
+  overflow: hidden;
+}
+.entry input {
+  width: 72%;
+  height: 60rpx;
+  color: #bbb;
+  font-size: 24rpx;
+  line-height: 60rpx;
+  float: left;
+}
+.search_btn{
+  width: 15%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  color: #bbb;
+  text-align: center;
+  float: right;
+  border-left: 2rpx solid #ebebec;
+  background: #ebebec;
 }

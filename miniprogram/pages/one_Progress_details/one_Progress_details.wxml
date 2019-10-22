@@ -1,0 +1,86 @@
+<view class='center'>
+  <image src='http://pjqly.com/public/wx_mini/images/one_pro.jpg' mode='widthFix' class='page_img'></image>
+  <view class='body'>
+    <view class='box'>
+      <view class='label_show'>一元购详情</view>
+      <!-- 拼团列表 -->
+      <view class='list_show'>
+        <view class='li' wx:key="inform.id">
+          <view class='inform' data-id='{{inform.id}}'>
+            <view class='img'>
+              <image src='{{inform.item_info.preview_img}}'></image>
+              <view class='tag'>{{inform.item_info.type_list}}</view>
+              <view class='title'>{{inform.item_info.start_space}}</view>
+            </view>
+            <view class='con'>
+              <view class='desc'>{{inform.item_info.title}}</view>
+              <view class='fenshu'>5.0分</view>
+              <view class='num'>已拼{{inform.num}}件</view>
+              <view class='qian'>￥{{inform.item_info.price}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='clear'></view>
+      <!-- 拼团人列表 -->
+      <view class='Assemble'>
+        <view class='Remarks'>备注：黄色为团长，绿色为已支付，红色为未支付</view>
+        <block wx:for="{{inform.one_buy_list}}">
+          <view class='team' data-id='{{item.id}}'>
+            <view class='border' style='background-image:{{color}}'>
+              <view class='li'>
+                <image src='{{item.user_id_profile_photo}}'></image>
+                <view class='honor' style='display:{{status}}'>{{item.user_type_name}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class='clear'></view>
+        <!-- 进度条 -->
+        <view class='jindu'>
+          <view class='tiao'>
+            <view class='huise'>
+              <view class='visited'></view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='clear'></view>
+      <!-- 名额 -->
+      <view wx:key="inform.id">
+        <view class='inform' data-id='{{inform.id}}'>
+          <view class='ming' wx:if="{{inform.lack_ticket_count != 0}}">剩余
+            <text class='over'>{{inform.lack_ticket_count}}</text>个名额
+          </view>
+          <view class='suc' wx:if="{{inform.lack_ticket_count == 0}}">拼团结束，已拼成，等待出发。</view>
+          <!-- 结束 -->
+          <view class='end'>
+            <view class='finish' wx:if="{{inform.lack_ticket_count != 0}}">{{formatTime}}</view>
+          </view>
+        </view>
+      </view>
+      <!-- 按钮 -->
+      <view class='btn' wx:if="{{inform.lack_ticket_count != 0}}">
+        <button class='dt dd donghua' open-type="share" hover-class="btn-hover"> 邀请好友</button>
+      </view>
+    </view>
+    <!-- 开奖结果 -->
+    <view class='Lottery'>
+      <view class='result'>
+        <view class='label'>开奖结果</view>
+        <view class='Conduct' wx:if='{{inform.team_status !=4}}'>大奖酝酿中，请拭目以待！</view>
+        <view class='res' wx:if='{{inform.team_status ==4}}'>
+          <text class='num'>{{inform.ticket}}</text>
+          <view class='win'>
+            恭喜
+            <text class='win_name'>{{inform.user_id_name}}</text> 中奖了！
+          </view>
+          <view class='tel'>
+            <text class='keep'>保持电话畅通或联系客服人员</text>
+            <text class='look' bindtap='loook_Lottery'>查看奖券→</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

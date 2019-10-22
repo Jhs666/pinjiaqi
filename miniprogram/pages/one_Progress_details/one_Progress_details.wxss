@@ -1,0 +1,343 @@
+.center{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.page_img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.body{
+  position: absolute;
+  width:94%;
+  left: 3%;
+  top: 47%;
+}
+.label_show{
+  font-size: 36rpx;
+  text-align: center;
+  color: #fff;
+  background: url(http://pjqly.com/public/wx_mini/images/title.png) no-repeat center;
+  background-size: 50% 100%;
+  line-height: 84rpx;
+  position: absolute;
+  top:-7%;
+  width: 100%;
+  z-index: 999;
+}
+.box {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  margin:0 auto;
+  background: #fff;
+  box-shadow: 0 0 32rpx #ddd;
+  margin-top: -6%;
+  border-radius: 10rpx;
+}
+
+/* 列表 */
+.list_show {
+  width: 94%;
+  margin: 10% auto 3%;
+  box-shadow:5rpx 4rpx 10rpx 0 #d9d9d9;
+  border-radius: 10rpx;
+}
+
+.list_show .li {
+  width: 100%;
+  height: 230rpx;
+  overflow: hidden;
+  margin: 0 auto;
+  border-bottom: 2rpx solid #efefef;
+}
+
+.li .img {
+  width: 40%;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+
+.li .img image {
+  width: 100%;
+  height: 230rpx;
+  display: block;
+  margin: 0 auto;
+}
+
+.li .tag {
+  width: 86rpx;
+  height: 34rpx;
+  line-height: 34rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #43eff9;
+  color: #000;
+  text-align: center;
+  font-size: 20rpx;
+}
+
+.li .title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 20rpx;
+}
+
+.li .con {
+  float: left;
+  width: 54%;
+  height: 200rpx;
+  position: relative;
+  padding: 2% 3%;
+}
+
+.li .con .desc {
+  color: #000;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+
+.li .con .fenshu {
+  position: absolute;
+  font-size: 24rpx;
+  color: #317bff;
+  left: 3%;
+  bottom: 24%;
+}
+
+.li .con .num {
+  position: absolute;
+  bottom: 5%;
+  left: 3%;
+  color: #9b9b9b;
+  font-size: 24rpx;
+}
+
+.li .con .qian {
+  position: absolute;
+  bottom: 5%;
+  right: 3%;
+  color: #ff001f;
+  font-size: 32rpx;
+  font-weight: bolder;
+}
+
+/* 拼团人列表 */
+.Assemble {
+  width: 94%;
+  overflow: hidden;
+  margin: 0 auto;
+  display: flex;
+  /* justify-content: space-between; */
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.Remarks{
+  color: #1BB8FF;
+  font-size: 18rpx;
+  width: 100%;
+  margin: 0 auto 3%;
+}
+.team{
+  float: left;
+}
+.team+.team{
+  margin-left: 20rpx;
+}
+.border{
+  width: 116rpx;
+  height: 116rpx;
+  border-radius: 50%;
+  box-sizing: border-box; 
+  padding: 4rpx;
+}
+.Assemble .li {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  background: #fff;
+}
+
+.Assemble .li image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+.jindu {
+  width: 100%;
+  margin: 3% auto;
+  overflow: hidden;
+}
+.tiao {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 60rpx;
+}
+
+.huise {
+  width: 100%;
+  height: 12rpx;
+  background: #d8d8d8;
+  position: relative;
+  border-radius: 60rpx;
+}
+
+.visited {
+  width: 100%;
+  height: 12rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(left, #ffba25, #f80000);
+  border-radius: 60rpx;
+}
+
+/* 名额 */
+
+.ming {
+  font-size: 28rpx;
+  color: #999;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.ming text {
+  color: #f00;
+}
+.suc{
+  color: #ff0000;
+  font-size: 32rpx;
+  text-align: center;
+  margin: 2% 0;
+}
+
+/* 结束 */
+
+.end {
+  font-size: 32rpx;
+  color: #999;
+  line-height: 44rpx;
+  text-align: center;
+  padding: 2% 0;
+  border-bottom: 2rpx solid #efefef;
+  width: 94%;
+  margin: 0 auto;
+}
+
+.end .finish {
+  color: #f00;
+  display: inline-block;
+  text-align: center
+}
+/* 按钮 */
+.btn {
+  width: 90%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.dt {
+  width: 25%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  color: #999;
+  border: 2rpx solid #999;
+  border-radius: 60rpx;
+  text-align: center;
+  float: right;
+  margin: 3% 3.8%;
+}
+.dd {
+  color: #06b3ed;
+  border: 2rpx solid #06b3ed;
+}
+.donghua{
+  background: none !important;
+  padding: 0 !important;
+}
+.honor {
+  position: absolute;
+  background: linear-gradient(to bottom, #FFDB00 0%, #FF8D00 100%);
+  width: auto;
+  height: 32rpx;
+  color: #fff;
+  font-size: 20rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  top: 0;
+  right: -10%;
+}
+.Lottery{
+  margin-top: 20%;
+  width: 100%;
+}
+.label{
+  font-size: 36rpx;
+  text-align: center;
+  color: #fff;
+  background: url(http://pjqly.com/public/wx_mini/images/title.png) no-repeat center;
+  background-size: 50% 100%;
+  line-height: 84rpx;
+  position: absolute;
+  width: 90%;
+  margin-top: -10%;
+  z-index: 999;
+}
+.result{
+  background: url(http://pjqly.com/public/wx_mini/images/draw.png) no-repeat center;
+  background-size: 100% 100%;
+  width: 90%;
+  height: 256rpx;
+  margin: 0 auto;
+  margin-top: -6%;
+  padding: 5%;
+  position: relative;
+}
+.num{
+  color: #ff0000;
+  text-align: center;
+  display: block;
+  margin:8% 0 3%;
+}
+.win{
+  text-align: center;
+  color: #71a3ff;
+}
+.win_name{
+  color: #ff0000;
+}
+.tel{
+  width: 100%;
+  color: #71a3ff;
+  font-size: 20rpx;
+  margin: 8% auto 0;
+  position: relative;
+}
+.keep{
+  display: block;
+  text-align: center;
+}
+.look{
+  position: absolute;
+  right: 3%;
+  top: 0;
+}
+.Conduct{
+  text-align: center;
+  font-size: 28rpx;
+  color: #71a3ff;
+  line-height: 256rpx;
+}

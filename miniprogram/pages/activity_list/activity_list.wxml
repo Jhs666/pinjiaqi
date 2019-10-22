@@ -1,0 +1,19 @@
+<view class='activity'>
+  <block wx:for="{{activity_list}}" wx:key="item.id" hidden="{{hidename}}">
+    <view class='li' data-id="{{item.id}}" data-url="{{item.url}}" bindtap='more'>
+      <view class='img'>
+        <image src='{{item.img}}' mode='widthFix'></image>
+      </view>
+      <view class='title'>{{item.title}}</view>
+      <view class='bottom'>
+        <view class='date'>发表于：{{item.create_time}}</view>
+        <view class='more'>查看更多→</view>
+      </view>
+    </view>
+  </block>
+  <!-- 活动为空时的占位图 -->
+  <view class='kong' wx:if="{{activity_list==''}}">
+    <image src='http://pjqly.com/public/wx_mini/images/activity.png'></image>
+    <text>回禀小主，暂时没有相关活动~</text>
+  </view>
+</view>

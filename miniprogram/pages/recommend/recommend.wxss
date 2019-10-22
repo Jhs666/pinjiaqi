@@ -5,7 +5,10 @@
   padding: 0 3%;
   overflow: hidden;
   background: #06b3ed;
-  /* position: fixed; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
 
 .top .back {
@@ -82,12 +85,13 @@
 /* 筛选 */
 .shai {
   width: 94%;
-  height: 88rpx;
+  height: auto;
   margin: 0 auto;
   background: #fff;
   padding: 0 3%;
   margin-bottom: 3%;
   white-space: nowrap;
+  margin-top: 100rpx;
 }
 
 .shai .list {
@@ -105,6 +109,7 @@
   line-height: 48rpx;
   text-align: center;
   margin: 20rpx 10rpx;
+  color: #666;
 }
 
 .shai .btn image {
@@ -120,6 +125,93 @@
   float: right;
   line-height: 88rpx;
   margin-right: 2%;
+}
+.animation{
+  z-index: 99999;
+  float: left;
+  right: -100vh;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+.animation-content{
+  width: 70%;
+  height: 100%;
+  background: #fff;
+  position: absolute;
+  right: 0;
+  z-index: 999999;
+  padding: 3%;
+}
+.pztitle{
+  font-size: 30rpx;
+  color: #333;
+}
+.inputzone{
+  width: 100%;
+  overflow: hidden;
+  margin-top: 3%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.inputzone input{
+  width:42%;
+  font-size: 28rpx;
+  text-align: center;
+  background: #efefef;
+  border-radius: 10rpx;
+}
+.sign{
+  width:6%;
+  color: #ddd;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+.end{
+  margin-top: 5%;
+}
+.end input{
+  font-size: 28rpx;
+  padding: 0 2%;
+  background: #efefef;
+  border-radius: 10rpx;
+  margin-top: 3%;
+}
+.bottom{
+  width: 94%;
+  height: 90rpx;
+  position: absolute;
+  bottom: 5%;
+  right: 3%;
+}
+.left_btn{
+  width: 180rpx;
+  height: 70rpx;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(to right, #7bdbfb, #06b3ed);
+  border-radius: 60rpx 0rpx 0rpx 60rpx;
+  float: right;
+  font-size: 28rpx;
+  line-height: 70rpx;
+  margin: 10rpx 0;
+}
+.right_btn{
+  width: 180rpx;
+  height: 70rpx;
+  text-align: center;
+  color: #fff;
+  background: #317bff;
+  border-radius: 0rpx 60rpx 60rpx 00rpx;
+  float: right;
+  font-size: 28rpx;
+  line-height: 70rpx;
+  margin: 10rpx 0;
+}
+button::after{
+  border: none;
 }
 
 /* 列表 */
@@ -228,5 +320,50 @@
 }
 .active {
   background: #06b3ed !important;
-  color: #fff;
+  color: #fff !important;
+}
+.marks{
+  width: 27%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.sort{
+  width: 98%;
+  overflow: hidden;
+  margin: 0 auto;
+  background: #fff;
+  border-top: 2rpx solid #efefef;
+}
+.sort_li{
+  width: 50%;
+  float: left;
+  color: #666;
+  font-size: 28rpx;
+  text-align: left;
+  line-height: 60rpx;
+}
+.sort_dl{
+  text-align: right !important;
+}
+.kong {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+.kong image {
+  width: 428rpx;
+  height: 396rpx;
+  display: block;
+  margin: 30% auto 0;
+}
+.kong text {
+  color: #999;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  display: block;
+  margin-top: 8%;
 }

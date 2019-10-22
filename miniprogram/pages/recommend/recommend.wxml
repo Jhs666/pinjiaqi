@@ -2,49 +2,84 @@
   <!-- 顶部搜索 -->
   <view class='top'>
     <view class='place'>
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//map.png'></image>
+      <image src='http://pjqly.com/public/wx_mini/images//map.png'></image>
       <text>青岛</text>
     </view>
     <view class='search'>
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//sousuo.png'></image>
+      <image src='http://pjqly.com/public/wx_mini/images//sousuo.png'></image>
       <input placeholder='请搜索目的地或者关键字' bindinput='get_title' bindconfirm="search_btn"></input>
       <view class='search_btn' bindtap='search_btn'>搜索</view>
     </view>
   </view>
   <view class='clear'></view>
-  <!-- 筛选 -->
   <view class='shai'>
     <view class='left'>
       <scroll-view class="scroll-view_x" scroll-x style="width: auto;overflow:hidden;">
         <view class='list' wx:for="{{type}}" wx:key="item.id">
-          <view class='type' data-id='{{item.id}}' bindtap='choose_tab'>
+          <view class='type' data-id='{{item.id}}' bindtap='choose_tab' data-name='{{item.name}}' data-index='{{index}}'>
             <view class="{{index == curHdIndex?'active':'default'}} li" data-index='{{index}}' bindtap='active'>{{item.name}}</view>
           </view>
         </view>
       </scroll-view>
     </view>
-    <view class='btn' bindtap='integral'>
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images/shai.png'></image>
+    <view class='btn' catchtap='filter'>
+      <image src='http://pjqly.com/public/wx_mini/images/shai.png'></image>
       <text>筛选</text>
+    </view>
+    <view class='sort'>
+      <view class='sort_li' bindtap='price_down'>价格从高到低排列</view>
+      <view class='sort_li sort_dl' bindtap='price_up'>价格从低到高排列</view>
     </view>
   </view>
   <view class='clear'></view>
+  <view class='animation' animation="{{animationData}}" style="height:100%;position:fixed;visibility:{{show ? 'visible':'hidden'}}" catchtouchmove='true'>
+    <view class='marks' bindtap='close_gg'></view>
+    <form bindsubmit="formSubmit">
+      <view class='animation-content'>
+        <view class='pricezone'>
+          <view class='pztitle'>价格区间（元）</view>
+          <view class='inputzone'>
+            <input type='digit' value='{{price_start}}' bindinput="lowInput" placeholder="最低价" />
+            <text class='sign'>-</text>
+            <input type='digit' value='{{price_end}}' bindinput="highInput" placeholder="最高价" />
+          </view>
+        </view>
+        <view class='end'>
+          <view class='pztitle'>目的地</view>
+          <input type='text' value='{{end_space}}' bindinput="placeInput" placeholder="请输入目的地"></input>
+        </view>
+        <view class='bottom'>
+          <button form-type='submit' class='right_btn'>确定</button>
+          <button form-type='reset' class='left_btn'>重置</button>
+        </view>
+      </view>
+    </form>
+  </view>
   <!-- 列表 -->
   <view class='list_show'>
     <view class='li' wx:for="{{inform}}" wx:key="item.id">
       <view class='inform' data-id='{{item}}' bindtap='product_show'>
         <view class='img'>
           <image src='{{item.preview_img}}'></image>
-          <view class='tag'>{{item.type_list}}</view>
+          <view class='tag'>{{show_name}}</view>
           <view class='title'>{{item.start_space}}出发</view>
         </view>
         <view class='con'>
           <view class='desc'>{{item.title}}</view>
-          <view class='num'>{{item.num}}</view>
-          <view class='qian'>￥{{item.price}}起</view>
+          <view class='num'>已售{{item.sale_count}}件</view>
+          <view class='qian'>￥{{item.piece_price}}起</view>
         </view>
       </view>
     </view>
+    <!-- 为空时的占位图 -->
+    <view class='kong' wx:if="{{inform == ''}}">
+      <image src='http://pjqly.com/public/wx_mini/images/activity.png'></image>
+      <text>回禀小主，暂时没有相关产品~</text>
+    </view>
   </view>
   <view class='clear'></view>
+  <!-- 返回顶部 -->
+  <view class='go_top' bindtap="goTop" hidden='{{!floorstatus}}'>
+    <image src='http://pjqly.com/public/wx_mini/images/goTop.png'></image>
+  </view>
 </view>

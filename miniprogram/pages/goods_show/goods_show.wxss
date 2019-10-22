@@ -27,7 +27,7 @@
   overflow: hidden;
   text-align: justify;
   font-size: 28rpx;
-  color: #999;
+  /* color: #999; */
   line-height: 40rpx;
   margin: 2% 0;
 }
@@ -96,12 +96,12 @@
 }
 
 .title {
-  display: -webkit-box;
   width: 84%;
   float: left;
   font-size: 36rpx;
   color: #666;
   line-height: 50rpx;
+  display: -webkit-box;
   word-break: break-all;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -231,12 +231,13 @@
 }
 
 .xianjia {
-  font-size: 36rpx;
+  font-size: 20rpx;
+  margin-left: 20rpx;
 }
 
 .yuanjia {
   color: #d8d8d8;
-  font-size: 20rpx;
+  font-size: 36rpx;
   margin-left: 10rpx;
 }
 
@@ -250,7 +251,7 @@
   overflow: hidden;
   height:266rpx;
   background: #fff;
-  margin: 0 0 3%;
+  margin: 0;
   position: relative;
 }
 .mask{
@@ -393,10 +394,9 @@
   margin: 10rpx 0 !important;
 }
 .list_shows{
-  position: static !important;
   width: 94% !important;
   height:135rpx !important;
-  margin: 0 auto;
+  left: 3%;
 }
 .li {
   border-top: 2rpx solid #efefef;
@@ -426,6 +426,12 @@
   color: #333 !important;
   line-height: 88rpx !important;
   margin-left: 20rpx;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+  float: left;
+  width: 26%;
 }
 
 .pin {
@@ -435,7 +441,7 @@
 .times {
   float: left;
   text-align: center;
-  margin-right: 20rpx;
+  margin-right: 18rpx;
 }
 
 .go {
@@ -480,7 +486,7 @@ navigator {
   display: inline-block;
 }
 .fir {
-  margin: 15rpx 3%;
+  margin: 15rpx 2%;
   display: inline-block;
 }
 .fir image {
@@ -855,12 +861,14 @@ navigator {
   width: 94%;
   padding: 0 3%;
   background: #fff;
+  margin-top: 3%;
 }
 .mans {
   width: 100%;
   overflow: hidden;
   padding: 3% 0;
   line-height: 44rpx;
+  border-top:2rpx solid #efefef;
   border-bottom:2rpx solid #efefef;
 }
 .mans image {
@@ -901,8 +909,8 @@ navigator {
   overflow: hidden;
 }
 .dd{
-  background: #06B3ED;
-  color: #fff;
+  background: #efefef;
+  color: #999;
   font-size: 24rpx;
   width: 22%;
   height: 46rpx;
@@ -941,13 +949,13 @@ navigator {
   color: #bbb;
   float: left;
   margin-left: 3%;
-  line-height: 56rpx;
+  line-height: 72rpx;
 }
 .update_time{
   font-size: 20rpx;
   color: #bbb;
   float: right;
-  line-height: 56rpx;
+  line-height: 72rpx;
 }
 .con{
   font-size: 28rpx;
@@ -982,7 +990,7 @@ navigator {
   height: 60rpx;
   text-align: center;
   border-radius: 16rpx;
-  margin: 5% auto 2%;
+  margin: 5% auto 3%;
   line-height: 60rpx;
   border: 4rpx solid rgba(6,179,237,1);
 }
@@ -1055,7 +1063,110 @@ save_btn:active{
 /* 详情页临时详情 */
 .temporary{
   font-size: 28rpx;
-  color: #333;
+  /* color: #333; */
   line-height: 42rpx;
   text-align: justify;
+}
+
+.Total{
+  width: 100%;
+  overflow: hidden;
+  padding: 4% 0;
+  border-bottom: 2rpx solid #efefef;
+}
+.Total_left{
+  width: 40%;
+  float: left;
+  text-align: center;
+}
+.Total_right{
+  width: 60%;
+  float: right;
+}
+.grades{
+  color: #06b3ed;
+  font-size: 72rpx;
+}
+.unit{
+  font-size: 24rpx;
+  color: #bbb;
+}
+.discuss{
+  color: #bbb;
+  font-size: 24rpx;
+}
+.ha{
+  width: 100%;
+  color: #bbb;
+  font-size:24rpx;
+  overflow: hidden;
+  margin-bottom:2%; 
+}
+.Name{
+  text-align: right;
+  float: left;
+  width: 124rpx;
+}
+.ha .hei{
+  width: 28rpx;
+  height: 28rpx;
+  float: left;
+  margin: 0 10rpx 0 20rpx;
+}
+.length{
+  width: 20%;
+  height: 20rpx;
+  float: left;
+  margin: 6rpx 0;
+}
+.length progress{
+  height: 100%;
+}
+.percent{
+  float: left;
+  margin-left: 4%;
+}
+.suspend{
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  position: fixed;
+  bottom: 38%;
+  color: #fff;
+  background: #06b3ed;
+  font-size: 32rpx;
+  padding: 2% 1%;
+  writing-mode: vertical-rl;
+  border-radius: 8rpx;
+  letter-spacing:4rpx; 
+}
+.transition {
+  transition: all 0.3s ease-out;
+}
+.body_box{
+  margin-bottom: 25%;
+}
+.null{
+  position: absolute;
+  top: -160%;
+  left: 50%;
+  z-index: 999;
+  font-size: 32rpx;
+  color: #999;
+  transform: translate(-50%, -50%);
+}
+.second{
+  margin-left: 12%;
+}
+
+.focus{
+  background: #06B3ED;
+  color: #fff;
+}
+
+.mull_comment{
+  font-size: 28rpx;
+  color: #999;
+  text-align: center;
+  line-height: 80rpx;
 }

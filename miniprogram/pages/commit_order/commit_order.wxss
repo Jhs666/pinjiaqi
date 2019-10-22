@@ -33,7 +33,7 @@ button {
 
 .topbg .top .date text {
   float: left;
-  line-height: 34rpx;
+  /* line-height: 34rpx; */
   font-size: 24rpx;
   color: #999;
 }
@@ -49,6 +49,7 @@ button {
 .topbg .top .man {
   width: 100%;
   overflow: hidden;
+  margin-bottom:3%; 
 }
 
 .topbg .top .man text {
@@ -58,7 +59,7 @@ button {
   color: #999;
 }
 
-.topbg .top .man rich-text {
+.topbg .top .man .num {
   float: left;
   line-height: 34rpx;
   font-size: 24rpx;
@@ -191,7 +192,7 @@ input {
   height: 100rpx;
   overflow: hidden;
   background: #fff;
-  z-index: 99;
+  z-index: 99999;
 }
 
 .Total {
@@ -320,7 +321,7 @@ textarea {
 }
 
 .first {
-  /* border-bottom: 2rpx solid #efefef; */
+  border-bottom: 2rpx solid #efefef;
 }
 
 .two {
@@ -337,4 +338,24 @@ textarea {
   top: 0;
   left: 0;
   z-index: 9;
+}
+.Coupon{
+  float: right;
+}
+.select_date{
+  height: 30rpx;
+  line-height: 30rpx;
+  margin-left: 2%;
+}
+.topbg .top .date{
+  height: 54rpx;
+  line-height: 54rpx;
+}
+.select_one{
+  background: #efefef;
+  margin-bottom: 2%;
+  font-size: 26rpx;
+  color: #999;
+  padding: 0 2%;
+  line-height: 56rpx;
 }

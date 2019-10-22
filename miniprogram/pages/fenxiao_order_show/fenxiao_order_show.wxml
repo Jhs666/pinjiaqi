@@ -1,0 +1,32 @@
+<view class='center'>
+  <view class='line'></view>
+  <view class='bg'>
+    <view class='top'>
+      <view class='success'>{{order_show.order_pay_status_name}}</view>
+      <text class='status' style='display:{{aaa}}'>订单已完成，感谢您的购买，请在优惠券中查看。</text>
+    </view>
+    <view class='name'>
+      <view class='title'>{{order_show.item_title}}</view>
+      <view class='order'>
+        订单总价
+        <text class='price'>￥{{order_show.item_price}}</text>
+      </view>
+    </view>
+    <view class='order_mes'>
+      <text class='tit'>订单信息</text>
+      <view class='li'>
+        <text class='left'>订单编号</text>
+        <text class='con'>{{order_show.orderform_sn}}</text>
+      </view>
+      <view class='li'>
+        <text class='left'>下单时间</text>
+        <text class='con'>{{order_show.create_time}}</text>
+      </view>
+    </view>
+  </view>
+  <view class='clear'></view>
+  <view class='bottom' style='display:{{ddd}}'>
+    <view class='continue' bindtap='continu'>继续支付</view>
+    <view class='cancel' bindtap='cancel'>取消订单</view>
+  </view>
+</view>

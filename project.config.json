@@ -7,12 +7,23 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"autoAudits": false,
+		"uglifyFileName": true,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"appid": "wx602be676c9bea3db",
 	"projectname": "pinjiaqi",
 	"libVersion": "2.4.4",
 	"compileType": "miniprogram",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -30,7 +41,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 34,
+			"current": 49,
 			"list": [
 				{
 					"id": -1,
@@ -214,7 +225,7 @@
 				},
 				{
 					"id": -1,
-					"name": "我的分销",
+					"name": "我的推广中心",
 					"pathName": "pages/my_fenxiao/my_fenxiao",
 					"query": ""
 				},
@@ -240,8 +251,113 @@
 					"id": 34,
 					"name": "商品详情",
 					"pathName": "pages/goods_show/goods_show",
-					"query": "scene=1478",
+					"query": "scene=630",
 					"scene": 1012
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/order_show/order_show",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑出行人",
+					"pathName": "pages/edit_travel/edit_travel",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择出行日期",
+					"pathName": "pages/choose_date1/choose_date1",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "一元详情",
+					"pathName": "pages/one_Progress_details/one_Progress_details",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的奖券",
+					"pathName": "pages/my_wallet/my_wallet",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "奖券详情",
+					"pathName": "pages/Lottery_details/Lottery_details",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "可提现金额展示",
+					"pathName": "pages/Cash/Cash",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "提交提现",
+					"pathName": "pages/Cash_commit/Cash_commit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "提交提现成功",
+					"pathName": "pages/Cash_success/Cash_success",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "提现记录详情",
+					"pathName": "pages/Cash_details/Cash_details",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/city/city",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动专区",
+					"pathName": "pages/activity_list/activity_list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "限时抢购",
+					"pathName": "pages/Flash_sale/Flash_sale",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "拼团中",
+					"pathName": "pages/Assemble_list/Assemble_list",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "定制记录",
+					"pathName": "pages/dingzhi_Record/dingzhi_Record",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

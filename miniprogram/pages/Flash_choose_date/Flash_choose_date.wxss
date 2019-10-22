@@ -1,0 +1,175 @@
+/* @import '../../dist/css/icon.wxss'; */
+.active{
+  background-color:#efefef;
+}
+page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  font-size: 14px;
+}
+.topbar{
+  height: 90rpx !important;
+  line-height: 90rpx !important;
+}
+
+.box {
+  width: 100%;
+  display: block;
+  background: #fff;
+}
+
+.box-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
+.week{
+  height: 60rpx !important;
+  background: #FAC60E;
+}
+.weekend{
+  height: 60rpx !important;
+  line-height: 60rpx !important;
+  color: #fff !important;
+}
+.week .flex-item{
+  border-bottom: none !important;
+}
+
+.flex-item {
+  flex-flow: nowrap;
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 14.2%;
+  border-bottom: 2rpx solid #efefef;
+}
+
+.item-content {
+  margin:0 10rpx;
+  padding: 0 20rpx;
+  text-align: center;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #333;
+}
+.item-price {
+  margin:0 10rpx;
+  text-align: center;
+  height: 32rpx;
+  line-height: 32rpx;
+  color: #333;
+  font-size: 20rpx;
+}
+
+.bk-color-day {
+  background-color: #FAC60E;
+  color: #fff;
+}
+
+.item-content-current-day {
+  flex-grow: 2;
+}
+.desc{
+  font-size: 24rpx;
+  color: #666;
+  width: 94%;
+  padding: 3%;
+  line-height: 40rpx;
+}
+.date_box{
+  width: 94%;
+  padding: 0 3%;
+  background: #fff;
+}
+.li{
+  width: 100%;
+  height: 90rpx;
+  line-height: 86rpx;
+  overflow: hidden;
+  border-bottom: 2rpx solid #efefef;
+}
+.li .name{
+  font-size: 32rpx;
+  float: left;
+}
+.right{
+  float: right;
+  height: 100%;
+}
+.click{
+  float: left;
+}
+.total_price{
+  width: 130rpx;
+  float: left;
+  text-align: center
+}
+.sub{
+  width:50rpx; 
+  height: 50rpx;
+  line-height: 42rpx;
+  float: left;
+  background: #ddd;
+  border:2rpx solid #efefef;
+  text-align: center;
+  font-size: 64rpx;
+  margin: 20rpx 0;
+}
+.num{
+  width: 50rpx;
+  float: left;
+  background: #efefef;
+  text-align: center;
+  margin: 20rpx 0;
+}
+.add{
+  width: 50rpx;
+  height: 50rpx;
+  line-height: 42rpx;
+  float: left;
+  background: #ddd;
+  border:2rpx solid #efefef;
+  text-align: center;
+  font-size: 44rpx;
+  margin: 20rpx 0;
+}
+.Remarks{
+  width: 94%;
+  padding:3%;
+  overflow: hidden;
+}
+.Remarks text{
+  font-size: 24rpx;
+  color: #666;
+  display: block;
+}
+textarea{
+  width: 96%;
+  height: 284rpx;
+  border:2rpx solid #999;
+  margin: 3% 0 14%;
+  padding: 2%;
+  color: #999;
+}
+.btn {
+  width: 100%;
+  height: 100rpx;
+  background: #06b3ed;
+  line-height: 100rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 99999;
+}
+.btn text {
+  color: #fff;
+  font-size: 36rpx;
+  display: block;
+}

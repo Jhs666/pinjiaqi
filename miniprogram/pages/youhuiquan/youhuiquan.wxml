@@ -6,63 +6,109 @@
     </view>
   </view>
   <view class="{{selected?'show':'hidden'}}">
-    <block wx:for="{{quan}}" wx:key="item.id" hidden="{{hidename1}}">
-      <view class='quan' data-id='{{item.id}}'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//youhuiquan.png'></image>
+    <block wx:for="{{coupon_cash}}" wx:key="item.id" hidden="{{hidename1}}">
+      <view class='quan' data-id='{{item.id}}' bindtap='go_shiyong' data-qian="{{item.coupon_cash_info.value}}" data-ming='{{item.coupon_cash_info.name}}'>
+        <image src='http://pjqly.com/public/wx_mini/images//youhuiquan.png'></image>
+        <view class='youhui'>
+          <view class='content' style='padding:6% 10% 3.5%'>
+            <view class='left'>
+              <text class='qian'>￥{{item.coupon_cash_info.value}}</text>
+              <rich-text class='man'>满{{item.coupon_cash_info.limit}}元使用</rich-text>
+            </view>
+            <view class='right'>
+              <text class='news' style='line-height:36px;'>{{item.coupon_cash_info.name}}</text>
+              <view class='status_name'>{{item.status_name}}</view>
+              <rich-text class='date'>有限期至{{item.cash_end_time}}</rich-text>
+            </view>
+          </view>
+          <view class='clear'></view>
+          <view class='shiyong'>
+            <text class='fanwei'>{{item.coupon_cash_info.intro}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:for="{{coupon_discount}}" wx:key="item.id" hidden="{{hidename1}}">
+      <view class='quan' data-id='{{item.id}}' bindtap='go_shiyongs' data-qian="{{item.coupon_discount_info.ratio}}" data-ming='{{item.coupon_discount_info.name}}'>
+        <image src='http://pjqly.com/public/wx_mini/images//youhuiquan.png'></image>
         <view class='youhui'>
           <view class='content'>
             <view class='left'>
-              <text class='qian'>{{item.qian}}</text>
-              <rich-text class='man'>{{item.man}}</rich-text>
+              <text class='qian'>{{item.coupon_discount_info.ratio_name}}</text>
             </view>
             <view class='right'>
-              <text class='news'>{{item.news}}</text>
+              <text class='news'>{{item.coupon_discount_info.name}}</text>
+              <view class='status_name'>{{item.status_name}}</view>
               <rich-text class='date'>{{item.date}}</rich-text>
             </view>
           </view>
           <view class='clear'></view>
           <view class='shiyong'>
-            <text class='fanwei'>{{item.fanwei}}</text>
+            <text class='fanwei'>{{item.coupon_discount_info.intro}}</text>
           </view>
         </view>
       </view>
     </block>
     <!-- 占位图1 -->
-    <view class='null' wx:if="{{quan==''}}">
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//null.png'></image>
+    <view class='null' wx:if="{{coupon_cash =='' && coupon_discount == ''}}">
+      <image src='http://pjqly.com/public/wx_mini/images//null.png'></image>
       <view class='null_text'>竟然一点优惠券都没有~</view>
-      <text>你有没有考虑过优惠卷的感受</text>
+      <text>你有没有考虑过优惠券的感受</text>
     </view>
   </view>
   <!-- 已使用/已过期 -->
   <view class="{{selected1?'show':'hidden'}}">
-    <block wx:for="{{guoqi}}" wx:key="item.id" hidden="{{hidename2}}">
-      <view class='guoqi' data-id='{{item.id}}'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//youhuiquan2.png'></image>
+    <block wx:for="{{use_coupon_cash}}" wx:key="item.id" hidden="{{hidename2}}">
+      <view class='use_coupon_cash' data-id='{{item.id}}'>
+        <image src='http://pjqly.com/public/wx_mini/images//youhuiquan2.png'></image>
         <view class='old'>
-          <view class='content'>
+          <view class='content' style='padding:6% 10% 3.5%'>
             <view class='left'>
-              <text class='qian'>{{item.qian}}</text>
-              <rich-text class='man'>{{item.man}}</rich-text>
+              <text class='qian'>￥{{item.coupon_cash_info.value}}</text>
+              <rich-text class='man'>满{{item.coupon_cash_info.limit}}元使用</rich-text>
             </view>
             <view class='right'>
               <text class='news'>{{item.news}}</text>
+              <view class='status_name_end'>{{item.status_name}}</view>
+              <rich-text class='date'>有限期至{{item.date}}</rich-text>
+            </view>
+          </view>
+          <view class='clear'></view>
+          <view class='split-line'></view>
+          <view class='shiyong'>
+            <text class='fanwei'>{{item.coupon_cash_info.intro}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:for="{{use_coupon_discount}}" wx:key="item.id" hidden="{{hidename2}}">
+      <view class='use_coupon_discount' data-id='{{item.id}}'>
+        <image src='http://pjqly.com/public/wx_mini/images//youhuiquan2.png'></image>
+        <view class='old'>
+          <view class='content' style='padding:6% 10% 3.5%'>
+            <view class='left'>
+              <text class='qian'>￥{{item.coupon_discount_info.ratio_name}}</text>
+              <rich-text class='man'>满{{item.coupon_discount_info.name}}元使用</rich-text>
+            </view>
+            <view class='right'>
+              <text class='news'>{{item.coupon_discount_info.name}}</text>
+              <view class='status_name'>{{item.status_name}}</view>
               <rich-text class='date'>{{item.date}}</rich-text>
             </view>
           </view>
           <view class='clear'></view>
           <view class='split-line'></view>
           <view class='shiyong'>
-            <text class='fanwei'>{{item.fanwei}}</text>
+            <text class='fanwei'>{{item.coupon_discount_info.intro}}</text>
           </view>
         </view>
       </view>
     </block>
     <!-- 占位图2 -->
-    <view class='nulls' wx:if="{{guoqi==''}}">
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//null.png' class='guoqi-img'></image>
+    <view class='nulls' wx:if="{{use_coupon_cash =='' && use_coupon_discount == ''}}">
+      <image src='http://pjqly.com/public/wx_mini/images//null.png' class='guoqi-img'></image>
       <view class='nulls_text'>竟然一点优惠券都没有~</view>
-      <text class='nulsl_texts'>你有没有考虑过优惠卷的感受</text>
+      <text class='nulsl_texts'>你有没有考虑过优惠券的感受</text>
     </view>
   </view>
 </view>

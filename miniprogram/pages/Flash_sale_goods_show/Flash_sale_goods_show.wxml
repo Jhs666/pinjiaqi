@@ -1,0 +1,220 @@
+<view class='center'>
+  <view class='swiper-tab'>
+    <view class='tab'>
+      <view class="{{selected?'active':'default'}} bbb" bindtap="selected">商品</view>
+      <view class="{{selected1?'active':'default'}} bbb" bindtap="selected1">详情</view>
+      <view class="{{selected2?'active':'default'}} bbb" bindtap="selected2">评价</view>
+    </view>
+    <!-- <view class='right'>
+      <image src='http://pjqly.com/public/wx_mini/images/more2.png' class='img2' bindtap="selected2"></image>
+    </view> -->
+  </view>
+  <view class='clear'></view>
+  <view class="{{selected?'show':'hidden'}}">
+    <view class='banner'>
+      <view class='banner_list'>
+        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" indicator-active-color="{{indicatorActiveColor}}" indicator-color="{{indicatorColor}}" class='ban'>
+          <block wx:key="image" wx:for="{{imgUrls}}" wx:for-item="im" wx:for-index="image">
+            <swiper-item>
+              <image src="{{im}}" class="slide-image" />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <view class='price'>
+        <view class='left'>
+          <text class='xianjia'>￥{{box.item_seckill.price}}</text>
+          <text class='yuanjia'>原价￥{{box.price}}</text>
+        </view>
+        <view class='end'>
+          <text class='t'>距离结束</text>
+          <text class='time'>{{formatTime}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='clear'></view>
+    <view class='jindu'>
+      <view class='biaoti'>
+        <text class='title'>{{box.title}}</text>
+      </view>
+      <view class='tiao'>
+        <progress percent="{{100 - box.item_seckill.sell / box.item_seckill.inventory * 100}}" activeColor='#fc6b15' border-radius="30" active></progress>
+      </view>
+      <view class='bb'>
+        <text class='finish'>已抢购：{{box.item_seckill.sell}} 份</text>
+        <text class='ends'>仅剩：{{box.item_seckill.inventory}} 份</text>
+      </view>
+    </view>
+    <view class='clear'></view>
+    <view class='pingjia'>
+      <view class='mans'>
+        <text class='num'>评价</text>
+        <image src='http://pjqly.com/public/wx_mini/images//ri.png'></image>
+        <text class='more' bindtap="selected2">查看更多</text>
+      </view>
+      <view class='star' style='display:{{comment_show}}'>
+        <view class='a1'>
+          <block wx:for='{{one_1}}'>
+            <image src='http://pjqly.com/public/wx_mini/images//xing2.png'></image>
+          </block>
+          <block wx:for='{{two_1}}'>
+            <image src='http://pjqly.com/public/wx_mini/images//xing1.png'></image>
+          </block>
+          <view class='total'>
+            <text class='grade'>{{comment_grade}}</text>
+            <text class='dianping'>（{{comment.commit_sum}}条点评）</text>
+          </view>
+        </view>
+        <view class='clear'></view>
+        <view class='unit'>
+          <view class="dd {{'0' == curHdIndex?'focus':'default'}}" data-index='0' bindtap='comment_tab'>全部（{{comment.commit_sum}}）</view>
+          <view class="dd {{'3' == curHdIndex?'focus':'default'}}" data-index='3' bindtap='comment_tab'>好评（{{comment.good_sum}}）</view>
+          <view class="dd {{'1' == curHdIndex?'focus':'default'}}" data-index='1' bindtap='comment_tab'>差评（{{comment.negative_sum}}）</view>
+          <view class="dd {{'4' == curHdIndex?'focus':'default'}}" data-index='4' bindtap='comment_tab'>有图（{{comment.have_img_sum}}）</view>
+        </view>
+      </view>
+      <block wx:for='{{comment_list}}' wx:key='item.id'>
+        <view class='desc'>
+          <view class='user'>
+            <view class='user_img'>
+              <image src='{{item.profile_photo}}'></image>
+            </view>
+            <text class='nickname'>{{item.nickname}}</text>
+            <text class='update_time'>{{item.create_time}}</text>
+          </view>
+          <view class='con'>{{item.content}}</view>
+          <view class='img_list'>
+            <block wx:for='{{item.img_list}}' wx:for-item="item2" wx:key="item2">
+              <view class='img_box'>
+                <image src='{{item2.name}}'></image>
+              </view>
+            </block>
+          </view>
+        </view>
+        <view class='clear'></view>
+      </block>
+      <view class='mull_comment' wx:if="{{comment_list == ''}}">暂无评论</view>
+      <view class='more_pingjia' bindtap="selected2" style='display:{{comment_show}}'>更多用户点评></view>
+      <view class='mans'>
+        <text class='num'>详情</text>
+        <image src='http://pjqly.com/public/wx_mini/images//ri.png'></image>
+        <text class='more' bindtap="selected1">查看更多</text>
+      </view>
+      <rich-text nodes="{{detial}}" class='temporary'></rich-text>
+    </view>
+  </view>
+</view>
+<view class="{{selected1?'show':'hidden'}}">
+  <view class='text_box'>
+    <rich-text nodes="{{detial}}" class='text'></rich-text>
+  </view>
+</view>
+<view class="{{selected2?'show':'hidden'}}" style='width:94%;padding:0 3%;background:#fff;margin-top:80rpx;'>
+  <view class='body_box'>
+    <view class='Total' style='display:{{comment_show}}'>
+      <view class='Total_left'>
+        <view class='grades'>{{comment_grade}}
+          <text class='unit'>分</text>
+        </view>
+        <text class='discuss'>共{{comment.commit_sum}}条评论</text>
+      </view>
+      <view class='Total_right'>
+        <view class='ha'>
+          <text class='Name'>路线评分</text>
+          <image src='http://pjqly.com/public/wx_mini/images//xing1.png' class='hei'></image>
+          <view class='length'>
+            <progress percent="{{comment.line_sum / comment.line_sum * 100}}" activeColor='#FAC60E' border-radius="30" active></progress>
+          </view>
+          <text class='percent'>{{comment.line_sum_percent}}</text>
+        </view>
+        <view class='ha'>
+          <text class='Name'>导游讲解</text>
+          <image src='http://pjqly.com/public/wx_mini/images//xing1.png' class='hei'></image>
+          <view class='length'>
+            <progress percent="{{comment.tour_sum / comment.tour_sum * 100}}" activeColor='#FAC60E' border-radius="30" active></progress>
+          </view>
+          <text class='percent'>{{comment.tour_sum_percent}}</text>
+        </view>
+        <view class='ha'>
+          <text class='Name'>领队服务</text>
+          <image src='http://pjqly.com/public/wx_mini/images//xing1.png' class='hei'></image>
+          <view class='length'>
+            <progress percent="{{comment.lead_sum / comment.lead_sum * 100}}" activeColor='#FAC60E' border-radius="30" active></progress>
+          </view>
+          <text class='percent'>{{comment.lead_sum_percent}}</text>
+        </view>
+        <view class='ha'>
+          <text class='Name'>行程安排</text>
+          <image src='http://pjqly.com/public/wx_mini/images//xing1.png' class='hei'></image>
+          <view class='length'>
+            <progress percent="{{comment.journey_sum / comment.journey_sum * 100}}" activeColor='#FAC60E' border-radius="30" active></progress>
+          </view>
+          <text class='percent'>{{comment.journey_sum_percent}}</text>
+        </view>
+        <view class='ha'>
+          <text class='Name'>描述相符</text>
+          <image src='http://pjqly.com/public/wx_mini/images//xing1.png' class='hei'></image>
+          <view class='length'>
+            <progress percent="{{comment.describe_sum / comment.describe_sum * 100}}" activeColor='#FAC60E' border-radius="30" active></progress>
+          </view>
+          <text class='percent'>{{comment.describe_sum_percent}}</text>
+        </view>
+      </view>
+      <view class='unit'>
+        <view class="dd {{'0' == curHdIndex?'focus':'default'}}" data-index='0' bindtap='comment_tab'>全部（{{comment.commit_sum}}）</view>
+        <view class="dd {{'3' == curHdIndex?'focus':'default'}}" data-index='3' bindtap='comment_tab'>好评（{{comment.good_sum}}）</view>
+        <view class="dd {{'1' == curHdIndex?'focus':'default'}}" data-index='1' bindtap='comment_tab'>差评（{{comment.negative_sum}}）</view>
+        <view class="dd {{'4' == curHdIndex?'focus':'default'}}" data-index='4' bindtap='comment_tab'>有图（{{comment.have_img_sum}}）</view>
+      </view>
+    </view>
+    <view class='clear'></view>
+    <block wx:for='{{comment_list}}' wx:key='item.id'>
+      <view class='desc'>
+        <view class='user'>
+          <view class='user_img'>
+            <image src='{{item.profile_photo}}'></image>
+          </view>
+          <text class='nickname'>{{item.nickname}}</text>
+          <text class='update_time'>{{item.create_time}}</text>
+        </view>
+        <view class='con'>{{item.content}}</view>
+        <view class='img_list'>
+          <block wx:for='{{item.img_list}}' wx:for-item="item2" wx:key="item2">
+            <view class='img_box'>
+              <image src='{{item2.name}}'></image>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class='clear'></view>
+    </block>
+    <view class='mull_comment' wx:if="{{comment_list == ''}}">暂无评论</view>
+  </view>
+</view>
+<view class='bottom'>
+  <view class='fir' bindtap='back_index'>
+    <image src='http://pjqly.com/public/wx_mini/images/back_index.png'></image>
+    <rich-text>返回首页</rich-text>
+  </view>
+  <view class='fir second' bindtap='collection'>
+    <image src="{{isClick?'http://pjqly.com/public/wx_mini/images/xing2.png':'http://pjqly.com/public/wx_mini/images/xing1.png'}}"></image>
+    <rich-text>{{collec_status}}</rich-text>
+  </view>
+  <view class='btn'>
+    <view class='dandu' bindtap='launch'>立即抢购</view>
+  </view>
+</view>
+<view class='clear'></view>
+<!-- 弹出层 -->
+<view class="screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view class='marks' animation="{{animationData}}" wx:if="{{showModalStatus}}">
+  <button class='dt' open-type="share" hover-class="btn-hover">
+    <image src='http://pjqly.com/public/wx_mini/images/wechat.png'></image>
+    <text>发送给微信好友/群</text>
+  </button>
+  <button class='dt' bindtap='share' hover-class="btn-hover">
+    <image src='http://pjqly.com/public/wx_mini/images/friend.png'></image>
+    <text>保存至手机相册</text>
+  </button>
+  <view class='cancel' bindtap="hideModal">取消</view>
+</view>

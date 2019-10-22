@@ -2,7 +2,7 @@
   <!-- 搜索 -->
   <view class='search'>
     <view class='left'>
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//sousuo.png'></image>
+      <image src='http://pjqly.com/public/wx_mini/images//sousuo.png'></image>
       <input placeholder='请搜索目的地或者关键字'></input>
     </view>
     <text bindtap='back'>取消</text>
@@ -23,7 +23,7 @@
       <swiper-item wx:for="{{detail}}" wx:for-item="item" wx:key="index" catchtouchmove="stopTouchMove">
         <scroll-view scroll-y="true" class="market-scroll-list">
           <view class='list_title'>
-            <image src='http://pin.lanhaihui.net/public/wx_mini/images//biao.png'></image>
+            <image src='http://pjqly.com/public/wx_mini/images//biao.png'></image>
             <text class='title'>{{detail[indexSize].title}}</text>
           </view>
           <view class='tag'>
@@ -32,7 +32,7 @@
             </block>
           </view>
           <view class='list_title2'>
-            <image src='http://pin.lanhaihui.net/public/wx_mini/images//tuijian.png'></image>
+            <image src='http://pjqly.com/public/wx_mini/images//tuijian.png'></image>
             <text class='title2'>当季推荐</text>
           </view>
           <view class='list_show'>

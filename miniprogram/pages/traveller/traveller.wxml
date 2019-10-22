@@ -1,24 +1,22 @@
 <view class='center'>
   <!-- 添加按钮 -->
-  <view class='add_btn'>
-    <navigator url='../add_passenger/add_passenger' hover-class='none'>
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//add.png'></image>
-      <text>新增旅客</text>
-    </navigator>
+  <view class='add_btn' bindtap='travel_type'>
+    <image src='http://pjqly.com/public/wx_mini/images//add.png'></image>
+    <text>新增旅客</text>
   </view>
   <!-- 列表 -->
   <view class='list'>
     <checkbox-group bindchange="checkboxChange">
       <label class="checkbox" wx:for="{{trip_list}}">
-        <checkbox value="{{item.realname}}" checked="{{item.checked}}" class='active' />
-        <text class='name'>{{item.realname}}</text>
+        <checkbox value="{{item.id}},{{item.realname}},{{item.type}}" checked="{{item.checked}}" class='active'/>{{item.realname}}
         <text class='sex'>{{item.sex_name}}</text>
-        <text class='edit'>编辑</text>
+        <text class='type'>{{item.type_name}}</text>
+        <text class='edit' bindtap='edit_travel' data-userid='{{item.id}}' data-usertype='{{item.type}}'>编辑</text>
       </label>
     </checkbox-group>
   </view>
   <!-- 完成按钮 -->
-  <view class='btn'>
-    <text bindtap='success'>完成</text>
+  <view class='btn' style='display:{{kaqima}}'>
+    <text bindtap='success_btn'>完成</text>
   </view>
 </view>

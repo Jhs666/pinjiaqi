@@ -1,0 +1,151 @@
+<view class='center'>
+  <!-- tab按钮 -->
+  <view class='swiper-tab'>
+    <view class='tab'>
+      <view class="{{selected?'active':'default'}} bbb" bindtap="selected" data-index='0'>全部</view>
+      <view class="{{selected1?'active':'default'}} bbb" bindtap="selected1" data-index='1'>拼团中</view>
+      <view class="{{selected2?'active':'default'}} bbb" bindtap="selected2" data-index='2'>已中奖</view>
+      <view class="{{selected3?'active':'default'}} bbb" bindtap="selected3" data-index='3'>未中奖</view>
+    </view>
+  </view>
+  <view class='clear'></view>
+  <view class="{{selected?'show':'hidden'}}">
+    <block wx:for="{{all_order}}" wx:key="item.id" hidden="{{hidename1}}">
+      <view class='all_order'>
+        <view class='wallet_li'>
+          <view class='img_title'>
+            <view class='left_img'>
+              <image src='{{item.preview_img}}'></image>
+            </view>
+            <view class='title'>
+              <view class='tit'>{{item.title}}</view>
+              <text class='price'>￥{{item.price}}</text>
+            </view>
+          </view>
+          <view class='clear'></view>
+          <view class='frame'>
+            <image src='http://pjqly.com/public/wx_mini/images/tag_bg.png' class="tag_bg"></image>
+            <view class='left'>
+              <text class='date'>预定日期：{{item.create_time}}</text>
+              <text class='order_number'>订单号：{{item.orderform_sn}}</text>
+            </view>
+            <view class='right'>
+              <text class='status'>{{item.one_shop_status_name}}</text>
+              <text class='look_btn' bindtap='see_more' data-one_buy_id='{{item.one_buy_id}}' data-index='{{item.index}}'>查看</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!-- 全部奖券为空时的占位图 -->
+    <view class='kong' wx:if="{{all_order==''}}">
+      <image src='http://pjqly.com/public/wx_mini/images/no_quan.png'></image>
+      <text>回禀小主，这里没有发现你的奖券~</text>
+    </view>
+  </view>
+  <!-- 进行中 -->
+  <view class="{{selected1?'show':'hidden'}}">
+    <block wx:for="{{wait_trip}}" wx:key="item.id" hidden="{{hidename2}}">
+      <view class='wait_trip' data-id='{{item.id}}'>
+        <view class='wallet_li'>
+          <view class='img_title'>
+            <view class='left_img'>
+              <image src='{{item.preview_img}}'></image>
+            </view>
+            <view class='title'>
+              <view class='tit'>{{item.title}}</view>
+              <text class='price'>￥{{item.price}}</text>
+            </view>
+          </view>
+          <view class='clear'></view>
+          <view class='frame'>
+            <image src='http://pjqly.com/public/wx_mini/images/tag_bg.png' class="tag_bg"></image>
+            <view class='left'>
+              <text class='date'>预定日期：{{item.create_time}}</text>
+              <text class='order_number'>订单号：{{item.orderform_sn}}</text>
+            </view>
+            <view class='right'>
+              <text class='status'>{{item.one_shop_status_name}}</text>
+              <text class='look_btn' bindtap='see_more' data-one_buy_id='{{item.one_buy_id}}' data-index='{{item.index}}'>查看</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!-- 进行中为空时的占位图 -->
+    <view class='kong' wx:if="{{wait_trip==''}}">
+      <image src='http://pjqly.com/public/wx_mini/images/no_quan.png'></image>
+      <text>回禀小主，这里没有发现您正在进行的奖券~</text>
+    </view>
+  </view>
+  <!-- 已中奖 -->
+  <view class="{{selected2?'show':'hidden'}}">
+    <block wx:for="{{wait_payment}}" wx:key="item.id" hidden="{{hidename3}}">
+      <view class='wait_payment' data-id='{{item.id}}'>
+        <view class='wallet_li'>
+          <view class='img_title'>
+            <view class='left_img'>
+              <image src='{{item.preview_img}}'></image>
+            </view>
+            <view class='title'>
+              <view class='tit'>{{item.title}}</view>
+              <text class='price'>￥{{item.price}}</text>
+            </view>
+          </view>
+          <view class='clear'></view>
+          <view class='frame'>
+            <image src='http://pjqly.com/public/wx_mini/images/tag_bg.png' class="tag_bg"></image>
+            <view class='left'>
+              <text class='date'>预定日期：{{item.create_time}}</text>
+              <text class='order_number'>订单号：{{item.orderform_sn}}</text>
+            </view>
+            <view class='right'>
+              <text class='status'>{{item.one_shop_status_name}}</text>
+              <text class='look_btn' bindtap='see_more' data-one_buy_id='{{item.one_buy_id}}' data-index='{{item.index}}'>查看</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!-- 已中奖为空时的占位图 -->
+    <view class='kong' wx:if="{{wait_payment==''}}">
+      <image src='http://pjqly.com/public/wx_mini/images/no_quan.png'></image>
+      <text>回禀小主，这里没有发现你的已中奖奖券~</text>
+    </view>
+  </view>
+  <!-- 未中奖 -->
+  <view class="{{selected3?'show':'hidden'}}">
+    <block wx:for="{{wait_Comment}}" wx:key="item.id" hidden="{{hidename4}}">
+      <view class='wait_Comment' data-id='{{item.id}}'>
+        <view class='wallet_li'>
+          <view class='img_title'>
+            <view class='left_img'>
+              <image src='{{item.preview_img}}'></image>
+            </view>
+            <view class='title'>
+              <view class='tit'>{{item.title}}</view>
+              <text class='price'>￥{{item.price}}</text>
+            </view>
+          </view>
+          <view class='clear'></view>
+          <view class='frame'>
+            <image src='http://pjqly.com/public/wx_mini/images/tag_bg.png' class="tag_bg"></image>
+            <view class='left'>
+              <text class='date'>预定日期：{{item.create_time}}</text>
+              <text class='order_number'>订单号：{{item.orderform_sn}}</text>
+            </view>
+            <view class='right'>
+              <text class='status'>{{item.one_shop_status_name}}</text>
+              <text class='look_btn' bindtap='see_more' data-one_buy_id='{{item.one_buy_id}}' data-index='{{item.index}}'>查看</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <!-- 未中奖为空时的占位图 -->
+    <view class='kong' wx:if="{{wait_Comment==''}}">
+      <image src='http://pjqly.com/public/wx_mini/images/no_quan.png'></image>
+      <text>回禀小主，这里没有发现你的未中奖奖券~</text>
+    </view>
+  </view>
+</view>

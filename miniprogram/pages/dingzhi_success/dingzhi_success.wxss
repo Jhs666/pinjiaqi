@@ -1,24 +1,46 @@
+.success {
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
 
-.success{
-    width: 100%;
-    overflow: hidden;
-    text-align: center;
+.success image {
+  width: 200rpx;
+  height: 204rpx;
+  display: block;
+  margin: 210rpx auto 0;
 }
-.success image{
-    width: 200rpx;
-    height: 204rpx;
-    display: block;
-    margin: 320rpx auto 0;
+
+.h1 {
+  text-align: center;
+  font-size: 40rpx;
+  line-height: 56rpx;
+  color: #333;
+  margin: 10% 0 3%;
 }
-.success .h1{
-    text-align: center;
-    font-size: 40rpx;
-    line-height: 56rpx;
-    color: #333;
-    margin: 10% 0 3%;
+
+.success text {
+  color: #999;
+  font-size: 28rpx;
+  line-height: 44rpx;
+  width: 100%;
+  display: block;
 }
-.success text{
-    color: #999;
-    font-size: 28rpx;
-    line-height: 40rpx;
+.btn{
+  width: 70%;
+  height: auto;
+  margin: 10% auto 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.back{
+  width: 40%;
+  height: 70rpx;
+  border:4rpx solid #06B3ED;
+  color: #06B3ED;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 28rpx;
+  border-radius: 28px;
 }

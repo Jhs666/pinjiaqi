@@ -4,53 +4,142 @@
     <view class='back'>
       <view class='user'>
         <view class='fenxiao'>
-          <text class='h1'>我的分销</text>
-          <image src='http://pin.lanhaihui.net/public/wx_mini/images//help.png'></image>
+          <text class='h1'>推广中心</text>
+          <image src='http://pjqly.com/public/wx_mini/images//help.png'></image>
           <text class='rule' bindtap='rule'>规则说明</text>
         </view>
         <!-- 分销规则弹出层 -->
-        <view class="mask" catchtouchmove='true' wx:if="{{showModal}}">
+        <view class="mask" wx:if="{{showModal}}">
           <view class="modalDlg" wx:if="{{showModal}}">
             <view class='close_spell' bindtap='close_spell'>×</view>
             <view class='top_bar'>规则说明</view>
             <view class='Spell_list'>
-              <view class='speak'>1.东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华</view>
-              <view class='speak'>2.帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东</view>
-              <view class='speak'>3.华帝君东华帝君东华帝君东华帝君东华帝君东华帝</view>
-              <view class='speak'>4.君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君</view>
-              <view class='speak'>5.东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华帝君东华</view>
-              <view class='speak'>6.帝君东华帝君东华帝君东华帝君</view>
+              <view class='tit'> 一、身份等级</view>
+              <view class='speak'>游客、团长、社长、合伙人</view>
+              <view class='tit'> 二、晋升机制</view>
+              <view class='speak'>1、游客</view>
+              <view class='cons'>进入拼假期注册成功即为游客身份。</view>
+              <view class='speak'>2、团长</view>
+              <view class='cons'>--游客购买任意一款旅游产品，成功出行并且订单结算之后，才可以成为团长；</view>
+              <view class='cons'>--游客购买任意一款优惠券产品即可成为团长身份。</view>
+              <view class='cons'>（ps：只有团长及团长以上身份，才可以成为别人的推荐人）</view>
+              <view class='speak'>3、社长</view>
+              <view class='cons'>团长升为社长需要团队有60个团长， 游客身份可以算团队人数但是不作为晋升条件。</view>
+              <view class='speak'>4、合伙人</view>
+              <view class='cons'>晋升合伙人需要团队有200人，这200人当中至少存在两个社长身份。</view>
+              <view class='tit'>三、主流玩法+提成返佣</view>
+              <view class='speak'>旅游产品</view>
+              <view class='cons'>1、团长——享受直属下级消费每单 5%的提成，上级返3%。</view>
+              <view class='cons'>2、社长——享受直属下级消费每单 5%的提成，上级返3%+团队业绩1%的分红（季度）。</view>
+              <view class='cons'>3、合伙人——享受直属下级消费每单5%的提成，上级返3%+团队业绩1%的分红（季度）+公司股份。</view>
+              <view class='speak'>优惠券产品</view>
+              <view class='cons'>团长、社长及合伙人身份可参与</view>
+              <view class='cons'>1、当前身份拉新一个300元的直属下线或直属下线直接购买300元优惠券产品：个人返100元，个人直属上级返30元。</view>
+              <view class='cons'>2、当前身份拉新一个500元的直属下线或直属下线直接购买500元优惠券产品：个人返150元，个人直属上级返50元。</view>
+              <view class='cons'>3、当前身份拉新一个1000元的直属下线或直属下线直接购买1000元优惠券产品：个人返350元，个人直属上级返100元。</view>
             </view>
             <view class='bottom_bar'>请仔细阅读此规则</view>
           </view>
         </view>
         <view class='clear'></view>
         <view class='ul'>
-          <view class='li'>
-            <rich-text>团队人数（人）</rich-text>
-            <text>{{user.wallet.place_count}}</text>
+          <!-- wx:if="{{user.place_status!==false}}" -->
+          <view class='li' wx:if="{{user.place_status!==true}}">
+            <form bindsubmit="set_parent_id">
+              <rich-text>我的推广人</rich-text>
+              <button class='set_parent_id' formType="submit">确定</button>
+              <input placeholder='请输入推广人ID' value='' bindinput="tuiguangInput" name='parent_id' class='parent_id'></input>
+            </form>
           </view>
+          <view class='li'>
+            <form bindsubmit="place_code_click">
+              <rich-text>我的推广ID</rich-text>
+              <button class='set_parent_id' formType="submit" wx:if="{{user.place_code_user_status!==true}}">确定</button>
+              <input placeholder='请输入推广ID' value='{{show.wallet.place_code}}' bindinput="place_codeInput" name='place_code' class='my_id' disabled="{{spell}}"></input>
+            </form>
+          </view>
+          <view class='li' data-index="0" bindtap='my_team'>
+            <rich-text>团队人数（人）</rich-text>
+            <image src='http://pjqly.com/public/wx_mini/images//r.png' class='ri'></image>
+            <text>{{show.wallet.place_count}}</text>
+          </view>
+          <view class='list_box' hidden="{{!selectedFlags[0]}}" style='padding-top:0'>
+            <view class='tr' data-id='{{item}}'>
+              <view class='line'></view>
+              <view class='travel'>游客</view>
+              <block wx:for="{{user_list_name}}" wx:key="item.id" hidden="{{hidename1}}">
+                <view class='team_list'>
+                  <view class='user_img'>
+                    <image src='{{item.profile_photo}}'></image>
+                  </view>
+                  <text class='nickname'>{{item.user_nickname}}</text>
+                </view>
+              </block>
+              <view class='null' wx:if="{{user_list_name==''}}">暂时没有相关人员哦~</view>
+            </view>
+            <view class='tr' data-id='{{item}}'>
+              <view class='line'></view>
+              <view class='travel'>团长</view>
+              <block wx:for="{{manager_list_name}}" wx:key="item.id" hidden="{{hidename2}}">
+                <view class='team_list'>
+                  <view class='user_img'>
+                    <image src='{{item.profile_photo}}'></image>
+                  </view>
+                  <text class='nickname'>{{item.user_nickname}}</text>
+                </view>
+              </block>
+              <view class='null' wx:if="{{manager_list_name==''}}">暂时没有相关人员哦~</view>
+            </view>
+            <view class='tr' data-id='{{item}}'>
+              <view class='line'></view>
+              <view class='travel'>社长</view>
+              <block wx:for="{{majordomo_list_name}}" wx:key="item.id" hidden="{{hidename3}}">
+                <view class='team_list'>
+                  <view class='user_img'>
+                    <image src='{{item.profile_photo}}'></image>
+                  </view>
+                  <text class='nickname'>{{item.user_nickname}}</text>
+                </view>
+              </block>
+              <view class='null' wx:if="{{majordomo_list_name==''}}">暂时没有相关人员哦~</view>
+            </view>
+            <view class='tr' data-id='{{item}}'>
+              <view class='line'></view>
+              <view class='travel'>合伙人</view>
+              <block wx:for="{{partner_list_name}}" wx:key="item.id" hidden="{{hidename4}}">
+                <view class='team_list'>
+                  <view class='user_img'>
+                    <image src='{{item.profile_photo}}'></image>
+                  </view>
+                  <text class='nickname'>{{item.user_nickname}}</text>
+                </view>
+              </block>
+              <view class='null' wx:if="{{partner_list_name==''}}">暂时没有相关人员哦~</view>
+            </view>
+          </view>
+          <view class='clear'></view>
           <view class='li'>
             <rich-text>团队业绩（元）</rich-text>
-            <text>{{user.wallet.place_cash_count}}</text>
+            <text>{{show.wallet.place_team_cash_count}}</text>
           </view>
           <view class='li' data-index="0" bindtap='changeToggle'>
-            <rich-text>分销产品</rich-text>
-            <image src='http://pin.lanhaihui.net/public/wx_mini/images//r.png' class='ri'></image>
+            <rich-text>推广产品</rich-text>
+            <image src='http://pjqly.com/public/wx_mini/images//r.png' class='ri'></image>
           </view>
-          <view class='dl' hidden="{{!selectedFlag[0]}}">
-            <view wx:for="{{inform}}" wx:for-item="item" wx:for-index="index">
-              <view class='img'>
-                <image src='{{item.preview_img}}'></image>
-                <view class='tag'>{{item.type_list}}</view>
-                <view class='title'>{{item.start}}</view>
+          <view class='list_box' hidden="{{!selectedFlag[0]}}">
+            <block wx:for="{{inform}}" wx:key="item.id">
+              <view class='dl' data-id='{{item}}' bindtap='product_show'>
+                <view class='img'>
+                  <image src='{{item.preview_img}}'></image>
+                  <view class='tag'>{{item.type_list}}</view>
+                  <view class='title'>{{item.start_space}}</view>
+                </view>
+                <view class='con'>
+                  <view class='desc'>{{item.title}}</view>
+                  <view class='qian'>￥{{item.price}}起</view>
+                </view>
               </view>
-              <view class='con'>
-                <view class='desc'>{{item.title}}</view>
-                <view class='num'>已拼{{item.num}}件</view>
-                <view class='qian'>￥{{item.price}}起</view>
-              </view>
-            </view>
+            </block>
           </view>
         </view>
       </view>

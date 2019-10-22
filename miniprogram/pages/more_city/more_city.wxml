@@ -2,7 +2,7 @@
   <!-- 搜索 -->
   <view class='search'>
     <view class='left'>
-      <image src='http://pin.lanhaihui.net/public/wx_mini/images//sousuo.png'></image>
+      <image src='http://pjqly.com/public/wx_mini/images//sousuo.png'></image>
       <input placeholder='请搜索目的地或者关键字'></input>
     </view>
     <text>取消</text>

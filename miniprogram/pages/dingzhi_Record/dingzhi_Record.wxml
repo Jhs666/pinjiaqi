@@ -1,0 +1,30 @@
+<view class='center'>
+  <block wx:for='{{inform}}' wx:key="item.id">
+    <view class='type' wx:if='{{item.type == 1}}'>
+      <image src='http://pjqly.com/public/wx_mini/images/geren.png'></image>
+      <view class='text'>个人定制</view>
+    </view>
+    <view class='type' wx:if='{{item.type == 2}}'>
+      <image src='http://pjqly.com/public/wx_mini/images/tuandui.png'></image>
+      <view class='text'>企业定制</view>
+    </view>
+    <view class='clear'></view>
+    <view class='li'>
+      <view class='topbar'>
+        <view class='start'>{{item.start_space}}</view>
+        <image src='http://pjqly.com/public/wx_mini/images/go.png'></image>
+        <view class='end'>{{item.end_space}}</view>
+      </view>
+      <view class='dl'>出行日期：{{item.trip_time}}</view>
+      <view class='dl'>出行人数：{{item.user_count}}人</view>
+      <view class='dl'>人均预算：{{item.budget}}</view>
+      <view class='dl'>联系电话：{{item.phone}}</view>
+      <view class='dl'>备注：{{item.remark}}</view>
+    </view>
+  </block>
+  <!-- 全部订单为空时的占位图 -->
+  <view class='kong' wx:if="{{inform==''}}">
+    <image src='http://pjqly.com/public/wx_mini/images/kong.png'></image>
+    <text>回禀小主，这里没有发现你的定制记录~</text>
+  </view>
+</view>

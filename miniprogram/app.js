@@ -73,8 +73,8 @@ App({
     requestUrl: '', 
   },
   data: {
-    url: 'http://pin.lanhaihui.net/public',
-    requestUrl: 'https://pin.lanhaihui.net/public/index.php/index',
+    url: 'http://pjqly.com/public',
+    requestUrl: 'https://pjqly.com/public/index.php/index',
   },
   onLoad: function(options) {
     var that = this
@@ -83,8 +83,6 @@ App({
     wx.login({
       success(res) {
         app.globalData.code = res.code;
-        // console.log(res.code)
-        // return false;
         if (res.code) {
           // 发起网络请求
           wx.request({
@@ -98,7 +96,6 @@ App({
             },
             success: function (data) {
               app.globalData.user = data.data.data;
-              // console.log(app.globalData.user.token)
             },
             error: function(data) {
               console.log(data)

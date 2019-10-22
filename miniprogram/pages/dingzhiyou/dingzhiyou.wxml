@@ -1,7 +1,12 @@
 <view class='center'>
   <!-- tab切换 -->
   <view class='img'>
-    <image src='http://pin.lanhaihui.net/public/wx_mini/images/dingzhi.jpg' class='img_bg'></image>
+    <view class='history' bindtap='hidtory'>
+      <image src='http://pjqly.com/public/wx_mini/images/shi.png'></image>
+      <view class='text'>定制记录</view>
+    </view>
+    <view class='clear'></view>
+    <image src='http://pjqly.com/public/wx_mini/images/dingzhi.jpg' mode='widthFix' class='img_bg'></image>
     <view class='bg'>
       <view class='swiper-tab'>
         <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">个人定制</view>
@@ -11,46 +16,52 @@
         <swiper-item>
           <view class='list'>
             <view class='li first'>
-              <navigator url='../city/city' hover-class="none">
-                <text class='start'>青岛</text>
-              </navigator>
-              <image src='http://pin.lanhaihui.net/public/wx_mini/images//huan.png'></image>
-              <navigator url='../city/city' hover-class="none">
-                <text class='end'>目的地</text>
-              </navigator>
+              <input class='start transition {{left}}' value='{{start}}' placeholder='出发地' bindinput='startInput'></input>
+              <image src='http://pjqly.com/public/wx_mini/images//huan.png' bindtap='changeAddress'></image>
+              <input class='end transition {{right}}' value='{{end}}' placeholder='目的地' bindinput='endInput'></input>
             </view>
             <view class='li'>
-              <input placeholder='出行日期'></input>
+              <picker bindchange="binddateChange" value="{{go_date}}" start="1978-01-01" end="2060-12-31" mode="date">{{go_date}}</picker>
             </view>
             <view class='li'>
-              <input placeholder='出行人数'></input>
+              <input placeholder='出行人数' value='{{num}}' bindinput='numInput'></input>
             </view>
             <view class='li'>
-              <input placeholder='人均预算'></input>
+              <input placeholder='人均预算' value='{{money}}' bindinput='moneyInput'></input>
+            </view>
+            <view class='li'>
+              <input placeholder='联系电话' value='{{phone}}' bindinput='phoneInput'></input>
+            </view>
+            <view class='dl'>
+              <textarea placeholder='备注' value='{{remark}}' bindinput='remarkInput'></textarea>
             </view>
           </view>
-          <navigator url='../dingzhi_success/dingzhi_success'>
-            <view class='btn'>免费获取方案</view>
-          </navigator>
+          <view class='btn' bindtap='personal'>免费获取方案</view>
         </swiper-item>
         <swiper-item>
           <view class='list'>
             <view class='li'>
-              <text class='start'>青岛</text>
-              <image src='http://pin.lanhaihui.net/public/wx_mini/images//huan.png'></image>
-              <text class='end'>目的地</text>
+              <input class='start transition {{left}}' value='{{start}}' placeholder='出发地' bindinput='startInput'></input>
+              <image src='http://pjqly.com/public/wx_mini/images//huan.png' bindtap='changeAddress'></image>
+              <input class='end transition {{right}}' value='{{end}}' placeholder='目的地' bindinput='endInput'></input>
             </view>
             <view class='li'>
-              <input placeholder='出行日期'></input>
+              <picker bindchange="binddateChange" value="{{go_date}}" start="2019-01-01" end="2060-12-31" mode="date">{{go_date}}</picker>
             </view>
             <view class='li'>
-              <input placeholder='出行人数'></input>
+              <input placeholder='出行人数' value='{{num}}' bindinput='numInput'></input>
             </view>
             <view class='li'>
-              <input placeholder='人均预算'></input>
+              <input placeholder='人均预算' value='{{money}}' bindinput='moneyInput'></input>
+            </view>
+            <view class='li'>
+              <input placeholder='联系电话' value='{{phone}}' bindinput='phoneInput'></input>
+            </view>
+            <view class='dl'>
+              <textarea placeholder='备注' value='{{remark}}' bindinput='remarkInput'></textarea>
             </view>
           </view>
-          <view class='btn'>免费获取方案</view>
+          <view class='btn' bindtap='personal'>免费获取方案</view>
         </swiper-item>
       </swiper>
     </view>

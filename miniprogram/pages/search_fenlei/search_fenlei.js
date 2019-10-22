@@ -36,27 +36,27 @@ Page({
           },
         ],
         best: [{
-          img: 'http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg',
+          img: 'http://pjqly.com/public/wx_mini/images//ceshi.jpg',
           place: '稻城',
           num: '72.5万人出游'
         }],
         show: [{
-            img: 'http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg',
+            img: 'http://pjqly.com/public/wx_mini/images//ceshi.jpg',
             place: '香格里拉',
             num: '32.5万人出游'
           },
           {
-            img: 'http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg',
+            img: 'http://pjqly.com/public/wx_mini/images//ceshi.jpg',
             place: '香格里拉',
             num: '32.5万人出游'
           },
           {
-            img: 'http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg',
+            img: 'http://pjqly.com/public/wx_mini/images//ceshi.jpg',
             place: '香格里拉',
             num: '32.5万人出游'
           },
           {
-            img: 'http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg',
+            img: 'http://pjqly.com/public/wx_mini/images//ceshi.jpg',
             place: '香格里拉',
             num: '32.5万人出游'
           },
@@ -69,7 +69,7 @@ Page({
           taglist: '海滨海岛',
         }],
         show: [{
-          img: 'http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg',
+          img: 'http://pjqly.com/public/wx_mini/images//ceshi.jpg',
           place: '香格里拉',
           num: '32.5万人出游'
         }],
@@ -81,7 +81,7 @@ Page({
           taglist: '海滨海岛',
         }],
         show: [{
-          img: 'http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg',
+          img: 'http://pjqly.com/public/wx_mini/images//ceshi.jpg',
           place: '香格里拉',
           num: '32.5万人出游'
         }],
@@ -93,7 +93,7 @@ Page({
           taglist: '海滨海岛',
         }],
         show: [{
-          img: 'http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg',
+          img: 'http://pjqly.com/public/wx_mini/images//ceshi.jpg',
           place: '香格里拉',
           num: '32.5万人出游'
         }],
@@ -105,7 +105,7 @@ Page({
           taglist: '海滨海岛',
         }],
         show: [{
-          img: 'http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg',
+          img: 'http://pjqly.com/public/wx_mini/images//ceshi.jpg',
           place: '香格里拉',
           num: '32.5万人出游'
         }],
@@ -117,7 +117,7 @@ Page({
           ttaglist: '海滨海岛',
         }],
         show: [{
-          img: 'http://pin.lanhaihui.net/public/wx_mini/images//ceshi.jpg',
+          img: 'http://pjqly.com/public/wx_mini/images//ceshi.jpg',
           place: '香格里拉',
           num: '32.5万人出游'
         }],

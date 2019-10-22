@@ -14,28 +14,31 @@
       </view>
       <view class='li'>
         <text>真实姓名</text>
-        <input name='name' value='{{name}}' placeholder='请输入您的真实姓名' bindinput='nameinput'></input>
+        <input name='name' value='{{user.realname}}' placeholder='请输入您的真实姓名' bindinput='nameinput' disabled="{{spell}}"></input>
       </view>
       <view class='li'>
         <text>性别</text>
-        <input name='sex' value='{{sex}}' placeholder='请选择' disabled='false'></input>
+        <input name='sex' value='{{user.sex_name}}' placeholder='请输入' bindinput='sexinput' disabled="{{spell}}"></input>
       </view>
       <view class='li'>
         <text>手机号码</text>
-        <input type='number' name='phone' value='{{phone}}' placeholder='请填写您的手机号码' maxlength="11" bindinput='blurPhone'></input>
+        <input type='number' name='phone' value='{{user.phone}}' placeholder='请填写您的手机号码' maxlength="11" bindinput='blurPhone' disabled="{{spell}}"></input>
       </view>
       <view class='li'>
         <text>身份证号码</text>
-        <input type='idcard' name='idcard' value='{{idcard}}' placeholder='请填写您的身份证号码' bindinput='idcardinput'></input>
+        <input type='idcard' name='idcard' value='{{user.idcard}}' placeholder='请填写您的身份证号码' bindinput='idcardinput' disabled="{{spell}}"></input>
       </view>
-      <!-- <view class='li out' bindtap='out_btn'>
-        <text>退出登录</text>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//r.png'></image>
-      </view> -->
+      <view class='li'>
+        <navigator url='../traveller/traveller' hover-class='none'>
+          <text>常用出行人</text>
+          <image src='http://pjqly.com/public/wx_mini/images/r.png' class='ri'></image>
+        </navigator>
+      </view>
     </view>
     <view class='clear'></view>
+    <!-- <view class='login_out' bindtap='login_out' wx:if='{{user.wx_mini_reg_status == 3}}'>退出登录</view> -->
     <!-- 保存按钮 -->
-    <view class='btn'>
+    <view class='btn' style='display:{{save_msg}}'>
       <button class='commit' formType="submit" bindtap='commit'>保存</button>
     </view>
   </form>

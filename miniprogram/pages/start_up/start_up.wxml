@@ -1,0 +1,28 @@
+<view class='start_up'>
+  <view class='skip' bindtap='get_into'>
+    <text class='time'>{{time}}s</text>
+    <text class='go_home'>自动跳过</text>
+  </view>
+  <swiper indicator-dots="{{indicatorDots}}" autoplay='{{autoplay}}' interval="{{interval}}" duration="{{duration}}" indicator-active-color="{{indicatorActiveColor}}" indicator-color="{{indicatorColor}}" class='ban' style='height:{{imgheight}}px' bindchange="swiperChange">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" style='height:{{imgheight}}px' />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="dots">
+    <block wx:for="{{imgUrls}}" wx:key="unique">
+      <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+    </block>
+  </view>
+  <!-- 授权登录 -->
+  <!-- <view class='animate' hidden='{{popup}}'></view>
+  <view class='animate_windows' hidden='{{popup}}'>
+    <view class='eject'>
+      <view class='login_title'>温馨提示</view>
+      <view class='login_con'>登录成功后，您将升级为团长！更多权限，请登录查看~</view>
+      <button open-type='getUserInfo' lang="zh_CN" bindgetuserinfo='bindgetuserinfo'>授权登录</button>
+    </view>
+    <view class='btn' bindtap='hidePopup'></view>
+  </view> -->
+</view>

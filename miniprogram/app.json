@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/start_up/start_up",
     "pages/index/index",
     "pages/recommend/recommend",
     "pages/commit_order/commit_order",
@@ -7,16 +8,17 @@
     "pages/one_goods_show/one_goods_show",
     "pages/zero_goods_show/zero_goods_show",
     "pages/zero_commit_order/zero_commit_order",
-    "pages/pay/pay",
     "pages/directory/directory",
-    "pages/shop_car/shop_car",
     "pages/user/user",
     "pages/refund/refund",
     "pages/install/install",
     "pages/choose_date/choose_date",
+    "pages/zero_choose_date/zero_choose_date",
+    "pages/one_choose_date/one_choose_date",
     "pages/youhuiquan/youhuiquan",
     "pages/order/order",
     "pages/Collection/Collection",
+    "pages/history/history",
     "pages/more_city/more_city",
     "pages/pay_success/pay_success",
     "pages/comment/comment",
@@ -26,7 +28,7 @@
     "pages/search_fenlei/search_fenlei",
     "pages/traveller/traveller",
     "pages/Progress_details/Progress_details",
-    "pages/Contacts/Contacts",
+    "pages/one_Progress_details/one_Progress_details",
     "pages/add_passenger/add_passenger",
     "pages/message/message",
     "pages/play_show/play_show",
@@ -37,15 +39,37 @@
     "pages/my_fenxiao/my_fenxiao",
     "pages/tuijian_two/tuijian_two",
     "pages/buy_show/buy_show",
-    "pages/eat_show/eat_show"
+    "pages/eat_show/eat_show",
+    "pages/order_show/order_show",
+    "pages/Coupon_show/Coupon_show",
+    "pages/edit_travel/edit_travel",
+    "pages/fenxiao_commit_order/fenxiao_commit_order",
+    "pages/fenxiao_order_show/fenxiao_order_show",
+    "pages/one_commit_order/one_commit_order",
+    "pages/my_wallet/my_wallet",
+    "pages/Lottery_details/Lottery_details",
+    "pages/Cash/Cash",
+    "pages/Cash_commit/Cash_commit",
+    "pages/Cash_success/Cash_success",
+    "pages/Cash_details/Cash_details",
+    "pages/add_child_travel/add_child_travel",
+    "pages/edit_child_travel/edit_child_travel",
+    "pages/link/link",
+    "pages/activity_list/activity_list",
+    "pages/Flash_sale/Flash_sale",
+    "pages/Flash_sale_goods_show/Flash_sale_goods_show",
+    "pages/Flash_choose_date/Flash_choose_date",
+    "pages/Flash_commit_order/Flash_commit_order",
+    "pages/Flash_pay_success/Flash_pay_success",
+    "pages/Assemble_list/Assemble_list",
+    "pages/dingzhi_Record/dingzhi_Record"
   ],
   "window": {
     "backgroundColor": "#FFFFFF",
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#06b3ed",
     "navigationBarTitleText": "拼假期",
-    "navigationBarTextStyle": "white",
-    "enablePullDownRefresh": true
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#999999",
@@ -78,5 +102,11 @@
         "text": "我的"
       }
     ]
-  }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "告诉我您的地理位置，我会推荐好玩的给你哟~"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
 }

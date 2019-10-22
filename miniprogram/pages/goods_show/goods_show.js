@@ -23,12 +23,10 @@ Page({
       detial: '',
       intro: '',
       team_list: [{}],
-    }, ],
+    }],
     item_list_string: '',
     detial: "",
-    imgUrls: [
-      '',
-    ],
+    imgUrls: [],
     //2. 轮播配置
     indicatorDots: true,
     autoplay: true,
@@ -51,30 +49,274 @@ Page({
     scene: '',
     page: '',
     // 关闭模态框
-    showModal: false
+    showModal: false,
+    user: [{}],
+    // 倒计时
+    formatTime: '',
+    aaa: '',
+    isClick: false, //收藏星星
+    collec_status: '收藏', //默认是收藏
+    share_btn: 1, //自定义页面进入方式的标志
+    pageNum: 1, //评价列表默认显示第一页
+    comment_grade: '', //好评数
+    one_1: '', //黄色星星显示数量
+    two_1: '', //灰色星星显示数量
+    curHdIndex: 0, //默认选中全部评论按钮
+    index: 0, //默认选中第一个评论按钮（全部）
+    comment_show:'block',//默认显示评论
+    team_list_show:'block',//拼团队列默认显示
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var that = this;
+    var that = this
     this.data.iid = options.id;
     var gid = options.kind;
-    wx.request({
-      url: app.data.requestUrl + '/item/item_info',
-      data: {
-        token: getApp().globalData.user.token, //登陆时返回的user表字段中
-        item_list_string: options.id
-      },
-      method: "POST",
-      success: function(data) {
-        that.history(data.data.data[0]);
-        if (data.data.code == 0) {
+    var user_id = getApp().globalData.user.id
+    app.globalData.parent_id = options.user_id
+    app.globalData.share_btn = options.share_btn
+    // 清空优惠券
+    app.globalData.feibiao == 2;
+    common.loading()
+    if (options.scene) {
+      var msg = options.scene
+      var arr = msg.split('%2C')
+      var item_id = parseInt(arr[1])
+      var share_btn = parseInt(arr[2])
+      that.setData({
+        aaa: item_id,
+        share_btn: share_btn
+      })
+      app.globalData.share_btn = 1
+      wx.request({
+        url: app.data.requestUrl + '/Tool/item_info',
+        data: {
+          item_list_string: that.data.aaa
+        },
+        success: function(data) {
+          console.log(data)
+          if (false === common.check_res_code(data.data, false)) {
+            return false;
+          }
+        },
+        error: function(data) {
+          console.log(data)
+        },
+      })
+    } else {
+      that.data.aaa = options.id;
+    }
+    if (getApp().globalData.user.id) {
+      var user_id = getApp().globalData.user.id
+    } else {
+      var user_id = null
+    }
+    //判断进入方式
+    if (app.globalData.share_btn == 1) {
+      wx.login({
+        success(res) {
+          app.globalData.code = res.code;
+          if (res.code) {
+            // 发起网络请求
+            wx.request({
+              url: app.data.requestUrl + '/login/miniprogramlogin',
+              data: {
+                js_code: res.code,
+              },
+              method: 'POST',
+              header: {
+                'content-type': 'application/x-www-form-urlencoded'
+              },
+              success: function(data) {
+                console.log(data)
+                app.globalData.parent_id = data.data.data.parent_id
+                app.globalData.token = data.data.data.token
+                app.globalData.login_status = data.data.data.wx_mini_reg_status
+                //登录成功后请求详情
+                wx.request({
+                  url: app.data.requestUrl + '/item2/info',
+                  data: {
+                    item_list_string: that.data.aaa,
+                    user_id: user_id,
+                    call_type: 1
+                  },
+                  method: "POST",
+                  success: function(data) {
+                    console.log(data)
+                    that.history(data.data.data[0]);
+                    var team_list = data.data.data[0].team_list[0];
+                    var team_list1 = data.data.data[0].team_list[0];
+                    if (team_list != '') {
+                      // setInterval(function () {
+                      for (var i in team_list1) {
+                        if (team_list1[i].lack_time != 0) {
+                          team_list1[i].lack_time = team_list1[i].lack_time--;
+                        }
+                        team_list[i].lack_time = that.formatTime(team_list1[i].lack_time)
+                        that.setData({
+                          team_list: team_list,
+                        })
+                      };
+                      // }, 1000)
+                    }
+                    getApp().globalData.preview_img = data.data.data[0].preview_img;
+                    getApp().globalData.title = data.data.data[0].title;
+                    getApp().globalData.price = data.data.data[0].price;
+                    getApp().globalData.start_space = data.data.data[0].start_space;
+                    getApp().globalData.type_list = data.data.data[0].type_list;
+                    getApp().globalData.preview_img = data.data.data[0].preview_img;
+                    getApp().globalData.id = data.data.data[0].id;
+                    getApp().globalData.intro = data.data.data[0].intro;
+                    if (data.data.data[0].team_list[0].length > 1) {
+                      that.setData({
+                        asd: 2,
+                      })
+                    }
+                    that.setData({
+                      box: data.data.data,
+                      imgUrls: data.data.data[0].banner_list,
+                      detial: data.data.data[0].detial.replace(/\<img/gi, '<img style="max-width:100%;height:auto" '),
+                      user: getApp().globalData.user,
+                      isClick: data.data.data[0].collect_status,
+                    })
+                    if (data.data.data[0].show_list == 0) {
+                      that.setData({
+                        team_list_show: 'none'
+                      })
+                    } else if (data.data.data[0].show_list != 0) {
+                      that.setData({
+                        team_list_show: 'block'
+                      })
+                    }
+                    if (data.data.data[0].collect_status == false) {
+                      that.setData({
+                        collec_status: '收藏'
+                      })
+                    } else if (data.data.data[0].collect_status == true) {
+                      that.setData({
+                        collec_status: '已收藏'
+                      })
+                    }
+                    app.globalData.collect_id = data.data.data[0].collect.id
+                    WxParse.wxParse('article', 'html', that.data.detial, that, 5);
+                    // 请求详情成功后直接请求评论
+                    wx.request({
+                      url: app.data.requestUrl + '/Itemcomment/comment',
+                      method: 'POST',
+                      header: {
+                        'content-type': 'application/x-www-form-urlencoded'
+                      },
+                      data: {
+                        token: getApp().globalData.user.token,
+                        item_id: that.data.aaa,
+                      },
+                      success: function(data) {
+                        console.log(data)
+                        if (data.data.data == false) {
+                          that.setData({
+                            comment: '', //评论上半部分
+                            comment_grade: '', //总的评论分 保留一位数
+                            comment_list: '', //评论列表
+                            one_1: '', //黄色星星数量
+                            two_1: '', //灰色星星数量
+                            comment_show: 'none',//没有评论就隐藏
+                          })
+                        } else {
+                          that.setData({
+                            comment: data.data.data, //评论上半部分
+                            comment_grade: data.data.data.good, //总的评论分 保留一位数
+                            comment_list: data.data.data.comment_list, //评论列表
+                            one_1: data.data.data.good, //黄色星星数量
+                            two_1: 5 - data.data.data.good, //灰色星星数量
+                            comment_show: 'block',//有评论就显示
+                          })
+                        }
+                        wx.hideLoading();
+                      },
+                      fail: function(res) {
+                        console.log(res)
+                      }
+                    })
+                    wx.hideLoading()
+                    //请求到详情后判断当前用户是否存在上级
+                    if (app.globalData.parent_id) {
+                      //已经有推荐人了
+                    } else if (app.globalData.parent_id == '') {
+                      var data_data = {
+                        token: app.globalData.token,
+                        parent_id: app.globalData.parent_id
+                      }
+                      wx.request({
+                        url: app.data.requestUrl + '/user/set_parent_id',
+                        data: data_data,
+                        method: 'POST',
+                        success: function (data) {
+                          var msg = data.data.msg
+                          wx.showModal({
+                            title: '温馨提示',
+                            content: msg,
+                          })
+                          if (false === common.check_res_code(data.data, false)) {
+                            return false;
+                          }
+                        },
+                        error: function (data) {
+                          console.log(data)
+                        }
+                      })
+                    }
+                  },
+                  error: function(data) {
+                    console.log(data)
+                  },
+                })
+              },
+              error: function(data) {
+                console.log(data)
+              }
+            })
+          } else {
+            console.log('获取用户登录态失败！' + res.errMsg)
+          }
+        }
+      })
+    } else {
+      wx.request({
+        url: app.data.requestUrl + '/item2/info',
+        data: {
+          item_list_string: that.data.aaa,
+          user_id: user_id,
+          call_type: 1
+        },
+        method: "POST",
+        success: function(data) {
+          console.log(data)
+          that.history(data.data.data[0]);
+          var team_list = data.data.data[0].team_list[0];
+          var team_list1 = data.data.data[0].team_list[0];
+          if (team_list != '') {
+            // setInterval(function () {
+            for (var i in team_list1) {
+              if (team_list1[i].lack_time != 0) {
+                team_list1[i].lack_time = team_list1[i].lack_time--;
+              }
+              team_list[i].lack_time = that.formatTime(team_list1[i].lack_time)
+              that.setData({
+                team_list: team_list,
+              })
+            };
+            // }, 1000)
+          }
           getApp().globalData.preview_img = data.data.data[0].preview_img;
           getApp().globalData.title = data.data.data[0].title;
+          getApp().globalData.price = data.data.data[0].price;
+          getApp().globalData.start_space = data.data.data[0].start_space;
+          getApp().globalData.type_list = data.data.data[0].type_list;
+          getApp().globalData.preview_img = data.data.data[0].preview_img;
+          getApp().globalData.id = data.data.data[0].id;
           getApp().globalData.intro = data.data.data[0].intro;
-          // console.log(data.data.data[0].team_list[0].length);
           if (data.data.data[0].team_list[0].length > 1) {
             that.setData({
               asd: 2,
@@ -83,81 +325,91 @@ Page({
           that.setData({
             box: data.data.data,
             imgUrls: data.data.data[0].banner_list,
-            detial: data.data.data[0].detial,
-            team_list: data.data.data[0].team_list,
+            detial: data.data.data[0].detial.replace(/\<img/gi, '<img style="max-width:100%;height:auto" '),
+            add_shop_car: data.data.data,
+            user: getApp().globalData.user,
+            isClick: data.data.data[0].collect_status,
           })
-          if (data.data.data[0].team_list[0].length == 0) {
-
-          } else {
-            that.data.id = data.data.data[0].team_list[0][0].id;
+          if (data.data.data[0].show_list == 0){
+            that.setData({
+              team_list_show:'none'
+            })
+          } else if (data.data.data[0].show_list != 0){
+            that.setData({
+              team_list_show: 'block'
+            })
           }
-          // console.log(that.data.box[0].team_list);
+          if (data.data.data[0].collect_status == false) {
+            that.setData({
+              collec_status: '收藏'
+            })
+          } else if (data.data.data[0].collect_status == true) {
+            that.setData({
+              collec_status: '已收藏'
+            })
+          }
+          app.globalData.collect_id = data.data.data[0].collect.id
           WxParse.wxParse('article', 'html', that.data.detial, that, 5);
-        } else if (data.data.code == -2) {
-          wx.login({
-            success(res) {
-              if (res.code) {
-                // 发起网络请求
-                wx.request({
-                  url: app.data.requestUrl + '/login/miniprogramlogin',
-                  data: {
-                    js_code: res.code,
-                  },
-                  method: 'POST',
-                  header: {
-                    'content-type': 'application/x-www-form-urlencoded'
-                  },
-                  success: function(data) {
-                    getApp().globalData.user = data.data.data;
-                    that.setData({
-                      user: data.data.data
-                    })
-                    wx.request({
-                      url: app.data.requestUrl + '/item/item_info',
-                      data: {
-                        token: getApp().globalData.user.token, //登陆时返回的user表字段中
-                        item_list_string: options.id
-                      },
-                      method: "POST",
-                      success: function(data) {
-                        if (data.data.code == 0) {
-                          that.setData({
-                            box: data.data.data,
-                            imgUrls: data.data.data[0].banner_list,
-                            detial: data.data.data[0].detial,
-                            team_list: data.data.data[0].team_list,
-                          })
-                          WxParse.wxParse('article', 'html', that.data.detial, that, 5);
-                        } else if (data.data.code == -1) {
-                          wx.showToast({
-                            title: "服务器异常"
-                          })
-                        }
-                      },
-                      error: function(data) {
-                        console.log(data)
-                      },
-                    })
-                  },
-                  error: function(data) {
-                    console.log(data)
-                  }
+          // 请求详情成功后直接请求评论
+          wx.request({
+            url: app.data.requestUrl + '/Itemcomment/comment',
+            method: 'POST',
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            data: {
+              token: getApp().globalData.user.token,
+              item_id: that.data.aaa,
+            },
+            success: function(data) {
+              console.log(data)
+              if (data.data.data == false) {
+                that.setData({
+                  comment: '', //评论上半部分
+                  comment_grade: '', //总的评论分 保留一位数
+                  comment_list: '', //评论列表
+                  one_1: '', //黄色星星数量
+                  two_1: '', //灰色星星数量
+                  comment_show:'none',//没有评论就隐藏
                 })
               } else {
-                console.log('刷新用户状态失败！' + res.errMsg)
+                that.setData({
+                  comment: data.data.data, //评论上半部分
+                  comment_grade: data.data.data.good, //总的评论分 保留一位数
+                  comment_list: data.data.data.comment_list, //评论列表
+                  one_1: data.data.data.good, //黄色星星数量
+                  two_1: 5 - data.data.data.good, //灰色星星数量
+                  comment_show: 'block',//有评论就显示
+                })
               }
+              wx.hideLoading();
+            },
+            fail: function(res) {
+              console.log(res)
             }
           })
-        } else if (data.data.code == -1) {
-          wx.showToast({
-            title: "服务器异常"
-          })
-        }
-      },
-      error: function(data) {
-        console.log(data)
-      },
-    })
+          wx.hideLoading()
+        },
+        error: function(data) {
+          console.log(data)
+        },
+      })
+    }
+  },
+  // 倒计时函数
+  formatTime: function(time) {
+    function add(val) {
+      if (parseFloat(val) < 10) {
+        return '0' + val;
+      } else {
+        return val;
+      }
+    }
+    var day = add(parseInt(time / 86400));
+    var hour = add(parseInt((time - day * 86400) / 3600));
+    var minute = add(parseInt((time - day * 86400 - hour * 3600) / 60));
+    var second = add(parseInt(time - day * 86400 - hour * 3600 - minute * 60));
+    return day + '天：' + hour + '时：' + minute + '分：' + second + '秒'
   },
   /**
    * 浏览历史
@@ -180,7 +432,6 @@ Page({
       arr.push(data)
       app.globalData.browsingHistory[time] = arr;
     }
-    // console.log(app.globalData.browsingHistory)
     wx.setStorage({
       key: 'browsingHistory',
       data: JSON.stringify(app.globalData.browsingHistory)
@@ -200,265 +451,210 @@ Page({
       selected2: false,
     })
   },
+  //请求评价
   selected2: function(e) {
-    // this.setData({
-    //   selected: false,
-    //   selected1: false,
-    //   selected2: true,
-    // })
-    wx.showToast({
-      title: '努力开发中，敬请期待~',
-      icon: 'none',
-      duration: 2000
+    var that = this
+    that.setData({
+      selected: false,
+      selected1: false,
+      selected2: true,
+    })
+    common.loading()
+    wx.request({
+      url: app.data.requestUrl + '/Itemcomment/comment',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+        token: getApp().globalData.user.token,
+        item_id: that.data.aaa,
+      },
+      success: function (data) {
+        console.log(data)
+        if (data.data.data == false){
+          that.setData({
+            comment: '', //评论上半部分
+            comment_grade: '', //总的评论分 保留一位数
+            comment_list: '', //评论列表
+            comment_show: 'none',//没有评论就隐藏
+          })
+        }else{
+          that.setData({
+            comment: data.data.data, //评论上半部分
+            comment_grade: data.data.data.good.toFixed(1), //总的评论分 保留一位数
+            comment_list: data.data.data.comment_list, //评论列表
+            comment_show: 'block',//有评论就显示
+          })
+        }
+        wx.hideLoading();
+      },
+      fail: function(res) {
+        console.log(res)
+      }
+    })
+  },
+  // 根据标签切换列表
+  comment_tab(e) {
+    var that = this;
+    common.loading()
+    app.globalData.index = e.currentTarget.dataset.index
+    that.setData({
+      curHdIndex: app.globalData.index,
+    })
+    wx.request({
+      url: app.data.requestUrl + '/Itemcomment/get_list',
+      method: 'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      data: {
+        token: getApp().globalData.user.token,
+        item_id: that.data.aaa,
+        page_id: 1,
+        search_type: app.globalData.index,
+      },
+      success: function(data) {
+        console.log(data)
+        that.setData({
+          comment_list: data.data.data, //评论列表
+        })
+        wx.hideLoading();
+      },
+      fail: function(res) {
+        console.log(res)
+      }
     })
   },
   // 请求小程序二维码
   share: function(options) {
     var that = this
-    var path1 = getApp().globalData.preview_img
-    var path2 = getApp().globalData.qrcode_src
-    var title = getApp().globalData.title
-    var intro = getApp().globalData.intro
-    var user_id = getApp().globalData.user.id
-    const ctx = wx.createCanvasContext('myCanvas')
-    wx.showLoading({
-      title: '海报生成中...',
-    })
-    var share_data = {
-      token: getApp().globalData.user.token,
-      scene: user_id,
-      page: 'pages/goods_show/goods_show',
-      item_id: that.data.iid,
-    }
-    console.log(share_data)
-    wx.request({
-      url: app.data.requestUrl + '/tool/wx_mini_qrcode',
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      data: share_data,
-      success: function(res) {
-        getApp().globalData.qrcode_src = res.data.data;
-        that.setData({
-          window: "block",
-          showModalStatus: false,
-        })
-        wx.getImageInfo({
-          src: path1,
-          success: function(res) {
-            let Path = res.path;
-            wx.getImageInfo({
-              src: getApp().globalData.qrcode_src,
-              success: function(reult) {
-                let Paths = reult.path;
-                // console.log(Paths)
-                common.creat_qrcode(Path, Paths, title, intro);
-              }
-            })
-          },
-          fail: function(res) {
-            //失败回调
-          }
-        })
-        // common.creat_qrcode(getApp().globalData.preview_img,getApp().globalData.qrcode_src);
-        wx.hideLoading();
+    var wx_mini_reg_status = getApp().globalData.user.wx_mini_reg_status
+    if (wx_mini_reg_status != 3) {
+      wx.showModal({
+        title: '温馨提示',
+        content: "您还未登录，请前往'我的'进行授权登录",
+      })
+    } else {
+      var path1 = getApp().globalData.preview_img
+      var path2 = getApp().globalData.qrcode_src
+      var title = getApp().globalData.title
+      var intro = getApp().globalData.intro
+      var user_id = getApp().globalData.user.id
+      const ctx = wx.createCanvasContext('myCanvas')
+      var item_id = that.data.iid
+      wx.showLoading({
+        title: '海报生成中...',
+      })
+      var v_scene = user_id + ',' + item_id + ',' + 1
+      console.log(v_scene)
+      var share_data = {
+        token: getApp().globalData.user.token,
+        scene: v_scene,
+        page: 'pages/goods_show/goods_show',
+        user_id: user_id
       }
-    })
+      console.log(share_data)
+      wx.request({
+        url: app.data.requestUrl + '/tool/wx_mini_qrcode',
+        method: 'POST',
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        data: share_data,
+        success: function(res) {
+          getApp().globalData.qrcode_src = res.data.data;
+          that.setData({
+            window: "block",
+            showModalStatus: false,
+          })
+          wx.getImageInfo({
+            src: path1,
+            success: function(res) {
+              let Path = res.path;
+              wx.getImageInfo({
+                src: getApp().globalData.qrcode_src,
+                success: function(reult) {
+                  let Paths = reult.path;
+                  common.creat_qrcode(Path, Paths, title, intro);
+                }
+              })
+            },
+            fail: function(res) {
+              console.log(res)
+            }
+          })
+          wx.hideLoading();
+        }
+      })
+    }
   },
+  // 海报取消按钮
   close_btn: function(e) {
     this.setData({
       window: "none",
     })
   },
-  // 正常购买
-  buy: function(e) {
-    var that = this
-    wx.login({
-      success(res) {
-        wx.request({
-          url: app.data.requestUrl + '/login/miniprogramlogin ',
-          data: {
-            js_code: res.code,
-          },
-          method: 'POST',
-          header: {
-            'content-type': 'application/x-www-form-urlencoded'
-          },
-          success: function(data) {
-            getApp().globalData.user = data.data.data;
-            var v_data = {
-              openid: getApp().globalData.user.openid, //登陆时返回的user表字段中
-              token: getApp().globalData.user.token, //登陆时返回的user表字段中
-              pay_user_id: getApp().globalData.user.id, //支付用户的id
-              target_user_id: getApp().globalData.user.id, //购买用户的id
-              item_id: that.data.iid, //商品id,应该在点击商品的时间中获取商品id/commodity_id
-              buy_type: 1, //购买方式
-              trip_id: getApp().globalData.user.id, //出行人id,属于支付者的
-              coupon_cash_id: '', //使用的代金卷id
-              coupon_discount_id: '', //使用的折扣卷id
-              coupon_type: 1, //优惠卷使用状态
-              item_num: 1, //应该从用户购买商品的表单中获取commodity_num
-              integral_use_sum: 0, //用户购买商品所想使用的积分,当前填0就可以
-            };
-            wx.request({
-              url: app.data.requestUrl + '/orderform/create ',
-              method: 'POST',
-              data: v_data,
-              success: function(res) {
-                console.log(res)
-                app.globalData.item_price = res.data.data.item_price;
-                app.globalData.item_title = res.data.data.item_title;
-                app.globalData.orderform_sn = res.data.data.orderform_sn;
-                wx.navigateTo({
-                  url: '../commit_order/commit_order?item_price=' + res.data.data.item_price +
-                    '&item_title=' + res.data.data.item_title +
-                    '&orderform_sn=' + res.data.data.orderform_sn,
-                })
-              }
-            })
-          },
-          error: function(data) {
-            console.log(data)
-          }
-        })
-      }
-    })
+  // 单独购买点击去选择日期和人数
+  alone_buy: function(res) {
+    wx.setStorageSync('orderDetail', this.data.box)
+    app.globalData.request_btn = 1
+    app.globalData.flag = 1
+    var wx_mini_reg_status = getApp().globalData.user.wx_mini_reg_status
+    var wx_mini_reg_status = app.globalData.login_status
+    if (wx_mini_reg_status != 3) {
+      wx.showModal({
+        title: '温馨提示',
+        content: "您还未登录，请前往'我的'进行授权登录",
+      })
+    } else {
+      wx.navigateTo({
+        url: '../choose_date/choose_date'
+      })
+    }
   },
-  // 发起拼单建团
+  // 发起拼单建团点击去选择日期和人数
   launch: function() {
-    var that = this;
-    var launch_data = {
-      openid: getApp().globalData.user.openid, //登陆时返回的user表字段中
-      token: getApp().globalData.user.token, //登陆时返回的user表字段中
-      pay_user_id: getApp().globalData.user.id, //支付用户的id
-      target_user_id: getApp().globalData.user.id, //购买用户的id
-      item_id: that.data.iid, //商品id,应该在点击商品的时间中获取商品id/commodity_id
-      buy_type: 2, //购买方式
-      intro: '', //简介
-      share_status: 1, //公开拼团状态
-      trip_id: getApp().globalData.user.id, //出行人id,属于支付者的
-      coupon_cash_id: '', //使用的代金卷id
-      coupon_discount_id: '', //使用的折扣卷id
-      coupon_type: 1, //优惠卷使用状态
-      item_num: 1, //应该从用户购买商品的表单中获取commodity_num
-      integral_use_sum: 0, //用户购买商品所想使用的积分,当前填0就可以
-    };
-    // console.log(launch_data)
-    // return false
-    wx.request({
-      url: app.data.requestUrl + '/orderform/create',
-      data: launch_data,
-      method: 'POST',
-      success: function(data) {
-        console.log(data)
-        // return false
-        app.globalData.item_price = data.data.data.item_price;
-        app.globalData.item_title = data.data.data.item_title;
-        app.globalData.orderform_sn = data.data.data.orderform_sn;
-        wx.navigateTo({
-          url: '../commit_order/commit_order?item_price=' + data.data.data.item_price +
-            '&item_title=' + data.data.data.item_title +
-            '&orderform_sn=' + data.data.data.orderform_sn,
-        })
-      },
-      error: function(data) {
-        console.log(data)
-      }
-    })
+    wx.setStorageSync('orderDetail', this.data.box)
+    app.globalData.request_btn = 2
+    app.globalData.flag = 2
+    var wx_mini_reg_status = getApp().globalData.user.wx_mini_reg_status
+    var wx_mini_reg_status = app.globalData.login_status
+    if (wx_mini_reg_status != 3) {
+      wx.showModal({
+        title: '温馨提示',
+        content: "您还未登录，请前往'我的'进行授权登录",
+      })
+    } else {
+      wx.navigateTo({
+        url: '../choose_date/choose_date'
+      })
+    }
   },
-  // 拼团购买-拼团
-  go_spell_order: function() {
-    var that = this;
-    var go_spell_order_data = {
-      openid: getApp().globalData.user.openid, //登陆时返回的user表字段中
-      token: getApp().globalData.user.token, //登陆时返回的user表字段中
-      pay_user_id: getApp().globalData.user.id, //支付用户的id
-      target_user_id: getApp().globalData.user.id, //购买用户的id
-      item_id: that.data.iid, //商品id,应该在点击商品的时间中获取商品id/commodity_id
-      buy_type: 3, //购买方式
-      team_id: that.data.id, //拼团id
-      trip_id: getApp().globalData.user.id, //出行人id,属于支付者的
-      coupon_cash_id: '', //使用的代金卷id
-      coupon_discount_id: '', //使用的折扣卷id
-      coupon_type: 1, //优惠卷使用状态
-      item_num: 1, //应该从用户购买商品的表单中获取commodity_num
-      integral_use_sum: 0, //用户购买商品所想使用的积分,当前填0就可以
-    };
-    console.log(go_spell_order_data)
-    // return false
-    wx.request({
-      url: app.data.requestUrl + '/orderform/create',
-      data: go_spell_order_data,
-      method: 'POST',
-      success: function(data) {
-        console.log(data)
-        if(data.data.code != 0){
-          var mes = data.data.msg
-          wx.showToast({
-            title: mes,
-            icon: 'none',
-            duration: 2000
-          })
-        }else{
-          app.globalData.item_price = data.data.data.item_price;
-          app.globalData.item_title = data.data.data.item_title;
-          app.globalData.orderform_sn = data.data.data.orderform_sn;
-          wx.navigateTo({
-            url: '../commit_order/commit_order?item_price=' + data.data.data.item_price +
-              '&item_title=' + data.data.data.item_title +
-              '&orderform_sn=' + data.data.data.orderform_sn,
-          })
-        }
-      },
-      error: function(data) {
-        console.log(data)
-      }
-    })
+  // 拼团购买点击去选择日期和人数
+  go_spell_order: function(e) {
+    app.globalData.groupid = e.currentTarget.dataset.groupid
+    wx.setStorageSync('orderDetail', this.data.box)
+    app.globalData.request_btn = 3
+    app.globalData.flag = 2
+    var wx_mini_reg_status = getApp().globalData.user.wx_mini_reg_status
+    var wx_mini_reg_status = app.globalData.login_status
+    console.log(wx_mini_reg_status)
+    if (wx_mini_reg_status != 3) {
+      wx.showModal({
+        title: '温馨提示',
+        content: "您还未登录，请前往'我的'进行授权登录",
+      })
+    } else {
+      wx.navigateTo({
+        url: '../choose_date/choose_date'
+      })
+    }
   },
-  // 加入购物车
-  add_cart: function() {
-    // var that = this;
-    // var add_cart_data = {
-    //   token: getApp().globalData.user.token, //登陆时返回的user表字段中
-    //   item_id: that.data.iid, //商品id,应该在点击商品的时间中获取商品id/commodity_id
-    //   item_title: that.data.item_title, //商品标题
-    //   item_price: that.data.item_price, //商品价格
-    //   item_num: 1, //数量
-    //   types: '', //已拼多少件
-    //   type_list: that.data.type_list, //出游类型tag
-    //   start_space: that.data.start_space //价格
-    // }
-    // var content = JSON.stringify(add_cart_data);
-    // console.log(content)
-    // wx.request({
-    //   url: app.data.requestUrl + '/cart/cart_insert',
-    //   data: {
-    //     token: getApp().globalData.user.token, //登陆时返回的user表字段中
-    //     'content': content
-    //   },
-    //   method: 'POST',
-    //   success: function(data) {
-    //     console.log(data)
-    //     wx.showToast({
-    //       title: '成功加入购物车',
-    //       icon: 'none',
-    //       duration: 5000
-    //     })
-    //   },
-    //   error: function(data) {
-    //     console.log(data)
-    //     wx.showToast({
-    //       title: '加入购物车失败',
-    //       icon: 'none',
-    //       duration: 5000
-    //     })
-    //   }
-    // })
-    wx.showToast({
-      title: '努力开发中，敬请期待~',
-      icon: 'none',
-      duration: 2000
+  //返回首页
+  back_index: function() {
+    wx.switchTab({
+      url: '../index/index',
     })
   },
   // 遮罩层
@@ -495,8 +691,8 @@ Page({
       y: 0,
       width: 240,
       height: 360,
-      destWidth: 240,
-      destHeight: 360,
+      destWidth: 240 * 1920 / wx.getSystemInfoSync().windowWidth,
+      destHeight: 360 * 1920 / wx.getSystemInfoSync().windowWidth,
       canvasId: 'myCanvas',
       success: function(res) {
         //调取小程序当中获取图片
@@ -511,9 +707,7 @@ Page({
               confirmText: '好哒',
               confirmColor: '#72B9C3',
               success: function(res) {
-                // if (res1.confirm) {
                 console.log('用户点击确定');
-                // }
               }
             })
           }
@@ -536,7 +730,69 @@ Page({
       showModal: false
     })
   },
-
+  //点击星星进行收藏
+  collection: function() {
+    var that = this
+    var wx_mini_reg_status = getApp().globalData.user.wx_mini_reg_status
+    if (wx_mini_reg_status != 3) {
+      wx.showModal({
+        title: '温馨提示',
+        content: "您还未登录，请前往'我的'进行授权登录",
+      })
+    } else {
+      if (!that.data.isClick == true) {
+        wx.request({
+          url: app.data.requestUrl + '/collect/add',
+          data: {
+            token: getApp().globalData.user.token, //登陆时返回的user表字段中
+            type: 1,
+            item_type: 1,
+            collect: that.data.aaa,
+            item_seckill_id: null //普通商品传null，秒杀传item_seckill_id
+          },
+          method: 'POST',
+          success: function(data) {
+            console.log(data)
+            var msg = data.data.msg
+            wx.showToast({
+              title: msg,
+            });
+            that.setData({
+              isClick: !that.data.isClick,
+              collec_status: data.data.msg
+            })
+            app.globalData.collect_id = data.data.data.id
+          },
+          error: function(data) {
+            console.log(data)
+          }
+        })
+      } else {
+        wx.request({
+          url: app.data.requestUrl + '/collect/ban',
+          data: {
+            token: getApp().globalData.user.token,
+            id: app.globalData.collect_id
+          },
+          method: 'POST',
+          success: function(data) {
+            console.log(data)
+            var msg = data.data.msg
+            wx.showToast({
+              title: msg,
+            });
+            that.setData({
+              isClick: !that.data.isClick,
+              collec_status: '收藏'
+            })
+          },
+          error: function(data) {
+            console.log(data)
+          }
+        })
+      }
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -576,13 +832,59 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+    var that = this
+    var index = that.data.index
+    common.loading()
+    wx.request({
+      url: app.data.requestUrl + '/Itemcomment/get_list',
+      data: {
+        token: getApp().globalData.user.token,
+        item_id: that.data.aaa,
+        page_id: ++that.data.pageNum,
+        search_type: index,
+      },
+      method: 'POST',
+      success: function(data) {
+        console.log(data)
+        if (data.data.data == '') {
+          wx.showToast({
+            title: '没有更多了',
+            icon: 'none',
+            duration: 3000
+          })
+        }else{
+          that.setData({
+            comment_list: that.data.comment_list.concat(data.data.data), //评论列表
+          })
+        }
+        wx.hideLoading()
+      },
+      error: function(data) {
+        console.log(data)
+      }
+    })
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
+  onShareAppMessage: function(res) {
+    var that = this
+    var user_id = getApp().globalData.user.id //当前用户id
+    var user_name = getApp().globalData.user.nickname //当前用户昵称
+    var id = that.data.iid //商品id
+    that.data.aaa = that.data.iid //重新定义商品id
+    var share_title = '来自' + user_name + '的分享' //我自定义的标题
+    if (res.from === 'button') { //我自定义的分享
+      return {
+        title: share_title,
+        path: '/pages/goods_show/goods_show?share_btn=1' + '&user_id' + user_id + '&id=' + that.data.aaa,
+      }
+    } else if (res.from === 'menu') { //右上角自带分享
+      return {
+        title: share_title,
+        path: '/pages/goods_show/goods_show?share_btn=1' + '&user_id' + user_id + '&id=' + that.data.aaa,
+      }
+    }
   }
 })

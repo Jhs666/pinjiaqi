@@ -2,38 +2,39 @@
   <!-- 顶部 -->
   <view class='top'>
     <view class='back'>
-      <view class='shezhi' bindtap='integral'>
-        <!-- <navigator url='../install/install' hover-class='none;'> -->
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//shezhi.png'></image>
-        <!-- </navigator> -->
+      <view class='shezhi'>
+        <navigator url='../install/install' hover-class='none;'>
+          <image src='http://pjqly.com/public/wx_mini/images//shezhi.png'></image>
+        </navigator>
       </view>
-      <!-- <navigator url='../message/message' hover-class="none"> -->
-      <view class='xiaoxi' bindtap='integral'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//xiaoxi.png'></image>
+      <view class='xiaoxi' bindtap='message'>
+        <image src='http://pjqly.com/public/wx_mini/images//xiaoxi.png'></image>
+        <view class='red_dian' wx:if='{{user.message.new_message_coun == 0}}'></view>
       </view>
-      <!-- </navigator> -->
       <!-- 获取用户信息按钮 -->
       <button class='shouquan' wx:if="{{user.wx_mini_reg_status!=3}}" open-type='getUserInfo' lang="zh_CN" bindgetuserinfo='bindgetuserinfo'>授权登录获取更多服务~</button>
       <view class='user'>
         <view class='touxiang'>
           <view class='img'>
+            <image src='http://pjqly.com/public/wx_mini/images/user-unlogin.png' wx:if="{{user.wx_mini_reg_status!=3}}"></image>
             <image src='{{user.profile_photo}}'></image>
           </view>
           <view class='desc'>
             <view class='fr'>
               <view class='name'>{{user.nickname}}</view>
+              <view class='name' wx:if="{{user.wx_mini_reg_status!=3}}">游客用户</view>
               <text class='tag'>{{user.place_level_name}}</text>
             </view>
+            <rich-text>推广ID：{{user.place_code}}</rich-text>
             <rich-text>推荐人：{{user.parent_nickname}}</rich-text>
             <view class='house'>
               <navigator url='../my_fenxiao/my_fenxiao' hover-class="none">
-                <image src='http://pin.lanhaihui.net/public/wx_mini/images/move.gif'></image>
+                <image src='http://pjqly.com/public/wx_mini/images/move.gif'></image>
                 <text>查看推广中心</text>
               </navigator>
             </view>
           </view>
         </view>
-        <view class='line'></view>
         <view class='ul'>
           <view class='li'>
             <text>{{user.wallet.ret}}元</text>
@@ -44,11 +45,15 @@
             <rich-text>分红</rich-text>
           </view>
         </view>
+        <view class='balance' bindtap='total'>
+          <image src='http://pjqly.com/public/wx_mini/images//ri.png'></image>
+          我的余额
+          <text class='total'>{{user.wallet.balance}}元</text>
+        </view>
       </view>
     </view>
   </view>
   <view class='clear'></view>
-
   <!-- 我的订单 -->
   <view class='goods'>
     <view class='order_title'>
@@ -56,82 +61,81 @@
       <navigator url='../order/order?mkll={{0}}' hover-class='none;'>
         <view class='all_order'>
           <text>查看全部订单</text>
-          <image src='http://pin.lanhaihui.net/public/wx_mini/images//ri.png'></image>
+          <image src='http://pjqly.com/public/wx_mini/images/ri.png'></image>
         </view>
       </navigator>
     </view>
     <view class='ul'>
-      <!-- bindtap='shop_car_list' -->
-      <view class='li' bindtap='integral'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//carts.png'></image>
-        <text class='small'>购物车</text>
+      <view class='li dd' bindtap='assemble'>
+        <view class='img_icon'>
+          <image src='http://pjqly.com/public/wx_mini/images/pintuan.png'></image>
+        </view>
+        <text class='small'>拼团中</text>
       </view>
       <view class='li' bindtap='showlist'>
-        <!-- <navigator url='../order/order' hover-class='none'> -->
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//dai.png'></image>
+        <view class='img_icon'>
+          <image src='http://pjqly.com/public/wx_mini/images/dai.png'></image>
+        </view>
         <text class='small'>待出行</text>
-        <!-- </navigator> -->
       </view>
       <view class='li' bindtap='showlist2'>
-        <!-- <navigator url='../order/order' hover-class='none'> -->
-          <image src='http://pin.lanhaihui.net/public/wx_mini/images//fu2.png'></image>
-          <text class='small'>待付款</text>
-        <!-- </navigator> -->
+        <view class='img_icon'>
+          <image src='http://pjqly.com/public/wx_mini/images/fu2.png'></image>
+        </view>
+        <text class='small'>待付款</text>
       </view>
       <view class='li' bindtap='showlist3'>
-        <!-- <navigator url='../order/order' hover-class='none'> -->
-          <image src='http://pin.lanhaihui.net/public/wx_mini/images//ping.png'></image>
-          <text class='small'>待点评</text>
-        <!-- </navigator> -->
+        <view class='img_icon'>
+          <image src='http://pjqly.com/public/wx_mini/images/ping.png'></image>
+        </view>
+        <text class='small'>待点评</text>
       </view>
       <view class='li' bindtap='showlist4'>
-        <!-- <navigator url='../order/order' hover-class='none'> -->
-          <image src='http://pin.lanhaihui.net/public/wx_mini/images//hou.png'></image>
-          <text class='small'>退款/售后</text>
-        <!-- </navigator> -->
+        <view class='img_icon'>
+          <image src='http://pjqly.com/public/wx_mini/images/hou.png'></image>
+        </view>
+        <text class='small'>退款/售后</text>
       </view>
     </view>
   </view>
   <view class='clear'></view>
-
   <!-- 常用工具 -->
   <view class='tool'>
     <text class='title'>常用工具</text>
     <view class='ul'>
       <view class='li'>
-        <button open-type='share' id='2' class='btn'>
-          <image src='http://pin.lanhaihui.net/public/wx_mini/images//ewm.png'></image>
-          <text class='small'>分享有礼</text>
-        </button>
+        <navigator url='../my_wallet/my_wallet' hover-class="none">
+          <image src='http://pjqly.com/public/wx_mini/images/wallet.png'></image>
+          <text class='small'>我的奖券</text>
+        </navigator>
       </view>
-      <view class='li' bindtap='integral'>
-        <!-- <navigator url='../youhuiquan/youhuiquan' hover-class="none"> -->
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//you.png'></image>
-        <text class='small'>优惠券</text>
-        <!-- </navigator> -->
+      <view class='li'>
+        <navigator url='../youhuiquan/youhuiquan' hover-class="none">
+          <image src='http://pjqly.com/public/wx_mini/images/you.png'></image>
+          <text class='small'>优惠券</text>
+        </navigator>
       </view>
-      <view class='li' bindtap='integral'>
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//zuan.png'></image>
+      <view class='li' bindtap='showlist4'>
+        <image src='http://pjqly.com/public/wx_mini/images/zuan.png'></image>
         <text class='small'>积分</text>
       </view>
-      <view class='li' bindtap='integral'>
-        <!-- <navigator url='../Collection/Collection' hover-class='none'> -->
-        <image src='http://pin.lanhaihui.net/public/wx_mini/images//cang.png'></image>
-        <text class='small'>收藏</text>
-        <!-- </navigator> -->
+      <view class='li'>
+        <navigator url='../history/history' hover-class='none'>
+          <image src='http://pjqly.com/public/wx_mini/images/history.png'></image>
+          <text class='small'>浏览历史</text>
+        </navigator>
       </view>
       <view class='li'>
         <navigator url='../Collection/Collection' hover-class='none'>
-          <image src='http://pin.lanhaihui.net/public/wx_mini/images//history.png'></image>
-          <text class='small'>浏览历史</text>
+          <image src='http://pjqly.com/public/wx_mini/images/cang.png'></image>
+          <text class='small'>收藏</text>
         </navigator>
       </view>
     </view>
   </view>
   <view class='clear'></view>
-
   <!-- 猜你喜欢 -->
-  <view class='like'>
+  <!-- <view class='like'>
     <text class='title'>猜你喜欢</text>
     <view class='ul'>
       <view class='li' wx:for="{{inform}}" wx:key="item.id">
@@ -151,5 +155,5 @@
         </view>
       </view>
     </view>
-  </view>
+  </view> -->
 </view>

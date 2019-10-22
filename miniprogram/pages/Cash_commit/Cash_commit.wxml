@@ -1,0 +1,17 @@
+<view class='center'>
+  <view class='cash'>
+    <image src='http://pjqly.com/public/wx_mini/images/cash_success.png' class='img'></image>
+    <view class='commit'>
+      <view class='title'>余额</view>
+      <view class='price'>
+        ￥<input bindinput="balanceInput" value='{{balance}}' placeholder='请输入提现金额' placeholder-class="phcolor"></input>
+      </view>
+      <view class='total'>
+        <text class='money'>可用余额：{{user.wallet.balance}}元</text>
+        <text class='time'>(七个工作日内到账)</text>
+      </view>
+      <view class='btn' bindtap='record'>提现记录▶</view>
+      <view class='confirm' bindtap='sure'>确定</view>
+    </view>
+  </view>
+</view>
